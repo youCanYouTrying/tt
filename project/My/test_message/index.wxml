@@ -1,0 +1,14 @@
+<view class='container'>
+  <view class='notice'>请输入手机151****7588收到的短信验证码</view>
+  <!-- 输入组 -->
+  <view class='list1'> 
+      <view class='user'>验证码</view> 
+      <view class='input'> <input  bindinput="userinput"  maxlength='6'  type='number' placeholder='短信验证码'></input> </view> 
+      <view bindtap='get_num' wx:if="{{condition}}" class='get_num'><view class='get_body'>获取验证码</view>  </view>
+      <view wx:else class='get_num'><view class='get_body'>{{reciprocal}}s后重新获取</view>  </view> 
+  </view>
+  <navigator  class='question'>收不到验证码？</navigator>
+  <!-- 两个按钮，默认为无链接的按钮 -->
+  <navigator bindtap='tapurl' hidden='{{success}}' class='next_btn bg_color'><button>完成</button> </navigator>
+  <navigator hidden='{{err}}' class='next_btn'><button>完成</button> </navigator>
+</view>

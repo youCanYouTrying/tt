@@ -1,0 +1,9 @@
+<view class='container'>
+  <scroll-view class='system_list'>
+  <view bindtap='get_detailed' data-id="{{index}}" wx:for="{{informations}}" class='list_center'>
+     <view class='list_title'>{{item.information_name}}</view>
+    <view class='list_time'>{{item.information_time}}</view>
+    <view class='next_bnt'><image src='{{imgUrl}}next_btn.png'></image> </view>
+  </view>
+  </scroll-view>
+</view>

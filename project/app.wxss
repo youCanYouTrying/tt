@@ -1,0 +1,134 @@
+/**app.wxss**/
+.container {
+  width: 100%;
+  height: 100%;
+} 
+page{
+  background: #f3f3f3;
+  width: 100%;
+  height: 100%;
+  font-family: "pingfang";
+  
+}
+@font-face{
+  font-family: "pingfang";
+  src:url("font/PingFang Medium.tff");
+}
+navigator{
+  outline: none;
+  
+}
+::-webkit-scrollbar  
+{  
+    width: 0;  
+    height: 0; 
+    color: transparent;  
+}  
+.f-black{
+  color: #333;
+}
+.f-gay1{
+  color: #666
+}
+.f-gay2{
+  color: #999
+}
+.f-red{
+  color: #fe6e78
+}
+.f-white{
+  color: #fff;
+}
+/* 边框阴影 */
+.shaw-box{
+  margin: 20rpx;
+  box-shadow: 0px 0px 24px 0px 
+  rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 8rpx;
+  padding-bottom: 37rpx;
+}
+
+
+/* 没数据 */
+.noData{
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 50rpx;
+}
+.isIphoneX_btn{
+  height: 150rpx !important;
+}
+/*cover-view初始化*/
+cover-view{
+  line-height: normal;
+}
+
+/*  加载更多   */
+.weui-loading {
+  margin: 0 5px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+  animation: weuiLoading 1s steps(12, end) infinite;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
+  background-size: 100%;
+}
+.weui-loadmore {
+  width: 100%;
+  margin: 1.0 auto;
+  line-height:2em;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff;
+  padding-bottom:40rpx;
+}
+.weui-loadmore__tips {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* 没数据显示 */
+.nothing{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 230rpx;
+  height: 270rpx;
+  margin-top: 300rpx;
+  margin-left: 260rpx;
+}
+.nothing .nothing-logo{
+  width: 230rpx;
+  height: 200rpx;
+}
+.nothing .nothing-logo image{
+  width: 100%;
+  height: 100%;
+}
+.nothing .nothing-title{
+  width: 200%;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #999;
+  text-align:center;
+  margin-left: -120rpx;
+}
+
+/*优惠*/
+.yhtype-box{
+  display: inline-block;
+  margin-top: 10rpx;
+  width: 34rpx;
+  height: 34rpx;
+  text-align: center;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #fff;
+  margin-right: 15rpx;
+  border-radius:20%
+}

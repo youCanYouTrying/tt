@@ -1,0 +1,100 @@
+<view class="container">
+  <view class='consulting'>
+      <!--在线咨询-->
+      <view class='consult_con'>
+          <!--聊天内容-->
+          <view class='consult_time'>{{time}}</view>
+          <!--客服-->
+          <view class='service'>
+              <view class='service_img'><image src='{{imgUrl}}qishou.png'></image></view>
+              <!--内容-->
+              <view class='server_con'>
+              <image src='{{imgUrl}}server_jian.png'></image>
+                  <view class='server_items'>
+                      <view class='server_item'>嗨~您好,您的专属小籽为您服务</view>
+                      <view class='server_item'> 温馨提示：   </view>
+                      <view class='server_item'>(1)本次服务本次服务本次服务免费；最好。</view>
+                      <view class='server_item'>(2)本次服务本次服务本次服务</view>
+                      <view class='server_item'>(3)本次服务本次服务本次服务</view>
+                  </view>
+              </view>
+          </view>
+
+          <!--客服-->
+          <view class='service'>
+              <view class='service_img'><image src='{{imgUrl}}qishou.png'></image></view>
+              <!--内容-->
+              <view class='server_con'>
+              <image src='{{imgUrl}}server_jian.png'></image>
+                  <view class='server_items'>
+                      <view class='server_item'>嗨~您好,您的专属小籽为您服务</view>
+                      <view class='server_item'> 温馨提示：   </view>
+                      <view class='server_item'>(1)本次服务本次服务本次服务免费；最好。</view>
+                      <view class='server_item'>(2)本次服务本次服务本次服务</view>
+                      <view class='server_item'>(3)本次服务本次服务本次服务</view>
+                  </view>
+              </view>
+          </view>
+ <view class='useservice'>
+              <view class='useservice_img'><image src='{{imgUrl}}qishou.png'></image></view>
+              <!--内容-->
+              <view class='useserver_con'>
+              <image src='{{imgUrl}}useserver_jian.png'></image>
+                  <view class='useserver_items'>
+                      <view class='useserver_item'>嗨~您好,您的专属小籽为您服务</view>                      
+                  </view>
+              </view>
+          </view>
+          <!--客服-->
+          <view class='service'>
+              <view class='service_img'><image src='{{imgUrl}}qishou.png'></image></view>
+              <!--内容-->
+              <view class='server_con'>
+              <image src='{{imgUrl}}server_jian.png'></image>
+                  <view class='server_items'>
+                      <view class='server_item'>嗨~您好,您的专属小籽为您服务</view>
+                      <view class='server_item'><navigator> (1)本次服务本次服务本次服务免费；最好。 </navigator></view>
+                      <view class='server_item'><navigator> (2)本次服务本次服务本次服务 </navigator></view>
+                      <view class='server_item'><navigator> (3)本次服务本次服务本次服务 </navigator></view>
+                      
+                  </view>
+              </view>
+          </view>
+
+          <!--用户-->
+
+          <view class='useservice'>
+              <view class='useservice_img'><image src='{{imgUrl}}qishou.png'></image></view>
+              <!--内容-->
+              <view class='useserver_con'>
+              <image src='{{imgUrl}}useserver_jian.png'></image>
+                  <view class='useserver_items'>
+                      <view class='useserver_item'>嗨~您好,您的专属小籽为您服务</view>
+                      
+                  </view>
+              </view>
+          </view>
+          <view class='useservice'>
+              <view class='useservice_img'><image src='{{imgUrl}}qishou.png'></image></view>
+              <!--内容-->
+              <view class='useserver_con'>
+              <image src='{{imgUrl}}useserver_jian.png'></image>
+                  <view class='useserver_items'>
+                      <view class='useserver_item'>{{user_input}}</view>
+                      
+                  </view>
+              </view>
+          </view>
+
+      </view>
+      <!--发送消息-->
+      <view class='submit'>
+          <navigator class='phone'><image src='{{imgUrl}}phone.png'></image></navigator>
+          <form bindreset="formReset" bindsubmit="formSubmit">
+              <view class='text'><textarea class='input' type='text' name="text" value='{{text}}' ></textarea></view>
+              <button class='sub_btn' type="primary" formType="submit">发送</button>
+          </form>
+      </view>
+      
+  </view>
+</view>

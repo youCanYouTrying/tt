@@ -1,0 +1,2 @@
+<web-view wx:if="{{userId}}" src="{{url}}userapi/turntable/index?user_id={{userId}}"></web-view>
+<view>{{userId}}</view>

@@ -1,0 +1,45 @@
+<view class="container">
+ <!--没数据显示 -->
+  <view class='nothing' wx:if='{{noData}}'>
+    <view class='nothing-logo'>
+      <image wx:if='{{imgUrl}}' src='{{imgUrl}}noCont.png'> </image>
+    </view>
+    <view class='nothing-title'>暂时没有评论哦~</view>
+  </view>
+  <!-- 评论列表 -->
+  <scroll-view> 
+    <view wx:for='{{comments}}' wx:key='{{index}}' class='comment_list'>
+    <view class='list_head' bindtap='goShop' data-shopid='{{item.sid}}'>
+      <view class='head_img'>
+        <image src='{{item.shop_img}}'></image>
+      </view>
+      <view class='StoreName'>{{item.shop_name}}{{item.Merchant_address}}</view>
+      <view class='next_icon'><image src='{{imgUrl}}next_btn.png'></image> </view>
+    </view>
+    <view class='list_body'>
+      <view class='user_img'>
+        <image src='{{item.userimg}}'> </image>
+      </view>
+      <view class='comment_body'>
+        <view class='user_name'>{{item.username}}</view>
+        <view class='grade'>
+          <block wx:for='12345' wx:for-index='dex'wx:for-item='list' wx:key='dex'>
+          <image wx:if="{{item.num*1>=dex+1}}" src='{{imgUrl}}comment_y.png'></image>
+          <image wx:if="{{item.num*1<=dex}}" src='{{imgUrl}}comment_no.png'></image>
+          </block>
+          <view class='service_time'>{{item.time_num}}分钟送达</view>
+        </view>
+        <view class='user_comment'>{{item.content}}</view>
+        <view class='Order_content'>{{item.goods_name}}</view>
+        <view class='order_revert'>回复：{{item.revert}}</view>
+        <view class='consumption_time'>{{item.add_time}}</view>
+      </view>
+    </view>
+    <view class='list_footer'>
+      <!-- <view class='operating' bindtap='share'><image src='{{imgUrl}}share_d.png'></image> 分享</view> -->
+      <!-- <view class='operating'> <image src='/image/评论.png'></image> 追评</view> -->
+      <view bindtap='del' data-id='{{item.id}}' data-index="{{index}}" class='operating'><image src='{{imgUrl}}delete_n.png'></image> 删除</view>
+    </view>
+  </view>
+  </scroll-view>  
+</view>

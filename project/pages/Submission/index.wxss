@@ -1,0 +1,195 @@
+/* pages/Submission/index.wxss */
+.submiss_con{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.submiss_con .submiss_items{
+  width: 100%;
+  background: white;
+  padding: 20rpx 20rpx 0rpx 20rpx;
+  box-sizing: border-box;
+}
+.submiss_con .submiss_items .submisss_title{
+  width: 100%;
+  padding: 40rpx 0rpx;
+  border-bottom:  2rpx solid #e6e6e6;
+  position: relative;
+  padding-left: 140rpx;
+  box-sizing: border-box;
+}
+.submiss_con .submiss_items .submisss_title .submiss_img{
+  width: 100rpx;
+  height: 100rpx;
+  display: inline-block;
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.submiss_con .submiss_items .submisss_title .submiss_img image{
+  width: 100%;
+  height: 100%;
+}
+.submiss_con .submiss_items .submisss_title .rider_name{
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.submiss_con .submiss_items .submisss_title .Satisfied{
+  font-size: 28rpx;
+  color: #666;
+}
+.submiss_con .submiss_items .submiss_con{
+  width: 100%;
+}
+.submiss_con .submiss_items .submiss_con .submiss_p{
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.submiss_con .submiss_items .submiss_con .submiss_p .submiss_span{
+  display: inline-block;
+  width: 40%;
+  margin: 0rpx 20rpx;
+  border: 2rpx solid #ccc;
+  color: #666;
+  font-size: 28rpx;
+  height: 60rpx;
+  position: relative;
+  line-height: 60rpx;
+  border-radius: 100rpx;
+}
+.submiss_con .submiss_items .submiss_con .submiss_p .submiss_span .subspan_img{
+  width: 44rpx;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 44rpx;
+  left: 20rpx;
+}
+.submiss_con .submiss_items .submiss_con .submiss_p .submiss_span:last-of-type .subspan_img{
+  width: 36rpx;
+  height: 36rpx;
+}
+.submiss_con .submiss_items .submiss_con .submiss_p .submiss_span .subspan_img image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+.submiss_con .submiss_items .submiss_con .submispan{
+  width: 100%;
+  margin: 30rpx auto 0rpx auto;
+}
+.submiss_con .submiss_items .submiss_con .submispan .nomal{
+  border: 2rpx solid #fc656f;
+  color: #fc656f;
+}
+.submiss_con .submiss_items .submiss_con .submispan text{
+  font-size: 26rpx;
+  color: #666;
+  border:2rpx solid #ccc;
+  padding: 6rpx 14rpx;
+  box-sizing: border-box;
+  margin: 10rpx 10rpx;
+  display: inline-block;
+}
+.submiss_con .submiss_items .submisss_title .order_name{
+  width: 90%;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #333;
+  line-height: 80rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.submiss_con .submiss_items .submiss_con .submiss_stars{
+  width: 100%;
+  text-align: center;
+}
+.submiss_con .submiss_items .submiss_con .submiss_stars .stars_view{
+  width: 40rpx;
+  display: inline-block;
+  height: 40rpx;
+  margin: 10rpx 14rpx 40rpx 14rpx;
+}
+.submiss_con .submiss_items .submiss_con .submiss_stars .stars_view image{
+  width: 100%;
+  height: 100%;
+}
+.submiss_con .submiss_items .submiss_con .textarea_text{
+  width: 100%;
+}
+.submiss_con .submiss_items .submiss_con .textarea_text textarea{
+  display: inline-block;
+  width: 100%;
+  height: 300rpx;
+  background: #f4f4f4;
+  outline: none;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  border: 1px solid #e6e6e6;
+}
+.submiss_con .submiss_items .submiss_con .img_people{
+  width: 100%;
+  margin-top: 20rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx
+}
+.img_people>view{
+  float: left
+}
+.submiss_con .submiss_items .submiss_con .img_people .img_file{
+  display: inline-block;
+  width: 140rpx;
+  height: 140rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+  position: relative;
+}
+.img-files{
+    border-radius: 50%;
+}
+.submiss_con .submiss_items .submiss_con .img_people .img_file image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+.img-text{
+  display: inline-block;
+  font-size: 28rpx;
+  color: #999;
+  height: 140rpx;
+  line-height: 140rpx;
+}
+.submiss_con .submit{
+  width: 100%;
+  display: inline-block;
+  height: 80rpx;
+  background: #888888;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  border-radius: 6rpx;
+}
+
+
+
+
+
+
+

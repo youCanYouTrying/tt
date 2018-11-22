@@ -1,0 +1,14 @@
+<!--result.wxml-->
+<view   style="margin-top: 100px;width: 100%;margin-left: auto;margin-right: auto;">
+  <image src="{{obj.logo}}" mode='aspectFit' style="height:188rpx;width:100%"></image>
+</view>
+<view class="address-info" style="text-align:center;width:100%;font-size:38rpx;border-radius:5px;margin-top:40rpx;color:#fc656f;">
+  {{obj.description}}
+</view>
+<view style='margin-top:32rpx'>
+  <image src="{{obj.text_logo}}" mode='aspectFit' style="height:40rpx;width:100%"></image>
+</view>
+<view class="view"  style="margin-top:173rpx;">
+  <button  size="12" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" 
+  style="background-color:#fc656f;border-radius:4px;width:90%;color:#fff;height:95rpx;"> 授权登录 </button>
+</view>

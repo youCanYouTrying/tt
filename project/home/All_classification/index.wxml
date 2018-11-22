@@ -1,0 +1,55 @@
+<view class="container">
+  <!--全部分类-->
+  <view class='classifi'>
+  <navigator url='/home/search/search'>
+    <view class='search'>
+        <view class='search_img'><image src='{{imgUrl}}search.png'></image></view>
+        <input type='text' placeholder='德克萨斯牛肉面'></input>
+    </view>
+  </navigator>
+
+    <!--分类部分-->
+    <view class='classifi_con'  >
+      <scroll-view class="classify-container" scroll-y="true">
+        <view class="classify {{classifySeleted==classify.scrollId?'active':''}}" 
+        wx:for="{{items}}" wx:for-item="classify" wx:key="index" data-id="{{classify.scrollId}}" bindtap="tapClassify">
+          <view class='cla_name'>{{classify.typename}}</view>
+        </view>
+      </scroll-view>
+      <!--右边部分-->
+      <scroll-view class="goods-container"  scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll">
+      <view wx:for="{{items}}" wx:for-item="fitem" wx:key="index" id="{{fitem.scrollId}}">
+       <view  class='meifood' wx:for="{{fitem.shop_business_types}}" wx:for-item="item" wx:key="index">
+          <view class='food_title'>
+            <view class='food_font'>{{item.typename}}</view>
+            <text class='food_span'>共{{item.sub_types.length}}个商家</text>
+          </view>
+        <!--内容-->
+          <view class='food_items'>
+            <navigator url='/home/search/search?key={{list.typename}}' class='food_item' wx:for="{{item.sub_types}}" wx:for-item="list" wx:key="id">
+              <view class='foodimg'>
+                <image src='{{list.img}}'></image>
+              </view>
+              <view class='food_name'>{{list.typename}}</view>
+              <view class='foodspan'>{{list.shops.length}}</view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+       
+
+
+
+
+
+
+
+
+
+
+
+      </scroll-view>
+    </view>
+  </view>
+</view>
+

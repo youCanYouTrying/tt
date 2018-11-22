@@ -1,0 +1,10 @@
+@import '../home_page/index';
+
+.worth_img{
+  width: 100%;
+  height: 200rpx;
+}
+.worth_img image{
+  width: 100%;
+  height: 100%;
+}

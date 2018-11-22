@@ -1,0 +1,96 @@
+<view class="container"  wx:if="{{hasCart}}">
+  <!--购物车-->
+  <view class='shopping'>
+    <view class='heard'>
+      <view class='heard_num'></view>
+      <view class='heard_edit'>
+        <view class='heard_ed' wx:if="{{!management_good}}" bindtap='management'>编辑</view>
+        <view class='heard_ed' wx:if="{{management_good}}" bindtap='finish_management'>完成</view>
+        <!-- <view class='heard_success'>完成</view> -->
+      </view>
+    </view>
+    <!--内容部分-->
+    <view class='shopp_cen' style='{{management_good?"margin-bottom:40px":""}}'>
+      <view class='shopp_items'>
+        <!-- 二级 -->
+        <view class='shopp_item' wx:for="{{items}}" wx:key="items" wx:for-item="i" wx:for-index="findex" 
+        wx:if="{{i.group_items.length>0}}">
+          <view class='shop_title' data-id="{{i.shop.shop_id}}" catchtap='select' data-findex="{{findex}}">
+            <view class='lefts' wx:if="{{management_good}}">
+              <block wx-if="{{!i.checked}}">
+                <view class='icon_none'></view>
+              </block>
+              <block wx-if="{{i.checked}}">
+                <icon type="success" size="18" color="#f7636d" class='icon_none' />
+              </block>
+            </view>
+            <view class='title_p '>{{i.shop.shop_name}}</view>
+            <view  ><image  style='width:16rpx;height:22rpx;padding-left:15rpx' src='{{imgUrl}}you_jian.png'></image></view>
+            <!-- <text class='{{i.false}}'>{{i.yu}}</text> -->
+            <!-- <block wx:if="{{i.yu!=null && i.yu!=''}}">
+              <text class='yu'>{{i.yu}}</text>
+            </block>
+            <block wx:else>
+              <text ></text>
+            </block> -->
+          </view>
+          <view class='activity' style='padding-left:{{management_good? "30px":"0"}}' wx:if="{{i.full&&i.full.price!==0}}">
+            <view class='activ_span'>活动</view>
+            <text class='f-gay1'>{{i.full.name}} </text>
+          </view>
+          <!-- 三级 -->
+          <view class='items_cen' style='{{management_good ?"border-bottom:none":""}}'>
+            <!-- {{item.isTouchMove ? 'touch-move-active' : ''}} -->
+            <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" data-findex="{{findex}}" wx:for="{{i.group_items}}" wx:key="index" wx:for-item="item">
+
+              <!-- <view class="content">{{item.goods_name}}</view> -->
+              <view class="content" style='display:flex;'>
+                <view class='lefts' wx:if="{{management_good}}"  catchtap="childSelect" data-findex="{{findex}}" data-index="{{index}}" data-fid="{{i.shop.shop_id}}">
+                  <block wx-if="{{!item.checked}}">
+                    <view class='icon_none'></view>
+                  </block>
+                  <block wx-if="{{item.checked}}">
+                    <icon type="success" size="18" color="#f7636d" class='icon_none' />
+                  </block>
+                </view>
+                <view class='cenitemnew'>
+                  <view class='cenitem_img'>
+                    <image src='{{item.image}}'></image>
+                  </view>
+                  <view class='itemnew'>
+                    <view class='new_name'>{{item.name}}
+                    <text wx:if="{{item.norms}}" style='font-size:20rpx;color:#555'>( {{item.norms}} )</text></view>
+                    <view class='new_pri'>
+                      <text class='new_num'>X{{item.num}}</text>
+                      <text class='new_money'>￥{{item.price}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <!--包装费-->
+            <view class='Packing' hidden='{{management_good}}'>
+              <text class='packing_font'>包装费</text>
+              <text class='pack_price'>￥{{i.package_price}}</text>
+            </view>
+          </view>
+          <!--去结算-->
+          <view class='Settlement' hidden='{{management_good}}'>
+            <text class='youhui' wx:if="{{i.discount_price>0}}">已优惠{{i.discount_price||0}}</text>
+            <text class='settle_price'>￥{{i.selling_price || 0}}</text>
+            <view class='settle_sub' wx:if="{{i.selling_price>=0}}" catchtap='submit' data-shopid="{{i.shop.shop_id}}">去结算</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 全选 -->
+  <view class='bottom flex_between' wx:if="{{management_good}}" bindtap='deleteitem'>
+    删除
+  </view>
+</view>
+<view class='no-cart' wx:else style='background-image:url({{imgUrl}}cartnull01.png)'>
+  <view class='no-cart-text f-gay1'>购物车空空如也 快去逛逛吧~</view> 
+  <view class='no-cart-btn' bindtap='noCartClick'>去逛逛</view>
+ </view>

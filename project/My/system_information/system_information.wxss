@@ -1,0 +1,35 @@
+.container{
+  
+}
+.system_list{
+  background-color: #ffffff;
+}
+.list_center{
+  height: 120rpx;
+  margin-left: 40rpx;
+  border-bottom: 2rpx solid#ddd;
+  padding-top: 20rpx;
+  position: relative;
+}
+.list_center:last-child{
+  border: none;
+}
+.list_title{
+  font-size: 32rpx;
+}
+.list_time{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.next_bnt{
+  width: 14rpx;
+  height: 24rpx;
+  position: absolute;
+  top:40rpx;
+  right: 40rpx;
+}
+.next_bnt image{
+  width: 14rpx;
+  height: 24rpx;
+}

@@ -1,0 +1,15 @@
+<view class='container'>
+  <view class='Recharge'>
+    <view class='methods_group'>
+       <view class='method'>
+          <view class='icon'><image src='{{imgUrl}}weixin.png'></image> </view>
+          <view class='method_name'>微信支付 </view>
+          <view class='check'><checkbox checked='check' color='#ffffff'></checkbox>  </view>
+       </view>
+    </view>
+   
+  </view>
+  
+   <view catchtap='showInputLayer' bindtap='pay_money' class='btn btn_pay'><button>确定支付</button></view>
+   
+</view>

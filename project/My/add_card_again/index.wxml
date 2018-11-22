@@ -1,0 +1,13 @@
+<view class='container'>
+    <view class='text {{f_red}}'>{{notice}}</view>
+    <view class='user_group'>
+     <view class='user_title'>持卡人</view>
+     <view class='user_name'>{{user_name}}</view>
+    </view>
+    <view class='input_group'>
+      <view class='card_num'><text space="ensp">卡  号</text></view>
+      <view class='enter_card'><input confirm-type='done' bindinput='isvalue'  maxlength='19'  placeholder='请输入银行卡号'></input>   </view>
+    </view>
+    <navigator wx:if="{{isinput}}" url='/My/testCard_again/index?value={{input_num}}' class='next'><button class='bg_red'>下一步</button> </navigator>
+    <navigator wx:else class='next'><button bindtap='test_input' class='{{ispass?"bg_red":"bg_gray"}}'>下一步</button> </navigator>
+</view>

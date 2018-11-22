@@ -1,0 +1,142 @@
+<view class="container">
+ <view class='bg_img'>
+     <image src='../../image/bg_img.png'></image>
+ </view>
+ <!--地图位置-->
+  <view class='map_dian'>
+      <span>距离：2.5KM</span>
+        <i><image src='../../image/Rider.png'></image></i>
+        
+  </view>
+  <!--买家位置-->
+ <view class='buyer'>
+    <i><image src='../../image/Buyer.png'></image></i>
+  </view>
+
+ <view class='receipt'>
+  <view class='close_rece'>
+      <navigator class='close_img'>
+        <image src='../../image/close.png'></image>
+      </navigator>
+      <navigator class='fenx_img'>
+        <image src='../../image/fenxiang.png'></image>
+      </navigator>
+  </view>
+  
+  
+
+<view class='receipt_con'>
+
+      <!--内容部分取消订单-->
+  <view class='close_reces'>
+     <view class='reces'>
+     <p>骑手正在配送中</p>
+        <p> <span><i><image src='../../image/time.png'></image></i>预计送达：</span><b>19:59</b></p>
+      <span  class='rece_close' >
+          <span >申请退款</span>
+          <span id="cui">催单</span>
+          <span id="submit" >
+          <navigator url='/pages/complete/index'>
+          
+           确认收货
+          </navigator>
+           
+           </span>
+          
+      </span>
+     </view>
+  </view>
+
+<!--订单详情部分-->
+<view class='receipt_cen'>
+<!--骑手-->
+<view class='receipt_items'>
+    <view class='Rider'> 
+            <view class='rider_con'>
+              <i id="rider_img"><image src='../../image/qishou.png'></image></i>
+              <p>骑手：153dy11</p>
+              <span>很满意：1524次</span>
+            </view>
+            <navigator class='duanxin'><image src='../../image/duanxin.png'></image></navigator>
+            <navigator class='ipone'><image src='../../image/tuoyuan.png'></image></navigator>
+        </view>
+</view>
+
+<!--第一部分-->
+    <view class='receipt_items'>
+        <view class='receipt_item item1'> 
+            <span><i class="i"><image src='../../image/VCG41170636789.jpg'></image></i>莱德快(石桥铺店)</span>
+            <navigator class='ipone_img'><image src='../../image/tuoyuan.png'></image></navigator>
+        </view>
+        <view class='receipt_item'> 
+            <span>鸭血酸辣粉+时蔬+下菜饭...</span>
+            <i class="font">x1</i>
+        </view>
+         <view class='receipt_item'> 
+            <span>餐盒费</span>
+            <i class="font">￥2</i>
+        </view>
+         <view class='receipt_item'> 
+            <span>配送费</span>
+            <i class="font">￥2</i>
+        </view>
+         <view class='receipt_item item4'> 
+            <span>小计</span>
+            <i class="font">￥22.55</i>
+        </view>
+    </view>
+
+
+
+    <!--第二部分-->
+  <view class='receipt_items'>
+        <view class='receipt_item'> 
+            <span>期望时间</span>
+            <i class="font">立即送达</i>
+        </view>
+         <view class='receipt_item'> 
+            <span>收货地址</span>
+            <i class="font" id="font1">西部商城B座16楼11室 王大陆15520640356</i>
+        </view>
+         <view class='receipt_item'> 
+            <span>配送方式</span>
+            <i class="font">由{{smName}}外卖提供的配送服务</i>
+        </view>
+    </view>
+<!--第三部分-->
+ <view class='receipt_items'>
+        <view class='receipt_item'> 
+            <span>订单号码</span>
+            <i class="font">123648641564654161616</i>
+        </view>
+         <view class='receipt_item'> 
+            <span>订单时间</span>
+            <i class="font" id="font1">2018-01-25  19:58</i>
+        </view>
+         <view class='receipt_item'> 
+            <span>支付方式</span>
+            <i class="font">在线支付</i>
+        </view>
+    </view>
+
+
+
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+ </view>
+</view>

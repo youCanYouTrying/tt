@@ -1,0 +1,243 @@
+ .receipt {
+   padding-bottom: 100rpx;
+}
+
+/*取消订单*/
+
+.receipt_con {
+
+}
+
+ .close_reces {
+  width: 100%;
+}
+
+.close_reces .reces {
+  background: white;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0;
+  padding-top: 40rpx 
+}
+
+.close_reces .reces p {
+  margin-bottom: 20rpx;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.reces .spans {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40rpx;
+  font-size: 26rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+ .reces .rece_close {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.reces .rece_close span {
+  width: 160rpx;
+  height: 70rpx;
+  margin: auto 10rpx;
+  border: 2rpx solid #bfbfbf;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 70rpx;
+  display: inline-block;
+}
+
+ .reces .rece_close #cui {
+  background: #fc656f;
+  color: #fff;
+  border: 2rpx solid #fc656f;
+}
+
+.reces .rece_close #submit {
+  background: #fc656f;
+  color: #fff;
+  border: 2rpx solid #fc656f;
+}
+
+.receipt .receipt_cen {
+  width: 100%;
+}
+
+.receipt_cen .receipt_items {
+  background: white;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  border-top: 2rpx solid #f0f0f0;
+  box-sizing: border-box;
+}
+.receipt_items>.receipt_item{
+  border-bottom: 1px solid #f0f0f0
+}
+
+.receipt_items>.receipt_item:last-of-type{
+  border-bottom: 0
+}
+ .Rider {
+  height: 165rpx;
+  width: 100%;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  padding: 0 36rpx 0 48rpx;
+  box-sizing: border-box;
+  align-items: center
+}
+.r_img{
+
+}
+.r_img>image{
+  width: 82rpx;
+  height: 82rpx
+}
+.r_center{
+  flex: 1;
+  padding-left: 34rpx;
+  text-align: left
+}
+.r_center>view{
+  font-size: 32rpx;
+  color:#4d4d4d;
+}
+.r_center>span{
+  font-size: 28rpx;
+	color: #999999;
+}
+.r_right{
+  flex: none;
+  width: 134rpx;
+  text-align: left;
+  overflow: hidden
+}
+.r_right image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle
+}
+.r_right>view{
+  display: inline-block
+}
+
+
+.item1{
+  padding:20rpx 30rpx 0 30rpx;
+}
+.item1 span {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-left: 90rpx;
+  box-sizing: border-box;
+  font-size: 36rpx;
+  display: block;
+}
+
+  .item1 span .i {
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+  .item1 span .i image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+  .item1 .ipone_img {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right:0;
+  top: 20rpx;
+}
+
+  .item1 .ipone_img image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.receipt_item{
+  position: relative
+}
+  .receipt_item span {
+  line-height: 90rpx;
+  font-size: 28rpx;
+  display: inline-block;
+  color: #999;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+  .receipt_item #font1 {
+  color: #333;
+}
+
+  .receipt_item .font {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  color: #666;
+  font-size: 28rpx;
+  max-width: 450rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  word-break: break-all;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  -moz-line-clamp: 2;
+}
+
+  .item4 span {
+  color: #333;
+}
+.item4 .font {
+  color: #333;
+}
+.item2 {
+  height: 80rpx;
+  display: flex;
+  font-size: 28rpx;
+  color: #999;
+  align-items: center;
+  padding: 0 30rpx;
+  background-color:#fafafa 
+}
+.item2>.left{
+  flex: none;
+  width: 356rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item2>.right{
+  flex: 1;
+  text-align: right
+}
+.item3{
+  background-color:#fafafa 
+}
+.item3,.item4{
+  padding: 0 30rpx;
+}

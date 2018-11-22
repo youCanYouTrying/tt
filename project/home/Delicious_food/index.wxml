@@ -1,0 +1,131 @@
+<!--My/Bring_out/index.wxml-->
+<view class='container'>
+  <view class='bring'>
+    <!--内容部分-->
+    <view class='bring_con'>
+      <view class='bringcon_title'>
+        <view class='title_span' bindtap='click' data-id="noId">
+          <text>{{nearbyText1 || '全部美食'}}</text>
+          <image src='{{imgUrl}}jian_all.png' hidden='{{!showModal}}' style='-moz-transform:rotate(-180deg); -webkit-transform:rotate(-180deg)'></image>
+          <image src='{{imgUrl}}jian_all.png'  hidden='{{showModal}}' ></image>
+        </view>
+        <block wx:for="{{pres}}" wx:key="index">
+          <view class='title_span' bindtap='click' data-id="{{item.id}}" data-rule="{{item.rule}}" data-index="{{index}}" style="{{nearbyType == item.id?'color:#ff4a4a;':''}}">
+            <text>{{item.preX}}</text>
+            <image wx:if="{{index == 0}}" src='{{item.img}}'></image>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!--内容部分-->
+    <view class='delicious'>
+      <!-- <view class='delicious_volume'>
+        <view class='volume_con'>
+          <view class='volume_p'>超级牛排</view>
+          <view class='volume_span'>预计30分钟送达
+            <text>石桥铺</text>
+          </view>
+          <view class='volume_imgs'>
+            <scroll-view class="tab-scoller " scroll-x="true" scroll-left="{{scrollLength}}">
+              <block wx:for="{{listTab}}" wx:key="code">
+                <view class='volume_img' data-index="{{index}}" id="{{item.code}}" bindtap="reflashData">
+                  <image src='{{item.img}}'></image>
+                </view>
+              </block>
+            </scroll-view>
+          </view>
+          <view class='volume_pei'>
+            <view class='volume_qi volumes'>起送价￥15</view>|
+            <view class='volumes'>配送费￥3</view>
+          </view>
+          <view class='volume_one'>石桥铺美食销量榜第一名</view>
+        </view>
+      </view> -->
+      <!-- 商品内容 -->
+      <view class=' section-big ' style='padding-top:0'>
+        <view class='like_con'>
+          <view style="width:100%;heigth:100%;">
+            <!--第一个-->
+            <view catchtap='naviGoto' wx:for-items="{{carInfoData}}" wx:key="id" wx:for-index="findex" data-url='/home/business/index?id={{item.id}}&bid={{item.bid}}'>
+              <view class='result-con'>
+                <view class='result-left'>
+                  <view>
+                    <image src='{{item.logo}}'></image>
+                  </view>
+                </view>
+                <!-- 右边部分 -->
+                <view class='result-right'>
+                  <!-- 头部 -->
+                  <view class='result-head'>
+                    <view class='result-h3'>
+                      {{item.shop_name}}
+                    </view>
+                    <view class='result-time'>
+                      <view>
+                        <block wx:for="wxfor" wx:key='index' wx:for-index="in" wx:for-item="i">
+                          <view class='result-box'>
+                            <image data-index="{{in}}" src="{{imgUrl}}{{in<=item.num1-1?'xin_succes':'xin_error'}}.png"></image>
+                          </view>
+                        </block>
+                      </view>
+                      <view>
+                        <text>{{item.num || 0}} </text>
+                        <text> 月售 {{item.monthly_sales || 0}}</text>
+                      </view>
+                      <view style='text-align:right'>
+                        <text>{{item.second}}</text> |
+                        <text>{{item.distance || '0m'}}</text>
+                      </view>
+                    </view>
+                  </view>
+                  <!-- 起送价 -->
+                  <view class='result-item1'>
+                    <view class='item1-text'>
+                      <view class='con_song'>
+                        <span>起送价￥{{item.start_price || 0}}</span> |
+                        <span>配送费￥{{item.dis_money || 0}}</span>
+                      </view>
+                    </view>
+                    <view class='item1-type f-black'>
+
+                      <view>{{item.shop_businesstype.typename}}</view>
+                    </view>
+                    <view class='youhui-box' id="{{findex}}" catchtap="toggleBtn">
+                      <view class='youhui-box-left'>
+                        <view wx:for="{{item.shop_activity}}" wx:for-item="sale" wx:key="index" class='{{item.ishow?"":"youhui"}}' wx:if="{{index<1 || item.ishow}}">
+                          <view class='yhtype-box ' style='background-color:{{sale.typeColor}}'>{{sale.name}}</view>{{sale.str}}</view>
+                      </view>
+                      <view class='youhui-box-right' wx:if="{{item.shop_activity.length>1}}">
+                        <view class='youhui-jian'>
+                          <image wx:if="{{!item.ishow}}" src='{{imgUrl}}xia01.png'></image>
+                          <image wx:if="{{item.ishow}}" src='{{imgUrl}}shang01.png'></image>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-loadmore" wx:if="{{carInfoData.length>0}}">
+          <view class="weui-loading" hidden='{{loadAll}}'></view>
+          <view class="weui-loadmore__tips">{{loadAll?'已加载全部':"正在加载"}}</view>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+</view>
+
+<view class="modal-mask" catchtouchmove="preventTouchMove" bindtap='modalClick' wx:if="{{showModal}}"></view>
+<view class="modal-dialog">
+  <!-- wx:if="{{showModal}}" -->
+  <view class="modal-content" wx:if="{{showModal}}">
+    <view class='modal-list'>
+      <view wx:for="{{pres1}}" wx:key="index" id='{{item.id}}' data-index='{{index}}' data-rule="{{item.rule}}" catchtap='serchChoice' style="{{nearbyText1 == item.preX?'color:#ff4a4a;':''}}">{{item.preX}} </view>
+    </view>
+  </view>
+</view>

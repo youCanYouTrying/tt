@@ -1,0 +1,223 @@
+<view  class="container {{timeBoxShow ||youhuiIsshow ?'container-hide':''}}"  style='{{isIphoneX?"padding-bottom:80rpx;":"padding-bottom:20rpx;"}}'>
+  <scroll-view scroll-y="false" >
+    <!--地址  style='{{timeBoxShow ||youhuiIsshow ?:""}}'-->
+    <view class='address' >
+      <!-- <view class='Extraction'>自取</view> -->
+      <!-- <navigator class='address_dian' bindtap='lookShopMap' wx:if="{{Obj.address.id}}"> -->
+      <navigator class='address_dian' url="/My/Administration/index?isOrder=1&shop_id={{shopInfo.shop_id}}" wx:if="{{orderObj.can_order == 'Y'}}">
+        <view class='address_img'>
+          <image src='{{imgUrl}}address.png'></image>
+        </view>
+        <view class='addres-right'>
+          <view class='address_name'>{{userInfo.address}}{{userInfo.building_card}} </view>
+          <view class='address_na'>{{userInfo.name}} {{userInfo.phone}}</view>
+          <view class='address_jian'>
+            <image src='{{imgUrl}}you_jian.png'></image>
+          </view>
+        </view>
+      </navigator>
+      <view class='address_dian' wx:else style='border-bottom:1rpx solid #e6e6e6;padding-bottom:38rpx'>
+        <navigator hover-class='none' url='/My/Administration/index?isOrder=1&shop_id={{shopInfo.shop_id}}'>新增收货地址</navigator>
+      </view>
+      <view class='address_dian' bindtap='getTime'>
+        <view class='address_img'>
+          <image src='{{imgUrl}}times.png'></image>
+        </view>
+        <view class='address_name' wx:if='{{orderObj.is_date=="Y"}}'>指定时间 
+          <span>
+            <i>{{time1}}</i>左右
+          </span>
+        </view>
+         <view class='address_name' wx:else>立即送出
+          <span>大约:
+            <i>{{orderObj.estimated_time}}</i>送达</span>
+        </view>
+     
+        <view class='address_jian'>
+          <image src='{{imgUrl}}you_jian.png'></image>
+        </view>
+      </view>
+    </view>
+    <!--订单信息-->
+    <view class='order_news' >
+      <view class='order_name'>
+        <image class='wode-img' src='{{imgUrl}}shopping.png'></image>
+
+        <!-- <view class='order_img'>
+        </view> -->
+        <view class='or_name'>{{shopInfo.shop_name}}</view>
+        <view class='or_peisong'>
+          <view >{{sysName}}</view>
+        </view>
+      </view>
+      <!--内容信息-->
+      <view class='confir_new' >
+        <view class='confir_item confir_repeat' wx:for="{{goodsList}}" wx:key="index" wx:if='{{index < 2 || imgShow}}'>
+          <image src='{{item.image}}' style='width:108rpx;height:108rpx;margin-right:10rpx'></image>
+          <view class='confir_name'>
+            {{item.goods_name}}
+            <view class='num1'>
+              X{{item.num}}  <text wx:if="{{item.norms}}">( {{item.norms}} )</text>
+            </view>
+          </view>
+          <view class='confir-money'>
+            ￥{{item.price}}
+          </view>
+        </view>
+        <view  class='lookMore' wx:if="{{goodsList.length>2}}">
+            <view bindtap='lookMore'>{{imgShow?"收起":"展开更多"}} <image class='{{imgShow?"img-up":"img-down"}}' src='{{imgUrl}}yaoqi_jian.png'></image></view>
+        </view>
+         
+        <view class='confir_item margint55'>
+          <view class='confir_name'>
+            包装费
+          </view>
+          <view class='confir-money'>
+            ￥{{orderObj.package_price}}
+          </view>
+        </view>
+        <view class='confir_item'>
+          <view class='confir_name'>
+            配送费
+          </view>
+          <view class='confir-money' wx:if="{{Obj.shop.distribution_info == 0}}">
+            ￥{{orderObj.freight || 0.00}}
+          </view>
+          <view class='confir-money' wx:else>
+            ￥{{orderObj.freight || 0.00}}
+          </view>
+        </view>
+        <view class='confir_item' bindtap='getcoupon'  data-type ="1">
+          <view class='confir_name'>
+            优惠券 
+          </view>
+          <view   class='confir-money' style='color:{{couponObj.can_use_num>0?"#fd6e78":"#999"}}'>
+            <view >
+              <view wx:if="{{couponObj.can_use_num>0}}" style="display:inline-block">
+                <text wx:if="{{couponObj.price&&couponObj.price*1>0}}">￥-{{couponObj.price}}</text>
+                <text wx:else>{{couponObj.can_use_num}}个待使用</text>
+              </view>
+              <text wx:else>无可用优惠券</text>
+              <view class='confir_jian'>
+                <image src='{{imgUrl}}you_jian.png'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='confir_item' bindtap='getRedPack' data-type ="2">
+          <view class='confir_name'>
+            红包
+          </view>
+          <view class='confir-money' style='color:{{packetObj.can_use_num>0?"#fd6e78":"#999"}}'>
+            <view >
+              <text wx:if="{{packetObj.can_use_num>0}}">
+                <text wx:if="{{packetObj.price&&packetObj.price*1 >0}}">￥-{{packetObj.price}}</text>
+                <text wx:else>{{packetObj.can_use_num}}个待使用</text>
+              </text>
+              <text wx:else>无可用红包</text>
+              <view class='confir_jian'>
+                <image src='{{imgUrl}}you_jian.png'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='confir_item' wx:if="{{fullObj.price>0}}">
+         <view class='confir_name' >
+            活动
+          </view>
+          <view class='confir-money' style='width:auto'>
+              <text style='color:#fd6e78'>{{fullObj.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='sum'>小计：
+        <span>￥{{orderObj.selling_price}}</span>
+      </view>
+    </view>
+    <!--备注及选择支付方式-->
+    <view class='Remarks' >
+      <view class='Remarked' >
+        <view class='reark_img'>
+          <image src='{{imgUrl}}liuyan.png'></image>
+        </view>
+        <view  class='text-dvi' hidden='{{timeBoxShow ||youhuiIsshow}}'>
+           <textarea  bindinput="bindKeyInput" bindfocus="inputfocus" auto-height="true" cursor-spacing="200"  placeholder="备注" placeholder-style="font-size: 32rpx;color:#4d4d4d" value="{{inputName}}">
+           </textarea>
+        </view>
+        <!-- <view>
+          <text>{{remark?remark:"备注"}}</text>
+          <view class='confir_jian' hidden='{{remark}}'>
+            <image src='{{imgUrl}}you_jian.png'></image>
+          </view>
+        </view> -->
+      </view>
+      <navigator class='Remarked' url='/Run_leg/invoice/invoice' style='display:none'>
+        <view class='reark_img'>
+          <image src='{{imgUrl}}fapiao.png'></image>
+        </view>
+        <view class='remark_title'>发票
+          <view class='confir_jian'>
+            <image src='{{imgUrl}}you_jian.png'></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </scroll-view>
+
+</view>
+ <view class="time-detail f-black"  wx:if="{{timeBoxShow}}">
+    <view class="mask" catchtap='hideModel'></view>
+    <view class='list-content'>
+      <view class='time-left'>
+        <view  bindtap='timeLeftClick' class='time-class {{index ==selectedIndex?"tiem-active":""}}' wx:for = "{{leftArr}}" wx:key ="index" data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+      <view class='time-right'>
+        <scroll-view style='height:594rpx' scroll-y="true">
+          <view class='time-list {{item.selected == "Y"?"timeActive":""}}'  wx:for="{{rightArr}}" wx:key="index" data-stamp="{{item.stamp}}" bindtap='timeRightClick' data-index="{{index}}">{{item.time}}</view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class='list-footer' bindtap='timeClear'>取消</view>
+  </view>
+
+
+ <!-- 优惠券 -->
+   <view class="time-detail f-black"  wx:if="{{youhuiIsshow}}">
+    <view class="mask" catchtap='hideModel'></view>
+      <view class='list-content youhui-con'>
+    <scroll-view  scroll-y="true" style='max-height:800rpx'>
+      
+        <view class='youhui-head'>
+        {{youhuitype == 1?'店铺优惠':'红包'}}
+        </view>
+        <view class='youhui-item'>
+          <view class='youhui-list' wx:for="{{youhuiList}}" wx:key="id" >
+            <view class='youhui-left'>
+             {{item.name}}
+            </view>
+            <view class='youhui-right'  catchtap='checkedYouhui' data-index = "{{index}}" data-hash = "{{item.hash}}">
+              <image src='{{imgUrl}}{{item.selected == "Y"?"c-yes01":"c-no01"}}.png'></image>
+            </view>
+            <view class='list-model' wx:if="{{item.can_use !=='Y'}}"></view>
+          </view>
+        </view>
+    </scroll-view>
+        
+      </view>
+    
+    <view class="list-footer youhui-btn {{isIphoneX?'isIphoneX_btn':''}}" bindtap='hideModel' >关闭</view>
+  </view>
+
+
+
+
+<cover-view class="sub_confir {{isIphoneX?'isIphoneX_btn':''}}" bindtap='confirOrder' hidden='{{timeBoxShow || youhuiIsshow}}'>
+  <cover-view class='confir_sub'>
+    微信支付
+  </cover-view>
+</cover-view>
+
+<dialog id='dialog'   title='{{dialogTitle}}' > </dialog>
+

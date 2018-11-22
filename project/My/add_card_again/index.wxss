@@ -1,0 +1,58 @@
+.enter_card{
+  background-color: #ffffff;
+}
+.text{
+  padding-left: 40rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+  border-bottom: 2rpx solid#ddd;
+}
+.card_num{
+  font-size: 32rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 26rpx;
+}
+.input_group{
+  width: 100%;
+  height: 100rpx;
+  position: relative;
+  
+}
+.input_group input{
+  height: 100rpx;
+  padding-left: 160rpx;
+  font-size: 32rpx;
+}
+.next{
+  width: 700rpx;
+  margin: auto;
+  margin-top: 80rpx;
+}
+.next button{
+  color: #ffffff;
+}
+.bg_color button{
+  background-color: #fe6e78;
+}
+button::after{border:0}
+.user_group{
+  width: 100%;
+  height: 100rpx;
+  background-color: #ffffff;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid#ddd;
+}
+.user_title{
+  width: 160rpx;
+  text-align: center;
+}
+.user_name{
+  width: 590rpx;
+  
+}

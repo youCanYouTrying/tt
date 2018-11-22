@@ -1,0 +1,97 @@
+<!--Run_leg/run_leg/index.wxml-->
+<view class='container'>
+  <view class='entry'>
+    <!--商家入驻-->
+    <view class="top-table">
+      <scroll-view class="scroll-view_table" scroll-x="true" scroll-left="{{scrollLeft}}">
+        <block wx:for="{{topTable}}" wx:key="{{id}}" wx:for-item="table">
+          <view id="{{table.id}}" class="table-coll {{currentTabId==table.id?'selected':''}}" data-index="{{index}}" bindtap="tableTap">
+            {{table.name}}
+            <span></span>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <!--内容部分-->
+    <swiper class="table-swiper" current="{{currentTabSwiperIndex}}" duration="300" bindchange="onSwiper" style="height:{{winHeight+'px'}}">
+      <block wx:key="id" wx:for-item="table">
+        <!--开店流程-->
+        <swiper-item>
+          <view class='process'>
+            <!--1-->
+            <view class='process_item'>
+              <view class='process_name'>1、下载{{smName}}商家APP</view>
+              <view class='procss_con'>下载{{smName}}商家APP</view>
+              <view class='procss_con'>完成商家账号注册</view>
+            </view>
+            <!--2-->
+            <view class='process_item'>
+              <view class='process_name'>2、资料齐全</view>
+              <view class='procss_con'>填写店铺名称、位置等基本信息 </view>
+              <view class='procss_con'>提交店铺照片、经营资质等信息</view>
+            </view>
+            <!--3-->
+            <view class='process_item'>
+              <view class='process_name'>3、签约审核</view>
+              <view class='procss_con'>等待资质审核(1~3个工作日）</view>
+              <view class='procss_con'> 审核通过，短信签约</view>
+            </view>
+            <!--4-->
+            <view class='process_item'>
+              <view class='process_name'>4、开门营业</view>
+              <view class='procss_con'>等待资质审核(1~3个工作日）</view>
+              <view class='procss_con'> 审核通过，短信签约</view>
+            </view>
+          </view>
+        </swiper-item>
+        <!--开店要求-->
+        <swiper-item>
+          <view class='process'>
+            <!--1-->
+            <view class='process_item'>
+              <view class='process_name'>1、门店要求</view>
+              <view class='procss_con'>入驻{{smName}}外卖平台，必须是真实的线下门店，有经营相关证件；</view>
+            </view>
+            <!--2-->
+            <view class='process_item'>
+              <view class='process_name'>2、资料齐全</view>
+              <view class='procss_con'>须提供营业执照、行业经营许可证、省份证照片信息等； </view>
+            </view>
+            <!--3-->
+            <view class='process_item'>
+              <view class='process_name'>3、品类范围</view>
+              <view class='procss_con'>{{smName}}外卖支持一下范围 </view>
+              <view class='procss_con'> 1、餐饮美食；2、甜品饮品；3、生鲜果蔬</view>
+            </view>
+          </view>
+        </swiper-item>
+        <!--资费查询-->
+        <swiper-item>
+          <view class='process'>
+            <!--1-->
+            <view class='process_item'>
+              <view class='process_name'>收费说明</view>
+              <view class='procss_con'>1、商户在{{smName}}外卖开店不收取任何服务费用，产生外卖订单时，平台会收取10%~20%的服务费用</view>
+              <view class='procss_con'>2、商家自己配送费率在5%~8%之间</view>
+              <view class='procss_con'>3、具体费率在开店后会有具体的服务专员为您交流</view>
+            </view>
+          </view>
+        </swiper-item>
+        <!--常见问题-->
+        <swiper-item>
+          <view class='process'>
+            <!--1-->
+            <view class='process_item'>
+              <view class='process_name'>商家出餐慢怎么办？</view>
+              <view class='procss_con'>百度地图是百度提供的一项网络地图服务，覆盖了国内近400个城市、数千个区县。在百度地图里，用户可以查询街道、商场、楼盘的地理位</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view style='{{isIphoneX?"bottom:70px;height:0;":""}}' class=' xiazai'>
+      <navigator class='{{isIphoneX?"isIphoneX_btn":""}} sub'>下载APP马上入驻</navigator>
+    </view>
+  </view>
+</view>

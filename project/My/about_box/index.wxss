@@ -1,0 +1,22 @@
+/* My/about_box/index.wxss */
+page{
+  border-top: 1px solid #ebebeb;
+}
+.about_box{
+  width: 100%;
+  background:#f5f5f5;
+  padding: 20px 10px 10px 10px;
+  box-sizing: border-box;
+}
+.about_box .about_title{
+  width: 100%;
+  color: #333;
+}
+.about_box .about_item{
+  font-size: 13px;
+  margin: 10px 0px;
+  color: #666;
+}
+.about_box .about_con{
+  margin-bottom: 30px;
+}

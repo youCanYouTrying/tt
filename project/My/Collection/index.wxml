@@ -1,0 +1,32 @@
+<view class="container">
+  <view class='nothing' wx:if='{{items.length==0}}'>
+    <view class='nothing-logo'>
+      <image wx:if='{{imgUrl}}' src='{{imgUrl}}noCoupon.png'> </image>
+    </view>
+    <view class='nothing-title'>一个商家也没有收藏哦~</view>
+  </view>
+  <view bindtap='toggleBtn' class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{item.id}}">
+
+    <view class="content">
+      <view class='collection_left'>
+        <image src='{{item.shop_logo}}'></image>
+      </view>
+      <view class='collection_right'>
+        <view class='store_name'>{{item.shop_name}}</view>
+        <view class='content_xin'>
+          <!-- 星星 -->
+          <block wx:for="{{[1,2,2,2,2]}}" wx:for-item="list" wx:for-index='dex'>
+            <image wx:if="{{5>=dex+1}}" src='{{imgUrl}}comment_y.png'></image>
+            <image wx:if="{{5<dex+1}}" src='{{imgUrl}}comment_no.png'></image>
+          </block>
+        </view>
+        <view class='collection_footer'>起送价￥{{item.shop_price}}|配送费￥{{item.shop_disb}}</view>
+      </view>
+    </view>
+    <view class="del" data-id='{{item.id}}' catchtap="del" data-index="{{index}}">删除</view>
+  </view>
+
+  <loading hidden='{{!isOk}}'>
+    加载中...
+  </loading>
+</view>

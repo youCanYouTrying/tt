@@ -1,0 +1,210 @@
+<view class="container">
+  <!--选餐详细-->
+  <!-- <view class='detail_title'>
+        <view class='title_fanhui'><image src='http://waimai.test/public/static/wechat/image/returnfan.png'></image></view>
+        <view class='title_fen'><image src='http://waimai.test/public/static/wechat/image/title_fen.png'></image></view>
+    </view> -->
+  <!--内容部分-->
+  <view class='detali_con'>
+    <view class='detail_cen'>
+      <view class='detail_img'>
+        <image src='{{goodsObj.goods_img}}' mode='aspectFill'></image>
+      </view>
+      <!--商品详情-->
+      <view class='detail'>
+        <view class='de_name'>
+          <view class='detail_name'>{{goodsObj.goods_name}}</view>
+          <!-- {{goodsObj.shop.contacts_phone}} -->
+          <!-- url='/home/Contact_merchant/index' -->
+          <view class='detail_new'>
+            <!-- <image src='{{imgUrl}}lianxi.png'></image>
+            <text>联系商家</text> -->
+          </view>
+
+        </view>
+        <!--月销售-->
+        <view class='xiaoshou'>
+          <text>月售{{goodsObj.monthly_sales || 0}}</text>
+        </view>
+        <!--加入购物车-->
+        <view class='shopp'>
+          <view class='shop_price'>￥
+            <text>{{goodsObj.goods_price}}</text>
+          </view>
+          <view class='goodjia-right1' wx:if="{{goodsObj.attribute.length>0}}">
+            <view class='guige' data-num="{{goodsObj.num}}" bindtap='guigeShowClick'>选规格
+              <view wx:if="{{goodsObj.num>0}}">{{goodsObj.num}}</view>
+            </view>
+          </view>
+          <view wx:else style='flex:1;text-align:right'>
+           
+            <view class='goodjia-right' wx:if="{{goodsObj.num >0}}">
+              <view class='image-box' bindtap='carnumChage' data-hasguige="1" data-id="{{goodsObj.id}}" data-type="3">
+                <image src='{{imgUrl}}miu.png'></image>
+              </view>
+              <view class="cart-num">{{goodsObj.num || 0}}</view>
+              <view class='image-box' bindtap="carnumChage" data-hasguige="1" data-type="1" data-id="{{goodsObj.id}}">
+                <image src='{{imgUrl}}add.png'></image>
+              </view>
+            </view>
+             <view  wx:else  class='shop_box' data-id="{{goodsObj.id}}" data-hasguige="1" bindtap="carnumChage" data-type="1">加入购物车</view>
+
+          </view>
+
+        </view>
+        <!--优惠内容-->
+        <view class='youhui'>
+          <view class='biaoq' wx:if="{{goodsObj.label_one}}">标签：
+            <text>{{goodsObj.label_one}}</text>
+            <text wx:if="{{goodsObj.label_two}}">，{{goodsObj.label_two}}</text>
+            <text wx:if="{{goodsObj.label_three}}">，{{goodsObj.label_three}}</text>
+          </view>
+          <view class='biaoq' wx:for="{{goodsObj.activities}}" wx:key="index">{{item.type ==1?'满减':'折扣'}}
+            <text>满{{item.money}}{{item.explain}}{{item.give_money}}(截止时间{{item.end_time}})</text>
+          </view>
+        </view>
+        <!--商品描述-->
+        <view class='shangp_remark'>
+          <view class='shangp_title'>
+            <view class='shanp'>商品描述 </view>
+            <view class='shangspan'>请仔细阅读</view>
+          </view>
+          <view class='remark_con'>
+            {{goodsObj.describe}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='hr' wx:if="{{pinlun.length>0}}"></view>
+    <!--评论详情-->
+    <view class='comm_con' wx:if="{{pinlun.length>0}}">
+      <view class='content_title'>
+        <block wx:for="{{alls}}" wx:key="id">
+          <view class="title_span" style="{{allspanid==item.id?'color:#fff;background: #fd6e78;':''}}" data-id="{{index}}" bindtap="allstap">{{item.span}} </view>
+        </block>
+      </view>
+      <view class='content_items'>
+        <view class='content_item' wx:for="{{pinlun}}" wx:key="item">
+          <view class='userimg'>
+            <image src='{{item.userimg}}'></image>
+          </view>
+          <view class='item_cen'>
+            <view class='item_name'>
+              <view class='name_left'>{{item.username}}</view>
+              <view class='name_right'>{{item.add_time}}</view>
+            </view>
+            <view class='item_pinxing'>
+              <view class='ping_left'>
+                评星：
+              </view>
+              <view class='ping_cneter'>
+                <block wx:for="{{[0,0,0,0,0]}}" wx:key='index' wx:for-item="i">
+                  <view class='result-box'>
+                    <image src="{{imgUrl}}{{index<=item.num-1?'xin_succes':'xin_error'}}.png"></image>
+                  </view>
+                </block>
+              </view>
+              <view class='ping_right'>{{item.time_num}}分钟送达</view>
+            </view>
+            <view class='commpin'>
+              <text>{{item.content}}</text>
+            </view>
+            <scroll-view scroll-x="true" style='width:100%' scroll-with-animation="true">
+              <view class='pinimgs'>
+                <block wx:for="{{item.imgList}}" wx:key="index">
+                  <view class='pinimg' data-index="{{item.index}}" id="{{item.index}}" bindtap="reflashData">
+                    <image src='{{item}}'></image>
+                  </view>
+                </block>
+              </view>
+            </scroll-view>
+            <view class='huifu' wx:if="{{item.revert}}">
+              商家回复：
+              <text>{{item.revert}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--购物车-->
+  <view class='shopps'>
+    <view class="cart-detail" wx:if="{{showCartDetail && cartList.length>0}}">
+      <view class="mask" bindtap="hideCartDetail"></view>
+      <view class="list" style='{{isIphoneX?"bottom:150rpx;":"bottom:100rpx;"}}'>
+        <scroll-view scroll-y="true" style='max-height:400px' bindscroll="cartScroll">
+          <view class='list-header {{cartList.length>=7?"cart-scorll":""}}'>
+            <view>购物车</view>
+            <view style='text-align:right;color:#666;padding-right:20rpx;' bindtap='clearCart'>清空</view>
+          </view>
+          <!-- 购物车 -->
+          <view class='list-content'>
+            <view class="item" wx:for="{{cartList}}" wx:key="id">
+              <view class="name ellipsis">{{item.name}}
+                <text style=' font-size: 20rpx' wx:if="{{item.norms}}">( {{item.norms}} )</text>
+              </view>
+              <view class="total">￥{{item.price}}</view>
+              <view class="reduce" data-id="{{item.item_id}}" data-arrstr="{{item.norms}}" data-hash="{{item.hash}}" data-type=" 0" catchtap="carnumChage">
+                <image src='{{imgUrl}}jian001.png'></image>
+              </view>
+              <view class="num ">{{item.num}}</view>
+              <view class="add " data-id="{{item.item_id}} " catchtap="carnumChage" data-arrstr="{{item.norms}}" data-type='1' data-hash="{{item.hash}}">
+                <view class='add-img' style="line-height:44rpx ">+</view>
+              </view>
+            </view>
+            <!-- 结束 -->
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="cart {{isIphoneX? 'isIphoneX_btn': ''}} " hidden='{{currentTabSwiperIndex ==1 || currentTabSwiperIndex == 2}}'>
+      <view class="data " bindtap="showCartclick" style='background-color:{{sum>0&&sum>=send_price?" ":"#e6e6e6"}}'>
+        <view class="icon ">
+          <image src='{{imgUrl}}lgcar.png'></image>
+          <view class="count " wx:if="{{count>0}}">{{count}}</view>
+        </view>
+        <view class="total ">￥{{sum}}</view>
+        <view class='peisong' wx-if="{{dis_money ||dis_money==0 }}">另需配送费{{dis_money}}元</view>
+      </view>
+      <form bindsubmit="submit" report-submit="true" wx:if="{{userPhoneShow}}" style='background-color:{{sum>0&&sum>=send_price?"#ff6969":"#999"}}'>
+        <button class="yellow" formType="submit" style='background-color:{{sum>0&&sum>=send_price?"#ff6969":"#999"}}'>
+          {{sum>0&&sum>=send_price?'马上结算':sum == 0 ?send_price+'元起送':'还差'+spread+'元'}}
+        </button>
+      </form>
+      <form bindsubmit="submit" report-submit="true" wx:else>
+        <button class='yellow' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上结算</button>
+      </form>
+    </view>
+  </view>
+</view>
+<view class="cart-detail" style='z-index:999' wx:if="{{guigeShow}}">
+  <view class='mask'></view>
+  <view class='guige-model'>
+    <view class='guige-h1'>{{guigeObj.name}}</view>
+    <view class='guige-con' wx:for="{{guigeObj.arr}}" wx:key="index" wx:for-index="findex">
+      <view class='guige-item-name'>{{item.name}}</view>
+      <view class='guige-item-box'>
+        <view class='guige-btn {{subitem==item.selected?"gg-active":""}}' bindtap='guiChangeClick' data-findex="{{findex}}" data-val="{{subitem}}" wx:for="{{item.attribute}}" wx:key="id" wx:for-item="subitem">{{subitem}}</view>
+      </view>
+    </view>
+    <view class='guige-footer'>
+      <view class='gleft'>￥{{guigeObj.price}}
+        <text wx:if="{{guigeObj.str}}"> ( {{guigeObj.str}} )</text>
+      </view>
+      <view class='goodjia-right' style='float:none;width:auto;padding-right:0' wx:if="{{guigeObj.num>0}}">
+        <view class='image-box' catchtap='carnumChage' data-hasguige="1" data-type="0" data-guigenum="1">
+          <image src='../../image/miu.png'></image>
+        </view>
+        <view class="cart-num">{{guigeObj.num}}</view>
+        <view class='image-box' catchtap="carnumChage" data-hasguige="1" data-type="1" data-guigenum="2">
+          <image src='../../image/add.png'></image>
+        </view>
+      </view>
+      <view class='gright-addC' wx:else="{{guigeObj.num>0}}" catchtap="carnumChage" data-guigenum="2" data-hasguige="1" data-type="1">加入购物车</view>
+    </view>
+    <view class='guige-icon'>
+      <image src='{{imgUrl}}close.png' bindtap='closeGuige'></image>
+    </view>
+  </view>
+
+</view>

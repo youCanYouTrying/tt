@@ -1,0 +1,179 @@
+<view hidden='{{isUpdata}}' class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">更新数据中...</view>
+</view>
+<view class="container">
+    <view class='map_box'>
+      <map id='myMap' style='width:100%;height:714rpx'  latitude="{{latitude}}" longitude="{{longitude}}" scale="15" markers='{{markers}}'  >
+      </map>
+    </view>
+    <view class='receipt'>
+      <view  class='receipt_con f-gay2'>
+        <!--内容部分取消订单-->
+        <view bindtouchstart='touchStart' bindtouchmove='touchMover'  class='shaw-box receipt-item1' style='padding:0rpx 10rpx 20rpx 20rpx;'>
+          <icon class='border_top' style='width:80rpx;border:2rpx solid#ddd;'></icon>
+          <view   bindtap="showDialogBtn" class='f-black'>{{showTitle}}
+            <image wx:if='{{imgUrl}}' style='width:14rpx;height:26rpx;margin-left:10rpx' src='{{imgUrl}}you_jian.png'></image>
+          </view>
+          <!-- 预计送达时间 -->
+          <view wx:if='{{status!=2 && status!=0}}' class='predict'>
+            <view>
+              <i>
+                <image wx:if='{{imgUrl}}' src='{{imgUrl}}time2.png'></image>
+              </i>
+            </view>
+            <p>预计送达：
+              <text>{{show_time}}</text>
+            </p>
+          </view>
+          <view wx:if='{{status==2}}' class='predict3'>
+            3分钟未接单视为商家取消
+          </view>
+          <!-- <p>3分钟未接单视为商家取消</p> -->
+          <view wx:if='{{status==2 ||status==0}}' bindtap='cancel_btn' class='btn f-gay1'> 取消订单 </view>
+          <view 
+          wx:if='{{status==0}}' 
+          catchtap='payAgin'
+          data-mainid='{{items.order_model.order_main_id}}' 
+          class='btn '
+          style='background-color:#fe6e78;color:#ffffff;border:none;'>
+           立即支付</view>
+          <view wx:if='{{status==3 || status==4 || status==5 ||status==10||status==11||status==12||status==13||status==15}}' catchtap='Retreat_money' id='{{items.order_model.id}}' class='btn'>申请退款</view>
+          <view catchtap='remind_order' wx:if='{{status==3 || status==4 || status==5 ||status==10||status==11||status==12||status==13||status==15}}' class='btn {{canReminder?"":"bg_gay"}}'> 催单 </view>
+          <view wx:if='{{status==5}}' bindtap='takeGoods' style='background-color:#fe6e78;color:#ffffff;border:none;' class='btn'>确认收货</view>
+        </view> 
+         <!-- 骑手 -->
+      <view wx:if='{{rider}}' class='shaw-box qishou'>
+        <view class='qishou-left'>
+          <icon>
+            <image  src='{{items.rider.img}}'></image>
+          </icon>
+        </view>
+        <view class='qishou-center'>
+          <view class='qi-title'>骑手：{{items.rider.nickname}}</view>
+          <view class='qi-text'>很满意:{{items.rider.satisfy_num}}次</view>
+        </view>
+        <view class='qishou-right'>
+          <!-- <icon bindtap='send'><image wx:if='{{imgUrl}}' src='{{imgUrl}}duanxin.png'></image></icon> -->
+          <icon data-num='1' style='margin-right:0;margin-left:85rpx;' bindtap='call_order'>
+            <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+          </icon>
+        </view>
+      </view>
+        <!--订单详情部分-->
+        <!--第一部分-->
+        <view class='shaw-box receipt-item2'>
+          <view class='item1'>
+            <view>
+              <view>
+                <image src='{{items.shop.logo}}'></image>
+              </view>
+            </view>
+            <view class='f-black'>{{items.shop.shop_name}}</view>
+            <view>
+              <!-- <view data-num='2' wx:if='{{status==3}}' bindtap='call_order'style="width:50rpx;height:50rpx;margin-right:20rpx" class='ipone_img'><image wx:if='{{imgUrl}}' src='{{imgUrl}}duanxin.png'></image>
+        </view> -->
+            </view>
+            <view>
+              <view data-num='2' bindtap='call_order' class='ipone_img'>
+                <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+              </view>
+            </view>
+          </view>
+          <!-- 商品列表 -->
+          <view wx:for='{{items.order_model.order_goods}}' wx:for-item='list' wx:key='{{index}}' class='item2'>
+            <span class='f_left'>{{list.goods.goods_name}}</span>
+            <i>x{{list.num}}</i>
+            <view class='f-gay1'>￥{{list.goods.goods_price}}</view>
+          </view>
+          <view class='item3'>
+            <view>餐盒费</view>
+            <i class="f-gay1">￥{{items.order_model.lunch_box_fee}}</i>
+          </view>
+          <view class='item3'>
+            <view>配送费</view>
+            <i class="f-gay1">￥{{items.order_model.distribution_fee}}</i>
+          </view>
+          <view wx:if='{{items.order_model.order_activity.activity.give_money>0 &&items.order_model.order_activity.activity.give_money!=""}}' class='item3'>
+            <view class='youhui'>
+              <view class='jian'>减</view>
+              <text class='f-black'>满减优惠</text>
+            </view>
+            <i class='f-red'>-￥{{items.order_model.order_activity.activity.give_money}}</i>
+          </view>
+          <view class='item3'>
+            <view class='f-black'>小计</view>
+            <i class='f-red'>￥{{items.order_model.total_fee}}</i>
+          </view>
+        </view>
+
+        <!--第二部分-->
+        <view class='shaw-box receipt-item3'>
+          <view class='item3'>
+            <span>期望时间</span>
+            <i wx:if='{{items.order_model.is_pro_order==0}}' class="f-gay1">立即送达</i>
+            <i wx:if='{{items.order_model.is_pro_order==1}}' class="f-gay1">{{items.order_model.expected_time}}</i>
+          </view>
+          <view class='item3'>
+            <span>收货地址</span>
+            <i class="f-black">
+              <view class="font"><view>{{items.address.address}} {{items.address.building_card}}</view>
+            {{items.address.name}}  {{items.address.phone}}</view>
+              <!-- <text class="f-black">{{items.address.address}}\n {{items.address.name}}{{items.address.phone}}</text> -->
+            </i>
+          </view>
+          <view class='item3'>
+            <span>配送方式</span>
+            <i class="f-gay1">由{{smName}}提供的配送服务</i>
+          </view>
+        </view>
+        <!--第三部分-->
+        <view class='shaw-box receipt-item4'>
+          <view class='item3'>
+            <span>订单号码</span>
+            <i class="f-gay1">{{items.order_num}}</i>
+          </view>
+          <view class='item3'>
+            <span>订单时间</span>
+            <i class="f-gay1">{{items.order_model.add_time}}</i>
+          </view>
+          <view class='item3'>
+            <span>支付方式</span>
+            <i class="f-gay1">在线支付</i>
+          </view>
+           <view class='item3'>
+            <span>备注</span>
+            <i class="f-gay1">{{items.order_model.remarks || "无"}}</i>
+          </view>
+        </view>
+      </view>
+    </view>
+
+<view wx:if='{{is_success}}' class='fix'>
+</view>
+<view wx:if='{{is_success}}' class='fix_center'>取消成功！</view>
+
+
+
+<cover-view class="modal-mask" bindtap="hideModal"  wx:if="{{showModal}}"></cover-view>
+<cover-view   class="modal-dialog" wx:if="{{showModal}}">
+  <cover-view class="modal-title">订单进程</cover-view>
+  <cover-view scroll-top='0' class="modal-content">
+    <cover-view class='modal-item' wx:for="{{timeList}}">
+      <cover-view class='time-line'>
+        <cover-view class='clr' wx:if="{{index<timeList.length-1}}"></cover-view>
+        <cover-view class='clr1' wx:if="{{index == timeList.length-1}}"></cover-view>
+      </cover-view>
+      <cover-view class='modal-iteml'>
+        <cover-view> {{item.content}}</cover-view>
+      </cover-view>
+      <cover-view class='modal-itemr'>{{item.add_time}}</cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view class='{{isIphoneX?"isIphoneX_btn":""}} modal-footer'>
+    <!-- <cover-view style='height:100%;line-height:110rpx;' data-status="cancel">关闭</cover-view> -->
+    <cover-image wx:if='{{!isIphoneX}}' bindtap="hideModal" class='close_jian' src='/image/close_all.png'></cover-image>
+    <cover-image wx:if='{{isIphoneX}}' bindtap="hideModal" class='close_jian' src='/image/close_all2.png'></cover-image>
+  </cover-view>
+</cover-view>
+</view>

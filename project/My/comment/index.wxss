@@ -1,0 +1,140 @@
+.comment_list{
+  margin-top: 20rpx;
+  box-shadow: 0px 0px 10px #ddd;
+}
+.list_head{
+  background-color: #ffffff;
+  display: flex;
+  vertical-align: center;
+  height: 100rpx;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.head_img{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.head_img image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.StoreName{
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  height:60rpx;
+  line-height: 60rpx;
+}
+.next_icon{
+  width: 14rpx;
+  height: 24rpx;
+  position: absolute;
+  right: 40rpx;
+}
+.next_icon image{
+  width: 14rpx;
+  height: 24rpx;
+}
+.list_body{
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  background-color:#FAFAFA;
+  overflow: auto;
+}
+.user_img{
+  width: 128rpx;
+  height: 128rpx;
+  float: left;
+  margin-top: 15rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user_img image{
+  width: 128rpx;
+  height: 128rpx;
+}
+.comment_body{
+  width: 580rpx;
+  float: left;
+  padding-left: 20rpx;
+  padding-bottom: 10rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  position: relative;
+}
+.grade{
+  margin-top: 14rpx;
+  font-size: 28rpx;
+}
+.grade image{
+  width: 35rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+.service_time{
+  display: inline-block;
+  padding-left: 20rpx;
+  color: #999;
+  font-size: 24rpx;
+  float: right;
+}
+.user_name{
+  width: 300rpx;
+  word-break: break-all;
+  color: rgb(102,102,102);
+}
+.user_comment{
+  margin-top: 14rpx;
+  width: 560rpx;
+  word-wrap:break-word;
+  font-size:28rpx;
+  color: rgb(102,102,102);
+}
+.Order_content{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(153,153,153);
+  width: 560rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.consumption_time{
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(153,153,153);
+}
+.list_footer{
+  clear: both;
+  background-color: #ffffff;
+  overflow: auto;
+  display: flex;
+  justify-content:flex-end;
+  vertical-align: center;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+}
+.operating:first-child{
+  margin-left:400rpx;
+}
+.operating{
+  font-size: 28rpx;
+}
+
+.operating image{
+  width: 35rpx;
+  height: 30rpx;
+}
+.operating:not(:first-child){
+  margin-left: 60rpx;
+}
+.order_revert{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  width: 550rpx;
+  word-break: break-all;
+}

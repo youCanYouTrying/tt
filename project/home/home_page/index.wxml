@@ -1,0 +1,255 @@
+<view class="container"  wx:if="{{!jump&&qubie}}" style='height:100%' catchtouchend="indexTouchEnd">
+  <view class='home'>
+    <view class='title'>
+      <view class='conta_title' style="{{scrollDown? 'display:none':'display:block'}}">
+        <view class='city' bindtap='naviGoto' data-url="/home/slectAddress/slectAddress">
+          <view class='jiedao' style='max-width:220rpx;overflow:hidden;white-space:nowrap;'>{{jiedao}}</view>
+          <view class='jiedaoimg' style="vertical-align:top;">
+            <image src='{{imgUrl}}city_xia.png'></image>
+          </view>
+        </view>
+      </view>
+      <!--搜索-->
+     <view bindtap='naviGoto' data-url="/home/search/search" class="home_search " style="{{scrollDown? 'top:0px; background-color:#fff;':''}}">
+      <view class='simage' style='background-image:url({{imgUrl}}search.png);'> </view>
+        <view class='input_text'>搜索商家名或者菜名</view>
+      </view>
+    </view>  
+
+    <!--内容部分-->
+    <view class='home_con'>
+      <scroll-view scroll-y="true" scroll-into-view="{{toView}}" style='height:100%;position:relative' bindscrolltolower="readMore" bindscroll="onScroll">
+        <!--banner-->
+        <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular>
+          <block wx:for="{{banners}}" wx:key="index">
+            <swiper-item>
+              <image bindtap="tapBanner" data-id="{{index}}" src="{{item.img_url}}" data-bannerurl = "{{item.url}}" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <!--分类导航-->
+        <swiper class="section icons" indicator-dots="true" autoplay="" interval="" duration="1000">
+          <swiper-item wx:for="{{icons}}" wx:for-item="list" wx:key="index">
+            <view catchtap='naviGoto' wx:for="{{list}}" wx:for-item="icon" wx:key="id" data-id="{{icon.type_id}}" data-url='/home/Worth_eating/index?text={{icon.menu_name}}&id={{icon.type_id}}'>
+              <view class="icon">
+                <image src="{{icon.icon}}" />
+                <text>{{icon.menu_name}}</text>
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>
+        <view class='shop-cart' catchtap='indexMove' style="background-image:url({{imgUrl}}shopCar.png)  ; {{shopCartShow? 'right:-35rpx;':''}}">
+            <!-- <image src='{{imgUrl}}shopCar.png'></image> -->
+            <view wx:if="{{cartNum>0}}"></view>
+          </view>
+        <!--专区-->
+        <view class="section section-big discount" wx:if="{{youhuiList.length>0}}">
+          <view class="title1">
+            <span class="title-left"></span>
+            <text>优惠专区</text>
+            <span class="title-right"></span>
+          </view>
+          <view class='discounts dis_left'>
+            <view catchtap='naviGoto' data-url='/home/Worth_eating/index?text=什么值得吃' style="width:100%;height:100%">
+              <image src='{{imgUrl}}left1.png'></image>
+            </view>
+          </view>
+          <view class='discounts dis_right'>
+            <view class='right1'>
+              <view class='right_img' catchtap='naviGoto' data-url='/home/Worth_eating/index?text=贴心满满'>
+                <image bindtap="toNearby" src='{{imgUrl}}right1.png'></image>
+              </view>
+              <view class='right_img' catchtap='naviGoto' data-url='/home/Worth_eating/index?text=单人套餐'>
+                <image bindtap="toNearby" src='{{imgUrl}}right2.png'></image>
+              </view>
+            </view>
+            <view class='right2'>
+              <view class='right_img' catchtap='naviGoto' data-url='/home/Worth_eating/index?text=品质美食'>
+                <image bindtap="toNearby" src='{{imgUrl}}right3.png'></image>
+              </view>
+              <view class='right_img' catchtap='naviGoto' data-url='/home/Worth_eating/index?text=贴心满满'>
+                <image bindtap="toNearby" src='{{imgUrl}}right4.png'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="section section-big preferred" wx:if="{{optimizationList.length>0}}">
+          <view class="title1">
+            <span class="title-left"></span>
+            <text>为你优选</text>
+            <span class="title-right"></span>
+          </view>
+          <view class='pre_news'>
+            <block wx:for="{{optimizationList}}" wx:key="index">
+              <view class='pre_new' bindtap="toNearby">
+                <view class='op_item' style='background-image:url({{item.img1}})'>
+                  <view class='op_box'>
+                    <image src='{{item.img2}}'></image>
+                    <view class='op_name'>{{item.name}}</view>
+                  </view>
+                  <view class='op_text'>{{item.text}}</view>
+                </view>
+                <!-- <view class='pre_img'>
+                 <image src='{{item.img1}}'></image> 
+              </view>
+              <view class='pre_name'>
+                <view class='prename_logo'>
+                  <image src='{{item.img2}}'></image>
+                </view>
+                <view class='pre_na'>{{item.name}}</view>
+              </view>
+              <view class='pre_span'>{{item.text}}</view> -->
+              </view>
+            </block>
+          </view>
+        </view>
+        <!-- 精选店铺 -->
+        <view class="section section-big special" style='{{carInfoData.length>0?"":"padding-bottom:100rpx"}}'>
+          <view class="title1">
+            <span class="title-left"></span>
+            <text>精选店铺</text>
+            <span class="title-right"></span>
+          </view>
+          <view class='special_con'>
+            <view class='special_item' catchtap='naviGoto' wx:for="{{ChoicenessList}}" wx:key="index" data-url='/home/business/index?id={{item.id}}'>
+              <view class='special_logo'>
+                <image src='{{item.logo}}'></image>
+              </view>
+              <view style='width:100%'>
+                <view  class='specl_name'>{{item.shop_name}}</view>
+              </view>
+              <view class='specl_sp'>
+                <text class='span'>{{item.flag}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="section section-big like" style="padding-bottom:50px;" wx:if="{{carInfoData.length>0}}">
+          <view class="title1" id='a'>
+            <span class="title-left"></span>
+            <text>附近商家</text>
+            <span class="title-right"></span>
+          </view>
+          <view class='section_title' bindtap='jumpTo' data-opt='a'>
+            <view class='title_span' bindtap='nearbyClick'>
+              <text class='{{class3}}'>{{nearbyText}}</text>
+              <image src='{{imgUrl}}jian_all.png'></image>
+            </view>
+            <view class='title_span' id='3' data-index='2' data-rule="desc" bindtap='serchChoice'>
+              <text class='{{class2}}'>销量最高</text>
+            </view>
+            <view class='title_span' id='2' data-index='1' data-rule="asc" bindtap='serchChoice'>
+              <text class='{{class1}}'>距离最短</text>
+            </view>
+          </view>
+          <view class='like_con'>
+            <view style="width:100%;heigth:100%;">
+              <!--第一个-->
+              <view catchtap='naviGoto' wx:for-items="{{carInfoData}}" wx:key="id" wx:for-index="findex" data-url='/home/business/index?id={{item.id}}&bid={{item.bid}}'>
+                <view class='result-con'>
+                  <view class='result-left'>
+                    <view>
+                      <image src='{{item.logo}}'></image>
+                    </view>
+                  </view>
+                  <!-- 右边部分 -->
+                  <view class='result-right'>
+                    <!-- 头部 -->
+                    <view class='result-head'>
+                      <view class='result-h3'>
+                        {{item.shop_name}}
+                      </view>
+                      <view class='result-time'>
+                        <view>
+                          <block wx:for="wxfor" wx:key='index' wx:for-index="in" wx:for-item="i">
+                            <view class='result-box'>
+                              <image data-index="{{in}}" src="{{imgUrl}}{{in<=item.num1-1?'xin_succes':'xin_error'}}.png"></image>
+                            </view>
+                          </block>
+                        </view>
+                        <view>
+                          <text>{{item.num}} </text>
+                          <text> 月售 {{item.monthly_sales || 0}}</text>
+                        </view>
+                        <view style='text-align:right'>
+                          <text>{{item.second}}</text> |
+                          <text>{{item.distance}}</text>
+                        </view>
+                      </view>
+                    </view>
+                    <!-- 起送价 -->
+                    <view class='result-item1'>
+                      <view class='item1-text'>
+                        <view class='con_song' wx:if="{{item.distribution_info == 0}}">
+                          <span>起送价￥{{item.start_price}}</span> |
+                          <span>配送费￥{{item.dis_money}}</span>
+                        </view>
+                        <view wx:else class='con_song'>
+                          <span>起送价￥{{item.site_start_money}}</span> |
+                          <span>配送费￥{{item.site_dis_money}}</span>
+                        </view>
+                      </view>
+                      <view class='item1-type f-black'>
+                        <view>
+                          <image src='{{imgUrl}}shopping.png'></image>
+                        </view>
+                        <view>{{item.shop_businesstype.typename}}</view>
+                      </view>
+                      <view class='youhui-box' id="{{findex}}" catchtap="toggleBtn">
+                        <view class='youhui-box-left'>
+                          <view wx:for="{{item.shop_activity}}" wx:for-item="sale" wx:key="index" class='{{item.ishow?"":"youhui"}}' hidden="{{index>=1&&!item.ishow}}">
+                            <view class='yhtype-box ' style='background-color:{{sale.typeColor}}'>{{sale.name}}</view>{{sale.str}}
+                          </view>
+                        </view>
+                        <view class='youhui-box-right' wx:if="{{item.shop_activity.length>1}}">
+                          <view class='youhui-jian'>
+                            <image wx:if="{{!item.ishow}}" src='{{imgUrl}}xia01.png'></image>
+                            <image wx:if="{{item.ishow}}" src='{{imgUrl}}shang01.png'></image>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-loadmore">
+            <view class="weui-loading" hidden='{{loadAll}}'></view>
+            <view class="weui-loadmore__tips">{{loadAll?'已加载全部':"正在加载"}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+
+<view class="modal-mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}" bindtap='modalClick'></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-content">
+    <view class='section_title'>
+      <view class='title_span'>
+        <view class='title_span' bindtap='nearbyClick' id='4'>
+          <text>{{nearbyText}}</text>
+          <image src='{{imgUrl}}jian_all.png' style='-moz-transform:rotate(-180deg); -webkit-transform:rotate(-180deg);'></image>
+        </view>
+        <block wx:for="{{pres}}" wx:key="index">
+          <view class='title_span' bindtap='click' data-id="{{index}}" style="{{index == id?'color:#ff4a4a;':''}}">
+          </view>
+        </block>
+      </view>
+      <view class='title_span' id='3' data-index='2' data-rule="monthly_sales" catchtap='serchChoice'>
+        <text>销量最高</text>
+      </view>
+      <view class='title_span' id='2' data-index='1' data-rule="distance" catchtap='serchChoice'>
+        <text>距离最短</text>
+      </view>
+    </view>
+    <view class='modal-list'>
+      <view wx:for="{{pres}}" id='{{item.id}}' wx:key="id" data-rule="{{item.rule}}" data-index='{{index}}' catchtap='serchChoice'>{{item.preX}}</view>
+    </view>
+
+  </view>
+</view>
+
+<web-view wx:if="{{jump && qubie}}" src="{{jump}}"></web-view>

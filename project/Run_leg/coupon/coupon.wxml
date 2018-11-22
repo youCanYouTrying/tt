@@ -1,0 +1,50 @@
+<view class='container'>
+  <view class='item'>
+    <view class='header'>
+      <text>可用优惠券</text>
+    </view>
+    <view class='box' wx:for="{{items}}">
+      <view class='back-img'>
+      <image src='{{imgUrl}}redpacket.png'></image>
+      </view>
+      <view class='left'>
+        <view class='img'>
+          <image src='{{item.img}}'></image>
+        </view>
+      </view>
+      <view class='center'>
+        <view class='title'>{{item.name}}</view>
+        <view class='btn'>{{item.biaoji}}</view>
+        <view class='time'>有效期至{{item.time}}</view>
+      </view>
+      <view class='right'>
+        <view class='money'>￥<text>{{item.minusprice}}</text></view>
+        <view class='text'>满{{item.allprice}}使用</view>
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='header'>
+      <text>不可用优惠券</text>
+    </view>
+    <view class='box' wx:for="{{items}}">
+      <view class='back-img'>
+      <image src='{{imgUrl}}redpacket1.png'></image>
+      </view>
+      <view class='left'>
+        <view class='img'>
+          <image src='{{item.img}}'></image>
+        </view>
+      </view>
+      <view class='center'>
+        <view class='title'>{{item.name}}</view>
+        <view class='btn'>{{item.biaoji}}</view>
+        <view class='time'>有效期至{{item.time}}</view>
+      </view>
+      <view class='right'>
+        <view class='money'>￥<text>{{item.minusprice}}</text></view>
+        <view class='text'>满{{item.allprice}}使用</view>
+      </view>
+    </view>
+  </view>
+</view>

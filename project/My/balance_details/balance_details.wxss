@@ -1,0 +1,86 @@
+.container{
+  width: 100%;
+  padding-bottom: 100rpx;
+  height: 100%;
+}
+.tab_title{
+  background-color: #ffffff;
+  width: 100%;
+  height: 100rpx;
+  font-size: 32rpx;
+  display: flex;
+  vertical-align: center;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid#ddd;
+}
+.tablist{
+  width: 120rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+ 
+  text-align: center;
+  box-sizing: border-box;
+}
+.tablist{
+  margin-left: 130rpx;
+}
+.tablist:first-child{
+  margin-left: 63rpx;
+}
+a
+.tablist:first-child{
+  margin-left: 63rpx;
+}
+.active{
+ border-bottom: 6rpx solid#fe6e78;
+}
+.balance_group{
+  width: 100%;
+  overflow: auto;
+}
+.balance_list{
+  width: 100%;
+  height: 140rpx;
+  display: flex;
+  vertical-align: center;
+  background-color: #ffffff;
+  border-bottom: 2rpx solid#ddd;
+}
+.list_left{
+  width:50%;
+  height: 140rpx;
+  padding: 20rpx 0rpx 40rpx 40rpx;
+  box-sizing: border-box;
+}
+.list_right{
+  width: 50%;
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: right;
+  padding-right: 80rpx;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.list_left .title{
+  font-size: 34rpx;
+}
+
+.list_left .time{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.list_right .icon image{
+  display: inline-block;
+  position: absolute;
+  top: 60rpx;
+  right: 40rpx;
+  width: 14rpx;
+  height: 24rpx;
+  z-index: 66;
+}
+.f-red{
+  color: #ff7d3a;
+}

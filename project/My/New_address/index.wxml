@@ -1,0 +1,47 @@
+<view class='container'>
+<view class='address'>
+    <!--姓名-->
+    <view class='address_name'>
+        <view class='name'>姓名：</view>
+        <view class='name_input'>
+          <input class='input' placeholder='请填写姓名'></input>
+        </view>
+    </view>
+    <!--姓别-->
+    <view class='address_sex'>
+        <view class='sex_span'><span bindtap="sex1" style="background:{{color1}};border:{{border1}}">先生</span>
+        <span bindtap="sex2" style="background:{{color2}};border:{{border2}}">女士</span></view>
+    </view>
+    <!--电话-->
+    <view class='address_phone'>
+        <view class='phone'>电话：</view>
+        <view class='phone_input'><input class='input' placeholder='请填写电话'></input></view>
+    </view>
+    <!--地址-->
+    <view class='addre'>
+        <view bindtap='chooseLocation'>
+            <view class='add'>地址：</view>
+            <view class='add_shu'>{{map}}</view>
+            <view class='add_xuan'><image src='{{imgUrl}}addres_you.png'></image></view>
+        </view>
+    </view>
+    <!--楼牌号-->
+    <view class='Building'>
+        <view class='Buildins'>楼牌号：</view>
+        <view class='build_input'><input class='input' placeholder='请输入楼牌号，如:16楼12室'></input></view>
+    </view>
+    <!--标签-->
+    <view class='Label'>
+        <view class='Labels'>标签</view>
+        <view class='Labels_span'>
+            <span bindtap="Label1" style="background:{{la_color1}};border:{{la_border1}}">公司</span>
+            <span bindtap="Label2" style="background:{{la_color2}};border:{{la_border2}}">家</span>
+            <span bindtap="Label3" style="background:{{la_color3}};border:{{la_border3}}">学校</span>
+        </view>
+    </view>
+    
+</view>
+<!--保存-->
+    <view class='Preservation'><navigator class='sub'>保存</navigator></view>
+
+</view>

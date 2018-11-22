@@ -1,0 +1,38 @@
+.recharge_panel{
+  background-color: #fff;
+  padding: 20px 20px;
+}
+.input_group{
+  width: 100%;
+  overflow: auto;
+  margin-top: 26px;
+}
+.title{
+  font-size: 14px;
+  color: #999;
+}
+.icon{
+  margin-top: 22px;
+  width: 10%;
+  float: left;
+  font-size: 24px;
+  text-align: center;
+}
+.number{
+  width: 80%;
+  float: left;
+}
+.number input{
+  height: 60px;
+  display: inline-block;
+  font-size: 30px;
+  caret-color: rgb(254,110,120);
+}
+.btn{
+  width: 95%;
+  margin: 30px auto;
+}
+.btn button{
+  background-color: rgb(254,110,120);
+  color: white;
+}

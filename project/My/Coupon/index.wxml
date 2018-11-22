@@ -1,0 +1,95 @@
+<!--Run_leg/run_leg/index.wxml-->
+<view class='container'>
+  <loading hidden='{{isOk}}'>
+    加载中...
+  </loading>
+  <view class='coupon'>
+    <!--优惠券-->
+    <view class="top-table">
+      <view class="scroll-view_table" scroll-x="true" scroll-left="{{scrollLeft}}">
+        <block wx:for="{{topTable}}" wx:key="{{id}}" wx:for-item="table">
+          <view id="{{table.id}}" class="table-coll {{currentTabId==table.id?'selected':''}}" data-index="{{index}}" bindtap="tableTap">
+            {{table.name}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <!--搜索部分-->
+    <!-- <view class='search'><view class='search_img'><image wx:if='{{imgUrl}}' src='{{imgUrl}}search.png'></image></view><input class='input' placeholder='搜索商家名'></input></view> -->
+    <!--内容部分-->
+    <swiper class="table-swiper" current="{{currentTabSwiperIndex}}" duration="300" bindchange="onSwiper" style="height:{{winHeight+'px'}}">
+      <block wx:key="id" wx:for-item="table">
+        <!--优惠券-->
+        <swiper-item>
+          <scroll-view scroll-y>
+            <view class='soupon_item' wx:for='{{couponList}}' wx:key='index'>
+              <view class='coupon_con' style='background-image:url({{imgUrl}}coupon.png)'>
+                <view class='coupon_left'>
+                  <view class='item_img'>
+                    <image wx:if='{{item.shop.logo}}' src='{{item.shop.logo}}'></image>
+                  </view>
+                </view>
+                <view class='center'>
+                  <view class='item_name'>{{item.shop.shop_name}}</view>
+                  <view class='coupon_juan'>
+                    <span>优惠券</span>
+                  </view>
+                  <view class='coupon_time'>有效期至{{item.end_time}}</view>
+                </view>
+                <view class='coupon_right'>
+                  <view class='right_price'>
+                    <span>￥</span>{{item.money}}</view>
+                  <view class='right_remak'>满{{item.condition}}使用</view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+          <view class='nothing' wx:if='{{couponList.length==0}}'>
+            <view class='nothing-logo'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}noPage.png'> </image>
+            </view>
+            <view class='nothing-title'>你当前没有优惠券哦~</view>
+          </view>
+        </swiper-item>
+        <!--红包-->
+        <swiper-item>
+          <scroll-view scroll-y='true'>
+            <view class='soupon_item' wx:for='{{redPacket}}' wx:key="index">
+              <!-- <image wx:if='{{imgUrl}}' src='{{imgUrl}}coupon.png' class='coupon_bg'></image> -->
+              <!-- 过期遮罩 -->
+              <!-- <view class='past_shade'>
+                <view class='past_text'>已过期</view>
+              </view> -->
+              <view class='coupon_con' style='background-image:url({{imgUrl}}coupon.png)'>
+                <view class='t_left'>
+                  <view class='reduce_money'>
+                    <span class='redu_icon'>￥</span>{{item.money}}
+                    <view class='redu_condition'>满{{item.condition}}可用</view>
+                  </view>
+                </view>
+                <view class='t_center'>
+                  <view class='redu_title'>{{item.name}}</view>
+                  <view class='redu_time'>有效期至{{item.end_time}}</view>
+                  <!-- <view class='redu_time'>限制品：果蔬生鲜</view> -->
+                  <view class='redu_time'>{{item.shop?("仅限"+item.shop.shop_name+"使用"):"全平台使用"}}</view>
+                </view>
+                <view class='t-right'>
+                  <view wx:if='{{item.user_had!=null}}' bindtap='goShop' id='{{item.shop_id}}' class='redu_btn'>去使用</view>
+                  <view wx:if='{{item.user_had==null}}' bindtap='getRedpack' id='{{item.id}}' class='redu_btn2'>立即领取</view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+          <view class='nothing' wx:if='{{redPacket.length==0}}'>
+            <view class='nothing-logo'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}noPage.png'> </image>
+            </view>
+            <view class='nothing-title'>你当前没有红包哦~</view>
+          </view>
+        </swiper-item>
+      </block>
+
+    </swiper>
+  </view>
+
+</view>

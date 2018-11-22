@@ -1,0 +1,87 @@
+<!--My/Bring_out/index.wxml-->
+<view class='container'>
+  <view class='bring' style='background-color:#fff'>
+    <!-- <view class='worth_img'>
+        <image src='{{imgUrl}}worth.png'></image>
+    </view> -->
+    <!--内容部分-->
+    <view class='delicious'>
+      <!-- 商品内容 -->
+      <view class='like_con'>
+        <view style="width:100%;heigth:100%;" class='nearby_con'>
+          <!--第一个  url='/home/business/index?id={{item.id}}&bid={{item.bid}}'-->
+          <navigator wx:for-items="{{carInfoData}}" hover-class="none" wx:key="findex" wx:for-index="findex"  url='/home/business/index?id={{item.id}}&bid={{item.bid}}'>
+            <view class='result-con' style='padding:10px;box-sizing:border-box;'>
+              <view class='result-left'>
+                <view>
+                  <image src='{{item.logo}}'></image>
+                </view>
+              </view>
+              <!-- 右边部分 -->
+              <view class='result-right'>
+                <!-- 头部 -->
+                <view class='result-head'>
+                  <view class='result-h3'>
+                      {{item.shop_name}}
+                  </view>
+                  <view class='result-time'>
+                    <view style='width:auto'>
+                     {{item.second}}送达
+                    </view>
+                  </view>
+                </view>
+                <!-- 起送价 -->
+                <view class='result-item1'>
+                  <view class='item1-text'>
+                    <view class='con_song' wx:if="{{item.distribution_info == 0}}">
+                      <span>起送价￥{{item.start_price}}</span> |
+                      <span>配送费￥{{item.dis_money}}</span>
+                    </view>
+                    <view wx:else class='con_song' >
+                      <span>起送价￥{{item.site_start_money}}</span> |
+                      <span>配送费￥{{item.site_dis_money}}</span>
+                    </view>
+                 
+                  </view>
+                  <view class='item1-type'>
+                    <view>{{item.shop_businesstype.typename}}</view>
+                  </view>
+                  <view class='youhui-box'  data-findex="{{findex}}" catchtap="youhuiShow" >
+
+                  <view class='youhui-box-left'>
+                      <view wx:for="{{item.on_sale}}" wx:for-item="sale" wx:key="index" class='{{item.ishow?"":"youhui"}}' wx:if="{{index<1 || item.ishow}}">
+                        <view class='yhtype-box ' style='background-color:{{sale.dis_class =="discoun"?"#FB4345":"#3cafff"}}'>{{sale.dis_jian}}</view>{{sale.dis_con}}</view>
+                    </view>
+                    <!-- <view class='youhui-box-left'>
+                      <block wx:for="{{item.on_sale}}" wx:for-item="youhui" wx:if='{{index<1 || item.ishow}}' >
+
+                          <view class='yhtype-box '>{{youhui.dis_jian}}</view>{{youhui.dis_jian}}
+
+                        <view class='item2-box'  >
+                          <view>
+                            <view class='{{youhui.dis_class}}'>{{youhui.dis_jian}}</view>
+                          </view>
+                          <view class='{{item.ishow?"":"youhui-dis"}}' >{{youhui.dis_con}}</view>
+                        </view>
+                      </block>
+                    </view> -->
+                    <view class='youhui-box-right' wx:if="{{item.on_sale.length>0}}" >
+                      <view class='youhui-jian'>
+                        <image wx:if="{{!item.ishow}}" src='{{imgUrl}}xia01.png'></image>
+                        <image wx:if="{{item.ishow}}" src='{{imgUrl}}shang01.png'></image>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+          <view class="weui-loadmore" >
+            <view class="weui-loading" hidden='{{loadAll}}'></view>
+            <view class="weui-loadmore__tips">{{loadAll?'已加载全部':"正在加载"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

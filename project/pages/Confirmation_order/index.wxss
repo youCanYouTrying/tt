@@ -1,0 +1,458 @@
+.container{
+  width: 100%;
+  background-color: #f5f5f5;
+  margin-bottom: 100rpx;
+}
+.container-hide{
+   height:100%;
+   overflow:hidden;
+   margin-bottom: 0
+}
+.Extraction{
+  width: 50px;
+  border-radius: 10px;
+  position: absolute;
+  top: 3px;
+  right: 15px;
+  font-size: 13px;
+  text-align: center;
+  background: #fd6e78;
+  z-index: 6;
+}
+scroll-view{
+  width: 100%;
+  box-sizing: border-box;
+}
+.address{
+  margin: 15rpx 20rpx;
+  border-radius:4rpx;
+  box-shadow:0px 0px 5px 0px rgba(62, 62, 62, 0.12);
+  padding-bottom:13rpx;
+  background: #fff;
+}
+.address .address_dian{
+  width: 100%;
+  padding: 38rpx 23rpx 0 23rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.addres-right{
+  border-bottom:1rpx solid #e6e6e6;
+}
+.address_dian>navigator{
+  margin:0 auto;
+  width:50%;
+  text-align:center;
+}
+.address .address_dian .address_img{
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  top: 22px;
+  left: 5px;
+}
+.address .address_dian .address_img>image{
+  width: 18px;
+  height: 18px;
+}
+.address .address_dian .address_name{
+  width: 100%;
+  padding-left: 22px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding-right: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 26px;
+}
+.address .address_dian .address_name span{
+  font-size: 12px;
+  color: #666;
+}
+.address .address_dian .address_name span i{
+  color: #ff5252;
+}
+.address .address_dian .address_na{
+  width: 100%;
+  padding-left: 22px;
+  box-sizing: border-box;
+  font-size: 13px;
+  color: #999;
+  padding-right: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 20rpx
+}
+.address_jian{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 37rpx;
+  width: 10rpx;
+  height: 20rpx;
+}
+.address_jian image{
+  width: 100%;
+  height: 100%;
+
+}
+
+/*订单信息*/
+.order_news{
+  font-size: 28rpx;
+  background: #fff;
+  margin-bottom: 15px;
+  margin: 0 20rpx;
+  box-sizing: border-box;
+  box-shadow:0px 0px 5px 0px rgba(62, 62, 62, 0.12)
+}
+.order_name{
+  width: 100%;
+  height: 94rpx;
+  padding-left: 23rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center
+}
+.wode-img{
+  flex: none;
+  width: 27rpx;
+  height:26rpx;
+}
+/* .order_name>view{
+  flex: auto;
+} */
+.order_name>.order_img{
+  flex: none;
+  width: 27rpx;
+  height:26rpx;
+}
+.order_img>image{
+  width: 100%;
+  height: 100%;
+}
+.order_news>.order_name>.or_name{
+  flex: 1;
+  height:50rpx;
+  padding-left: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 32rpx;
+  color: #4d4d4d;
+  /* line-height: 55rpx; */
+}
+.or_peisong{
+  font-size:16rpx;
+  padding-right: 38rpx;
+}
+.or_peisong>view{
+  border:1px solid #333;
+  padding:2rpx 12rpx 3rpx 12rpx;
+}
+/*订单信息内容*/
+.order_news .confir_new{
+  box-sizing: border-box;
+  padding: 30rpx 0rpx 14rpx  0rpx ;
+  margin-left: 86rpx;
+  margin-right: 37rpx;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.order_news .confir_new .confir_item{
+  width: 100%;
+  margin-bottom: 30rpx;
+  display: flex;
+  color: #666;
+  align-items: flex-start;
+
+}
+.confir_repeat{
+  text-align: right;
+  position: relative
+}
+.confir_repeat .num1{
+  font-size: 28rpx;
+  position: absolute;
+  bottom: 0
+}
+.num1>text{
+  color: #666;
+  font-size: 20rpx;
+}
+.confir_item>view{
+  flex: auto;
+  line-height: 1em
+}
+.lookMore{
+  text-align: center
+}
+.lookMore>view{
+  width: 146rpx;
+  text-align: center;
+  display: inline-block;
+  border:1px solid #cccccc;
+  color: #666;
+  padding:5rpx 0;
+  font-size:24rpx;
+  margin: 0 auto
+}
+.lookMore image{
+  width: 6px;
+  height: 10px;
+  margin-left: 4rpx;
+}
+.img-up{
+  -moz-transform:rotate(-90deg); -webkit-transform:rotate(-90deg);
+}
+.img-down{
+  -moz-transform:rotate(90deg); -webkit-transform:rotate(90deg);
+}
+.margint55{
+  margin-top: 55rpx;
+}
+.confir_name{
+  text-align: left;
+  width: calc(100% - 600rpx);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333
+}
+.confir_new .confir-money{
+  text-align: right;
+  width: 100rpx;
+}
+.confir_jian{
+    width: 10rpx;
+    height: 20rpx;
+    display: inline-block;
+    margin-left: 18rpx;
+}
+.confir_jian image{
+    width: 100%;
+    height: 100%
+}
+.sum{
+   width: 100%;
+   padding-left: 64rpx;
+   margin-top: 20rpx;
+   box-sizing: border-box;
+   padding-bottom: 40rpx;
+ } 
+ .sum span{
+   color: #fd6e78;
+   font-size: 40rpx;
+   line-height: 10rpx;
+   vertical-align: middle
+ }
+
+ /*支付方式*/
+ 
+
+ .Remarks{
+   margin-top: 22rpx;
+   margin-bottom:130rpx; 
+   /* padding: 20rpx 0; */
+   margin-left: 20rpx;
+   margin-right:20rpx;
+   box-sizing: border-box;
+   border-radius:4rpx;
+   box-shadow:0px 0px 5px 0px rgba(62, 62, 62, 0.12)
+ }
+.Remarks .Remarked{
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0rpx 48rpx 0 27rpx;
+  position: relative    
+}
+.Remarks .Remarked .reark_img{
+    float: left;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+.Remarks .Remarked .reark_img image{
+  width: 100%;
+  height: 100%;
+}
+.Remarks .Remarked .remark_title{
+  box-sizing: border-box;
+  padding: 40rpx 0rpx 40rpx 0; 
+  font-size: 16px;
+  color: #4d4d4d;
+  margin-left:60rpx; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-bottom: 1px solid #f0f0f0;
+}
+.Remarks .Remarked .confir_jian{
+  float: right
+}
+.text-dvi{
+  min-height: 80rpx;
+  font-size:16px;
+  color:#4d4d4d;
+  margin-left:60rpx;
+  border-bottom:1px solid #f0f0f0;
+}
+.text-dvi>textarea{
+  height: 80rpx;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+.sub_confir{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 110rpx;
+  z-index: 9999
+}
+.sub_confir .confir_sub{
+  width: 100%;
+  height: 100%;
+  background: #fd6e78;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  line-height: 100rpx;
+}
+/*支付方式选择*/
+.more_men{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px 15px;
+  box-sizing:  border-box;
+}
+.more_men .check_men{
+    width: 80%;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+}
+.more_men .check_men .men{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+.more_men .check_men .men:last-of-type{
+  border: none;
+}
+/*配送时间选择*/
+.time-detail, .time-detail>.mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.time-detail>.mask {
+	background: rgba(0,0,0,0.5);
+}
+.list-content{
+  position: absolute;
+  bottom: 98rpx;
+  height: 594rpx;
+  width: 100vw;
+  display: flex;
+  background-color: #fff;
+  font-size: 30rpx;
+}
+.time-left{
+  width: 250rpx;
+  height: 100%;
+}
+.time-left>.time-class{
+  height: 49px;
+  background-color: #efefef;
+	border-bottom: solid 1px #e7e7e7;
+  line-height: 50px;
+  text-align: center;
+}
+.time-left>.tiem-active{
+  background-color: #fff;
+}
+.time-right{
+  flex: 1;
+  height: 50px;
+  line-height: 50px;
+}
+.time-right view{
+  padding-left: 60rpx;
+}
+.list-footer{
+  position: fixed;
+  bottom: 0;
+  height: 98rpx;
+  width: 100%;
+  background-color: #fff;
+  line-height: 98rpx;
+  font-size: 32rpx;
+  z-index: 2;
+  border-top: 1rpx solid #e5e5e5;
+  text-align: center
+}
+.youhui-con{
+  display:block;
+  box-sizing:border-box;
+  height: auto;
+  border:none;
+}
+.youhui-head{
+  padding: 28rpx 20rpx;
+  font-size: 32rpx;
+}
+.youhui-item{
+  font-size: 30rpx;
+}
+.youhui-list{
+  padding: 40rpx 20rpx;
+  border-bottom: 1rpx solid #fd6e78;
+  display: flex;
+  position: relative;
+  align-items: center
+}
+.list-model{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: #eeeeee75
+}
+.youhui-left{
+  flex: 1;
+}
+.youhui-right{
+  width: 46rpx;
+  height: 46rpx;
+}
+.youhui-right>image{
+  width: 100%;
+  height: 100%;
+}
+.youhui-btn{
+  color: #fd6e78;
+}
+
+.timeActive{
+  background-color:#f5f5f5;
+}

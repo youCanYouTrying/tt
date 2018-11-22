@@ -1,0 +1,25 @@
+<view class="container">
+  <view class='cooperation'>
+      <!--第一个商家入驻-->
+      <view class='Admission'>
+            <view class='admisson'>
+                <view class='admiss_img'><image wx:if='{{imgUrl}}' src='{{imgUrl}}ruzhu.png'></image></view>
+                  商家入驻
+            </view>
+            <navigator class='Shop' url='/My/Merchant_entry/index'>申请开店</navigator>
+      </view>
+      <!--第二个城市代理-->
+      <view class='agent'>
+            <view class='agents'>
+                <view class='agent_img'><image wx:if='{{imgUrl}}' src='{{imgUrl}}diali.png'></image></view>
+                  城市代理
+            </view>
+            <navigator url='/My/City_agent/City_agent' class='Shop'>立即申请</navigator>
+      </view>
+
+  <!--分享-->
+  <view   class='{{isIphoneX?"isIphoneX_btn":""}} share'><button class='{{isIphoneX?"isIphoneX_btn":""}}' open-type='share'>分享</button></view>
+
+
+  </view>
+</view>

@@ -1,0 +1,96 @@
+<!--Nearby/nearby/index.wxml-->
+<view class='container'>
+ 
+<view class='nearby'>
+<!--背景地图-->
+<view class='nearby_map'>
+  <!--图片-->
+  <view class='nearby_img'>
+    <image src='../../image/nearby.png'></image>
+    <view class='nearby_name'>
+      <view class='nearby_adress'>我在<p>西部商城</p></view>
+      <view class='nearby_shang'>附近有111位商家</view>
+      <view class='nearby_img'>
+        <image src='../../image/jiantouxia.png' class='san'></image>
+        <image src='../../image/nearby_img.png' class='yuan'></image>
+      </view>
+  </view>
+  </view>
+</view>
+
+
+
+  <!--选择-->
+  <view class='nearby_num'>
+     <scroll-view class="tab-scoller " scroll-x="true"  scroll-left="{{scrollLength}}">
+      <block wx:for="{{listTab}}" wx:key="code">
+            <view class="tab-view" data-index="{{index}}" id="{{item.code}}" bindtap="reflashData">
+                  <text class="tab-text active" wx:if="{{index == curIndex}}">{{item.text}}</text>
+                  <text class="tab-text" wx:else>{{item.text}}</text>
+
+            </view>
+      </block>
+  </scroll-view>
+  </view>
+  <!--搜索-->
+  <view class='search'>
+    <view class='sear_input'>
+        <view class='search_input'>
+      <input class='input' placeholder='在附近查找'></input>
+    </view>
+    <navigator class='search_sub'>搜索</navigator>
+    </view>
+  </view>
+  <!--选择内容-->
+  <view style="width:100%;heigth:100%;" class='nearby_con'>
+  <!--第一个-->
+  <block wx:for-items="{{carInfoData}}">
+      <view class='nearby_item'>
+      <navigator>
+            <view class='nearby_left'>
+              <image src='{{item.imgurl}}'></image>
+            </view>
+            <!--内容-->
+            <view class='nearby_right'>
+                  <view class='ciontent_name'>{{item.name}}</view>
+                  <view class='con_time'>{{item.time}}</view>
+                  <view class='con_song'><span>{{item.take}}</span> | <span>{{item.ibution}}</span></view>
+                  <view class='con_span'>
+
+                  <span class='span' wx:for-items="{{item.span}}">{{item.spanname}}</span>
+
+                  <!-- <span class='span'>镇店</span><span class='span'>套餐</span> -->
+                  </view>
+                  <view class='Discount' bindtap='toggleBtn' id="{{item.id}}" >
+                      <view class='{{item.class}}'>{{item.jian}}</view>
+                       <view class='dis_con'>{{item.jiancon}}</view>
+                      <view class='dis_jian'><image src='{{item.jian_img}}'></image></view>
+                  </view>
+            </view>
+        </navigator>
+
+            <!--优惠-->
+        <view class='discon {{uhide==item.id?"":"hidden"}}'>
+              <view class='discon_con'>
+                   <view class='content'>
+                        <!--减-->
+                  <view class='Discount' wx:for-items="{{item.Discount}}">
+                            <view class='{{item.dis_class}}'>{{item.dis_jian}}</view>
+                            <view class='dis_con'>{{item.dis_con}}</view>
+                  </view>
+                   </view>
+              </view>
+        </view>
+
+</view>
+</block>
+      </view>
+
+
+
+
+
+
+
+</view>
+</view>

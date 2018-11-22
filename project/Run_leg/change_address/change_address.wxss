@@ -1,0 +1,223 @@
+page{
+  border-top: 2rpx solid #e6e6e6;
+   height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.address{
+  margin-top: 20rpx;
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: white;
+ 
+}
+/*姓名*/
+.address .address_name{
+    width: 100%;
+    height: 90rpx;
+    position: relative;
+}
+.address .address_name .name{
+    position: absolute;
+    top: 50%;
+    left: 14rpx;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 32rpx;
+}
+.address .address_name .name_input{
+  width: 100%;
+  padding-left: 110rpx;
+  box-sizing: border-box;
+}
+.address .address_name .name_input .input{
+  width: 100%;
+  height: 90rpx;
+  font-size: 28rpx;
+  color: #999;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+/*姓别*/
+.address .address_sex{
+    width: 100%;
+    height: 90rpx;
+    padding-top:18rpx;
+    box-sizing: border-box;
+}
+.address .address_sex .sex_span{
+  width: 100%;
+  padding-left: 110rpx;
+  box-sizing: border-box;
+}
+.address .address_sex .sex_span span{
+  width: 114rpx;
+  height: 42rpx;
+  text-align: center;
+  display: inline-block;
+  background: #f5f5f5;
+  border: 2rpx solid #e6e6e6;
+  font-size: 28rpx;
+  margin: 0rpx 20rpx;
+  color: #4d4d4d;
+  border-radius: 6rpx;
+}
+/*电话*/
+.address .address_phone{
+    width: 100%;
+    height: 90rpx;
+    position: relative;
+}
+.address .address_phone .phone{
+    position: absolute;
+    top: 50%;
+    left: 14rpx;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 32rpx;
+}
+.address .address_phone .phone_input{
+  width: 100%;
+  padding-left: 110rpx;
+  box-sizing: border-box;
+}
+.address .address_phone .phone_input .input{
+  width: 100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #999;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+/*地址*/
+.address .addre{
+    width: 100%;
+    height: 100rpx;
+    position: relative;
+}
+.address .addre .add{
+    position: absolute;
+    top: 50%;
+    left: 14rpx;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 32rpx;
+}
+.address .addre .add_shu{
+  width: 100%;
+  padding-left: 130rpx;
+  box-sizing: border-box;
+  height: 100rpx;
+  font-size: 28rpx;
+  line-height: 100rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 50rpx;
+}
+.address .addre .add_xuan{
+  width: 15rpx;
+  height: 28rpx;
+}
+.address .addre .add_xuan image{
+  width: 15rpx;
+  height: 28rpx;
+  position: absolute;
+  top: 50%;
+  right: 20rpx;
+  transform: translateY(-50%);
+}
+/*楼牌号*/
+.address .Building{
+    width: 100%;
+    height: 100rpx;
+    position: relative;
+}
+.address .Building .Buildins{
+    position: absolute;
+    top: 50%;
+    left: 14rpx;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 32rpx;
+}
+.address .Building .build_input{
+  width: 100%;
+  padding-left: 120rpx;
+  box-sizing: border-box;
+}
+.address .Building .build_input .input{
+  width: 100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #999;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+/*标签*/
+.address .Label{
+    width: 100%;
+    height: 100rpx;
+    position: relative;
+}
+.address .Label .Labels{
+    position: absolute;
+    top: 50%;
+    left: 14rpx;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 32rpx;
+}
+.address .Label .Labels_span{
+  width: 100%;
+  padding-left: 110rpx;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.address .Label .Labels_span span{
+  display: inline-block;
+  width: 100rpx;
+  height: 42rpx;
+  background: #f5f5f5;
+  border: 1px solid #e6e6e6;
+  font-size: 28rpx;
+  margin: 0rpx 20rpx;
+  color: #4d4d4d;
+  text-align: center;
+  line-height: 42rpx;
+  border-radius: 6rpx;
+}
+.Preservation{
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 100rpx;
+  border-top: 1px solid #ebebeb;
+  background: white;
+  line-height: 100rpx;
+}
+.Preservation .sub{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #666;
+}
+.add_shu input{
+  margin-top: 26rpx;
+}
+.red{
+  background-color: #f6ebeb !important;
+  border: 1rpx solid#F9DEDF !important;
+}
+.gayd{
+  background-color: #000;
+}
+.red{
+  background-color: darkgoldenrod;
+}

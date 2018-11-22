@@ -1,0 +1,81 @@
+<view class="container font">
+  <view class='item1 shaw-box '>
+    <view class='text f-gay1'>退款原因</view>
+    <view class='change' bindtap='showDialogBtn'>
+      <view>{{clickItem || '点击选择退款原因(必选)'}}</view>
+      <view>
+        <image wx:if='{{imgUrl}}' src='{{imgUrl}}city_xia.png'></image>
+      </view>
+    </view>
+    <view>
+      <textarea placeholder='请描述退款原因（选填）' bindinput='other_reason' class='textarea'></textarea>
+    </view>
+    <view class='img-people'>
+      <view class='img-file' bindtap="chooseimage">
+        <image wx:if='{{imgUrl}}' src='{{imgUrl}}Photo.png'></image>
+      </view>
+      <view class='img-file img-files' wx:if="{{imggeShow}}">
+        <image src='{{tempFilePaths}}'></image>
+      </view>
+      <view class='img-text' wx:if="{{!imggeShow}}">上传图片</view>
+    </view>
+  </view>
+  <view class='shaw-box'>
+    <view class='text f-gay1'>退款账户</view>
+    <view class='change'>退回到原支付账户</view>
+  </view>
+  <!--退款商品 -->
+  <view class='shaw-box' style='margin-bottom:80px'>
+    <view class='text f-gay1'>退款商品</view>
+    <!-- 商品循环 -->
+    <view class='list' wx:for="{{goodslist}}" catchtap='rufund' id='{{item.selected}}' data-goodsid='{{item.order_goods_id}}' data-channum='{{item.status}}' wx:if="{{index<3 || allShow}}">
+      <view class='list-l'>
+        <view>{{item.goods_name}}</view>
+        <view>X{{item.num}}</view>
+      </view>
+      <view wx:if='{{item.num>1}}' class='goods_num'>
+        <!-- 减 -->
+        <span catchtap='jian_num'  data-goodsID='{{item.order_goods_id}}'  data-chanNum='{{item.status}}' class='Count Count1'>-</span>
+        <span class='Count'>{{item.status}}</span>
+        <!-- 加 -->
+        <span catchtap='jia_num'  data-num='{{item.num}}' data-goodsID='{{item.order_goods_id}}' data-chanNum='{{item.status}}' class='Count Count1'>+</span>
+      </view>
+      <view class='list-r'>
+        <icon class='icon_none' wx:if="{{item.selected==0}}"></icon>
+        <icon type='success' color="#f7636d" wx:if="{{item.selected!=0}}"></icon>
+      </view>
+    </view>
+    <!--结束-->
+    <view class='lookmore' wx:if="{{goodslist.length>3 && !allShow}}" catchtap="lookmore">
+      查看更多
+      <image wx:if='{{imgUrl}}' src='{{imgUrl}}city_xia.png'></image>
+    </view>
+    <view class='lookmore' wx:if="{{allShow}}" catchtap="foldList">
+      点击收起
+      <image wx:if='{{imgUrl}}' src=''></image>
+    </view>
+    <view class='money'>
+      <!-- <view vx:if="{{has_distribution_fee}}">配送费：
+        <text>￥{{distribution_fee}}</text>
+      </view> -->
+      <view style='margin-top:10rpx;'>退款金额：
+        <text>￥{{showAllMoney}}</text>
+      </view>
+    </view>
+  </view>
+  <view bindtap='submit_all' class='{{isIphoneX?"isIphoneX_btn":""}} sub_appli'>
+    <span>提交</span>
+  </view>
+</view>
+
+<view class="modal-mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-content">
+    <view wx:for="{{tabs}}" class='modal-item  ' hover-class='tabshover' catchtap='select' id='{{item}}'>
+      <view>{{item}}</view>
+    </view>
+  </view>
+  <view class='{{isIphoneX?"isIphoneX_btn":""}} modal-footer'>
+    <view catchtap="hideModal" data-status="cancel">取消</view>
+  </view>
+</view>

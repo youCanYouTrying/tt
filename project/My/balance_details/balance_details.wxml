@@ -1,0 +1,56 @@
+<view class='container'>
+<!-- tab标头部 -->
+  <view class='tab_title'>
+    <view  class='tablist {{currentTab==0?"active":""}} ' data-tap='0' bindtap='tabchange'>全部</view>
+    <view  class='tablist {{currentTab==1?"active":""}}' data-tap='1'bindtap='tabchange'>收入</view>
+    <view  class='tablist {{currentTab==2?"active":""}}'data-tap='2'bindtap='tabchange'>支付</view>
+  </view>
+  <!-- 支付详情列表 -->
+  <swiper class="table-swiper" current="{{SwiperIndex}}" duration="300" bindchange="onSwiper" style="height:{{winHeight*1.4+'px'}}"> 
+  <!-- 全部 -->
+  <swiper-item>
+  <view class='balance_group'>
+    <view bindtap='choose_url{{item.money>0?"1":"2"}}' wx:for="{{balance_all}}"  class='balance_list' data-id='{{item.id}}'>
+      <view  class='list_left'>
+        <view class='title'>{{item.type}}</view>
+        <view class='time'>{{item.add_time}}</view>
+      </view>
+      <view class='list_right {{item.money>0?"f-red":""}}'>
+        {{item.money}}
+        <view class='icon'><image wx:if='' src='{{imgUrl}}next_btn.png'></image> </view>
+      </view>
+    </view>
+  </view>
+  </swiper-item>
+   <!--收入 -->
+  <swiper-item>
+  <view class='balance_group'>
+    <view bindtap='choose_url1' wx:for="{{income_arr}}"  class='balance_list' data-id='{{item.id}}'>
+      <view  class='list_left'>
+        <view class='title'>{{item.type}}</view>
+        <view class='time'>{{item.add_time}}</view>
+      </view>
+      <view class='list_right {{item.money>0?"f-red":""}}'>
+        {{item.money}}
+        <view class='icon'><image src='{{imgUrl}}next_btn.png'></image> </view>
+      </view>
+    </view>
+  </view>
+  </swiper-item>
+  <!-- 支出 -->
+  <swiper-item>
+  <view class='balance_group'>
+    <view bindtap='choose_url2' wx:for="{{out_arr}}"  class='balance_list' data-id='{{item.id}}'>
+      <view  class='list_left'>
+        <view class='title'>{{item.type}}</view>
+        <view class='time'>{{item.add_time}}</view>
+      </view>
+      <view class='list_right {{item.money>0?"f-red":""}}'>
+        {{item.money}}
+        <view class='icon'><image src='{{imgUrl}}next_btn.png'></image> </view>
+      </view>
+    </view>
+  </view>
+  </swiper-item>
+  </swiper>
+</view>

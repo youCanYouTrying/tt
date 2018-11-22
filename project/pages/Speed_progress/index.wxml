@@ -1,0 +1,43 @@
+<!--pages/Speed_progress/index.wxml-->
+<view class='container'>
+      <!--商家-->
+    <view class='head shaw-box' style='height:100rpx;'>
+      <view   class='head-title'>{{showtext}}</view>
+      <view wx:if='{{items.apply_refund.apply_refund_goods.status==3}}' class='head-text '>已到账</view>
+    </view>
+    <view class='business shaw-box'>
+      <p>商家名称： <span class="f-black">{{items.shop.shop_name}}</span></p>
+      <p>退款账号： <span class="f-black">退回到微信账户</span></p>
+      <p>订单金额： <span class="red">￥{{items.apply_refund.money}}</span></p>
+      <p>订单号码： <span class="f-black">{{items.order_num}}</span></p>
+    </view>
+    <!--退款进度-->
+    <view class='progress shaw-box'>
+        <p class="title">退款进度</p>
+        <!--进度-->
+        <view class='list' wx:for="{{list}}">
+          <view>
+            <icon class='clr1' wx:if="{{index == 0}}"></icon>
+            <icon class='clr2' wx:if="{{index>0}}"></icon>
+          </view>
+          <view>
+            <view class='list-title {{index == 0 ? "red" : ""}}' >{{item.status_text}}</view>
+            <view wx:if='{{item.status!=13}}' class='list-text f-gay2' style='font-size:26rpx'>{{item.status_description||""}}</view>
+            <view wx:if='{{item.status==13}}' class='list-text f-gay2' style='font-size:26rpx'>退款原因：{{reson}}</view>
+            <view class='list-time f-gay2' style='font-size:26rpx'>{{item.add_time}}</view>
+          </view>
+        </view>        
+    </view>
+    <!-- 退款信息 -->
+    <view class='Refund_goods shaw-box progress'>
+      <p class="title" style='margin-bottom:0rpx;'>退款信息</p>
+      <view  wx:if='{{index2<3 || _show}}' class='goods_list' wx:for="{{items.apply_refund.apply_refund_goods}}"wx:for-item='goods' wx:for-index='index2'>
+        <view class='goods_top'><span class='goods_name'>{{goods.goods_name}}</span><span class='goods_money'>￥{{goods.sale}}</span></view>
+        <view class='goods_num'>x{{goods.num}}</view>
+      </view>
+      <view wx:if='{{!_show &&items.apply_refund.apply_refund_goods.length>=3}}' class='showMore'  catchtap='showMore'>显示更多</view>
+      <view wx:if='{{_show &&items.apply_refund.apply_refund_goods.length>=3}}' class='showMore'  catchtap='hideMore' >收起</view>
+    </view>    
+    <!--联系客服-->
+    <navigator class='lianxi'><span>联系客服</span></navigator>
+</view>

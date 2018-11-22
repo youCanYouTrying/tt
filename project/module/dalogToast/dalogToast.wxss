@@ -1,0 +1,17 @@
+.wx-dialog{
+position: fixed;
+z-index: 5000;
+max-width: 600rpx;
+top: 40%;
+left: 50%;
+-webkit-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+background-color: #7f7f7f;
+text-align: center;
+border-radius: 3px;
+overflow: hidden;
+}
+.wx-dialog-title{
+font-size: 30rpx;
+padding:5px 15px 5px 15px;
+}

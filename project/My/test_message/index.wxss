@@ -1,0 +1,76 @@
+.notice{
+  width: 100%;
+  height: 130rpx;
+  line-height: 130rpx;
+  font-size: 28rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.list1{
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid#ddd;
+  background-color: white;
+}
+.user{
+  float: left;
+  width: 25%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.input{
+  float: left;
+  width: 40%;
+  height: 100rpx;
+}
+.get_num{
+  float: left;
+  width: 35%-2rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #999;
+  padding: 25rpx 20rpx;
+  
+}
+.get_body{
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left: 20rpx;
+  border-left: 2rpx solid #ddd;
+}
+.input input{
+  width: 100%;
+  height: 100rpx;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 0rpx;
+  font-size: 28rpx;
+}
+.question{
+  text-align: right;
+  clear: left;
+  width: 95%;
+  height:60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #1563c8;
+}
+.next_btn{
+  width: 100%;
+  margin-top: 40rpx;
+}
+.next_btn button{
+  width: 95%;
+  margin: auto;
+  color: white;
+  background-color: #ccc;
+}
+
+.next_btn button::after{border:0}
+
+.bg_color button{
+  background-color: red;
+}

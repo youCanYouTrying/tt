@@ -1,0 +1,33 @@
+/* home/addressNoFind/addressNoFind.wxss */
+page{
+text-align: center;
+}
+.content{
+  display: inline-block;
+}
+.image-box{
+
+}
+.text{
+  font-size: 30rpx;
+	color: #333333;
+  padding-bottom: 50rpx;
+  padding-top: 30rpx;
+  line-height: 1
+}
+.btn{
+  display: inline-block;
+	width: 230rpx;
+	height: 70rpx;
+	background-color: #fc656f;
+	border-radius: 4rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #fff
+}
+.box{
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}

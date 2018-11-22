@@ -1,0 +1,72 @@
+<view class="container">
+  <!--排序-->
+  <view class="filters">
+      <view class="filter {{filterId==1?'active':''}}" data-id="1" bindtap="tapFilter">全部订单</view>
+      <view class="filter {{filterId==2?'active':''}}" data-id="2" bindtap="tapFilter">待评价</view>
+      <view class="filter {{filterId==3?'active':''}}" data-id="3" bindtap="tapFilter">退款</view>
+  </view>
+  <!--订单-->
+  <!-- 内容部分     -->
+  <scroll-view>
+    <view class='content'>
+      <view class='box'  
+      wx:for="{{list}}" 
+      wx:key='{{index}}' 
+      data-sta='{{item.status}}' 
+      data-mainid='{{item.order_main_id}}' 
+      data-id='{{item.id}}' 
+      data-shopid='{{item.shop_id}}'  
+      bindtap='detailed'>
+        <view class='box-con'>
+          <view class='box-left'>
+            <view class='box-img'>
+              <!-- 店logo -->
+              <image data-shopid='{{item.shop_id}}' catchtap='goShop' src='{{item.shop.logo}}'></image>
+            </view>
+          </view>
+          <view class='box-center'>
+            <!-- 店名 -->
+            <view    class='box-title'>{{item.shop.shop_name}}</view>
+            <!-- 显示各自状态的时间 -->
+            <!-- <view class='box-time'>{{item.showTime}}</view> -->
+            <!-- 全部为下单时间 -->
+            <view class='box-time'>{{item.add_time}}</view>
+            <view class='box-text'><text class='goods_name'>{{item.goods_name}}</text><text hidden='{{item.num<1}}'>  等{{item.goods_num}}件商品</text></view>
+          </view>
+          <view class='box-right'>
+            <!-- 状态 -->
+            <view class='box-status'data-sta='{{item.status}}' data-mainid='{{item.order_main_id}}' data-id='{{item.id}}' >{{item.sss}}</view>
+            <!-- 订单价格 -->
+            <view class='box-money'>￥{{item.total_fee}}</view>
+          </view>
+        </view>
+        <view class='box-btn'>
+
+          <!-- <navigator url='/home/business/index?id={{item.shop_id}}' catchtap='order_again' data-orid='item.id' class='btn'>再来一单</navigator> -->
+          <view catchtap='order_again' data-shopid='{{item.shop_id}}' data-orid='{{item.id}}' style='boder:1rpx solid#eda7a7;' class='btn'>再来一单</view>
+          <view class='btn red-btn' data-id='{{item.id}}' data-mainid='{{item.order_main_id}}' catchtap='payAgin' wx:if="{{item.status==0}}">付款</view>
+          <view class='btn red-btn' data-id='{{item.id}}'  catchtap='showmodal' wx:if="{{item.status==3||item.status==4||item.status==5}}">确认收货</view>
+          <view class='btn red-btn' catchtap='progress'data-id='{{item.id}}'  wx:if="{{item.status==8||item.status==9}}">退款详情</view>
+          <view catchtap='goComment' id='{{item.id}}' class='btn red-btn' wx:if="{{item.status==6 && item.is_commented!=1}}">评价</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <loading hidden='{{isLoading}}'>
+    加载中...
+  </loading>
+  <!-- 请登录 -->
+  <!-- <view wx:if='{{!isLogin}}' class='goLogin'></view>
+  <view wx:if='{{!isLogin}}' class='login_btn'>
+    <view><image wx:if='{{imgUrl}}' src="{{imgUrl}}logo001.png" class='logo_img'  ></image></view>
+    <view class='title'> 您还没有登录，请登录后查看订单</view>
+    <view bindtap='goLogin' class='btn_center'>登录</view>
+  </view> -->
+  <view class='nothing' wx:if='{{list.length==0}}'>
+    <view class='nothing-logo'>
+      <image wx:if='{{imgUrl}}' src='{{imgUrl}}noCoupon.png'> </image>
+    </view>
+    <view class='nothing-title'>还没有订单哦，赶快去选购吧~</view>
+  </view>
+</view>
+

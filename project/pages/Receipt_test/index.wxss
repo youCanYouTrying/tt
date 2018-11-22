@@ -1,0 +1,289 @@
+
+.receipt{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  font-size:30rpx; 
+}
+/*商家位置*/
+.predict{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.predict>view{
+  width: 26rpx;
+  margin-right: 12rpx;
+}
+.predict i{
+  width: 100%;
+}
+.predict image{
+  width: 26rpx;
+  height: 26rpx;
+}
+.predict>p{
+  font-size: 28rpx;
+}
+.predict text{
+  color: #fe7272;
+}
+.receipt_con .qishou{
+  display: flex;
+  align-items: center;
+  padding-top:45rpx; 
+  padding-bottom:45rpx; 
+}
+.qishou>view{
+  width: 125rpx;
+}
+.qishou>.qishou-left{
+  width: 95rpx;
+}
+.qishou-left image{
+  height: 82rpx;
+  width: 82rpx;
+}
+.qishou>.qishou-center{
+  flex: 1;
+  padding-left: 32rpx;
+}
+.qishou-center>.qi-title{
+  text-align: left;
+  font-size: 32rpx;
+  color: #4d4d4d;
+  margin-bottom: 13rpx;
+}
+.qishou-center>.qi-text{
+  font-size:28rpx;
+  color: #999999;
+  text-align: left;
+}
+.qishou>.qishou-right{
+  width: 140rpx;
+}
+.qishou>.qishou-right icon:first-child{
+  margin-right: 35rpx;
+}
+.qishou-right image{
+  width: 50rpx;
+  height:50rpx;
+}
+.receipt-item1{
+  text-align: center;
+}
+.receipt_con{
+  width: 100%;
+  position: absolute;
+  top: 700rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  overflow: auto;
+  text-align: center
+}
+.receipt-item1>.btn{
+  display: inline-block;
+  width: 190rpx;
+  border-radius: 4rpx;
+	border:1rpx  solid  #bfbfbf;
+  height: 68rpx;
+  line-height: 68rpx;
+  font-size: 30rpx;
+  margin: 0 auto;
+  margin-right: 16rpx;
+}
+
+.receipt-item1 .red-btn{
+  background-color: #fc656f;
+  border: none;
+  color: #fff;
+}
+.receipt-item1>view{
+  text-align: center;
+  font-size: 38rpx;
+  margin-bottom: 26rpx;
+  margin-top: 25rpx;
+}
+.receipt-item1>p{
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.receipt-item2>view{
+  display: flex;
+  align-items: center
+}
+.item1{
+  padding-bottom: 65rpx;
+}
+.item1>view:first-child{
+  width: 52rpx;
+  height:52rpx;
+  align-self: flex-start
+}
+.item1>view:first-child>view{
+  width: 100%;
+  height: 100%;
+}
+.item1>view:nth-of-type(2){
+  flex: 1;
+  padding-left: 28rpx;
+}
+.item1>view:last-child{
+  width: 50rpx;
+  height:50rpx;
+}
+.item1>view image{
+  width: 52rpx;
+  height:52rpx;
+}
+.item2{
+  display: flex;
+  margin-top: 20rpx;
+}
+.item2>span{
+  width: 356rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;  
+}
+.item2>i{
+  flex:1;
+  padding-left:72rpx;
+}
+.item3{
+  display: flex;
+  margin-top: 50rpx;
+}
+.item3>i{
+  flex: 1;
+  text-align: right;
+}
+.youhui{
+  display: flex;
+  align-items: center;
+}
+.jian{
+  width: 40rpx;
+  height: 40rpx;
+	background-color: #ff3c3c;
+  border-radius: 50%;
+  display: inline-block;
+  color: #fff;
+  font-size:28rpx; 
+  text-align: center;
+  margin-right: 12rpx;
+}
+
+/* 弹窗进度 */
+.show-btn {
+  margin-top: 100rpx;
+  color: #22cc22;
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 1;
+  color: #fff;
+}
+.modal-dialog {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background: #f9f9f9;
+}
+.modal-title {
+  height: 105rpx;
+  font-size: 33rpx;
+  color: #333;
+  text-align: center;
+  line-height: 105rpx;
+  border: 2rpx solid #e5e5e5;
+}
+.modal-content {
+  padding: 50rpx 32rpx;
+}
+.modal-item{
+  display: flex;
+  font-size: 26rpx;
+  height: 100rpx;
+  align-items: center;
+}
+.modal-iteml{
+  flex: auto;
+  width: 300rpx;
+}
+.modal-itemr{
+  flex: auto;
+  text-align: right;
+  margin-right: 30rpx;
+  color: #999
+}
+.modal-footer {
+  height: 110rpx;
+  font-size: 34rpx;
+  background-color: #fe6e78;
+  line-height: 110rpx;
+  text-align: center;
+  color: #fff;
+}
+.time-line{
+  width: 50rpx;
+  display: inline-block;
+  line-height:100rpx;
+}
+.clr{
+  background: #c9c9c9;
+  height: 13rpx;
+  width: 13rpx;
+  border-radius: 6rpx;
+  vertical-align: middle;
+  margin-left: 7rpx;
+  position: relative
+}
+.clr::before{
+  content: "";
+  position: absolute;
+  height: 100rpx;
+  width: 3rpx;
+  background-color: #c9c9c9;
+  top: 6rpx;
+  left: 6rpx;
+  z-index: -1
+}
+.clr1{
+  width: 27rpx;
+	height: 27rpx;
+	background-color: #fe6e78;
+  border-radius: 13rpx;
+  vertical-align: middle;
+  position: relative;
+  z-index: -1
+}
+.clr1::before{
+  content: "";
+  position: absolute;
+  width: 14rpx;
+	height: 14rpx;
+	background-color: #fff;
+  border-radius: 50%;
+  z-index: 1;
+  transform: translate(50%,50%)
+}
+.bg_gay{
+  background-color: #000;
+}

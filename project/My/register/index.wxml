@@ -1,0 +1,27 @@
+<!--My/Sign_in/index.wxml-->
+<view class='container'>
+  <view class='modify_pwd'>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>  
+
+      <!--登录-->
+      <form class='form_pwd' bindreset="formReset" bindsubmit="formSubmit" >
+          <view class='phone'>
+            <input  class='input_phone' maxlength='11' placeholder='输入手机号' value="{{account}}" type="text" focus="true" name="account"></input>
+            <image bindtap='delet_all' src='{{imgUrl}}jon_in.png'></image> 
+          </view>
+          <view class='pwd'>
+               <input class='input_pwd' maxlength='6' placeholder='输入验证码'type="text" value="{{password}}" name="password"></input>
+              <navigator class='yanz'>发送验证码</navigator>
+          </view>
+          <view class='newpwd'>
+          <input class='new_pwd' placeholder='输入密码'maxlength="16" value="{{newpwd}}" type="{{paswd}}" focus="true" name="newpwd"></input>
+            <view bindtap='showpsw' class='image'><image  src='{{imgUrl}}jon_paw.png.png'></image></view>
+            
+          </view>
+           <view class='user_rule'><radio color='#fd6767' checked="true"></radio> 我已审阅并同意
+           <navigator class='hezai_rule' url=''>
+           《{{smName}}外卖用户协议》</navigator></view>
+          <view class='submit'><button class='submits' type="primary" formType="submit">注册</button></view>
+      </form>
+  </view>
+</view>

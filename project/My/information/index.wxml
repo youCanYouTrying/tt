@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- 遮罩 -->
+  <view class='mask'style='display:{{display}};'>
+     
+  </view>
+  <!-- 内容 -->
+  <view class='select' style='display:{{display}};'>
+        <view class='list' bindtap='chooseImage_album'>相册</view>
+        <view class='list' bindtap='chooseImage_camera'>拍照</view>
+        <view class='list magin_top'bindtap='hide'>取消</view>
+  </view>
+  <view class='inform'>
+      <!--头像-->
+      <view class='inform_name' bindtap='show'>
+          <navigator class='informname'>
+              <view class='inform_font'>头像</view>
+              <view class='inform_img'><view class='img'><image src='{{user_img}}'></image></view><view class='inform_you'><image src='{{imgUrl}}inform_you.png'></image></view></view>
+          </navigator>
+      </view>
+      
+  <!--用户名及修改-->
+    <view class='information_name'>
+        <navigator class='inform_item' url='/My/change_username/index'>
+            <view class='item_font'>用户名</view>
+            <view class='item_new'><view class='new_font'>张璋长</view><view class='inform_you'><image src='{{imgUrl}}inform_you.png'></image></view></view>
+        </navigator>
+
+         <navigator class='inform_item' url='/My/updata_pwd/index'>
+            <view class='item_font'>修改密码</view>
+            <view class='item_new'><view class='inform_you'><image src='{{imgUrl}}inform_you.png'></image></view></view>
+        </navigator>
+         <navigator class='inform_item' url='/My/pay_pwd/index'>
+            <view class='item_font'>设置支付密码</view>
+            <view class='item_new'><view class='inform_you'><image src='{{imgUrl}}inform_you.png'></image></view></view>
+        </navigator>
+
+         <navigator class='inform_item' url='/My/Modify_pwd/index'>
+            <view class='item_font'>绑定手机号</view>
+            <view class='item_new'><view class='new_font'>15524621564</view></view>
+        </navigator>
+    </view>
+  <!--退出登录-->
+    <view class='Signout'>
+        <navigator class='sign_out'>退出登录</navigator>
+    </view>
+
+  </view>
+</view>

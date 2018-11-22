@@ -1,0 +1,144 @@
+@import '../home_page/index';
+.bring{
+  width: 100%;
+  background: #fff;
+  height: 100%;
+}
+.bring .bring_con{
+  width: 100%;
+}
+.bring_con .bringcon_title{
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+.bringcon_title .title_span{
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+}
+.bringcon_title .title_span text{
+  padding: 10px 0px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+}
+.bringcon_title .title_span image{
+  width: 7px;
+  height: 5px;
+  margin-left: 5px;
+}
+
+/*内容部分*/
+.delicious{
+  width: 100%;
+}
+.delicious .delicious_volume{
+  width: 100%;
+  padding:  15px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f0f0f0;
+}
+.volume_con{
+  width: 100%;
+}
+ .volume_con .volume_p{
+  width: 100%;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+.volume_con .volume_span{
+  font-size: 12px;
+  color: #999;
+  margin: 5px 0px;
+}
+.volume_span text{
+  font-size: 14px;
+  color: #333;
+  margin-left: 7px;
+}
+.volume_con .volume_imgs{
+  width: 100%;
+  margin: 5px 0px;
+}
+.volume_imgs .volume_img{
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin: 0px 8px; 
+}
+.volume_img image{
+  width: 100%;
+  height: 100%;
+}
+.volume_pei{
+  font-size: 14px;
+  width: 100%;
+  color: #999;
+}
+.volume_pei .volumes{
+  display: inline-block;
+  margin: 0px 8px;
+
+}
+.volume_con .volume_one{
+  color: #ff6969;
+  font-size: 14px;
+  margin: 5px 0px 5px 8px;
+}
+.tab-scoller{
+  background:white;
+  height:80px;
+  white-space:nowrap;
+  display:flex;
+
+}
+.like_con{
+  background-color:#fff;
+}
+.item1-type>view{
+  padding: 7rpx 13rpx 8rpx 12rpx;
+  border: solid 1rpx #ff0000;
+  color: #ff0000;
+  border-radius: 6rpx;
+  display: inline-block;
+  font-size: 22rpx;
+}
+
+
+/*模态*/
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 80rpx;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9;
+  color: #fff;
+}
+.modal-dialog {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  z-index: 11;
+  background: #f9f9f9;
+}
+.modal-list{
+   font-size:14px;
+}
+.modal-list>view{
+  height: 40px;
+  border-top:1px solid #eee;
+  line-height: 40px;
+  padding-left: 14px
+}
+.modal-list>view:last-child{
+ border-bottom: 1px solid #eee;
+}

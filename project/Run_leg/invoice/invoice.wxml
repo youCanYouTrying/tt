@@ -1,0 +1,28 @@
+<view class='container'>
+  <view class='content'>
+    <view class='item'>
+      <view class='item-left'>类 型:</view>
+      <view class='item-right bor'>
+        <view class='radio'wx:for="{{radio}}" bindtap='radioClick' data-index = "{{index}}">
+          <icon class='icon_none'  hidden="{{item.checked}}"></icon>
+          <icon type="success" size="20" color="#f7636d" class='icon_none' hidden="{{!item.checked}}"/>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='item '>
+      <view class='item-left'>抬 头:</view>
+      <view class='item-right bor'>
+        <view class='input'> <input  placeholder='请填写个人姓名' value="{{inputName}}" bindinput="bindKeyInput"></input></view> 
+      </view>
+    </view>
+    <view class='item' wx:if="{{show}}">
+      <view class='item-left' >税 号:</view>
+      <view class='item-right'>
+        <view class='input'> <input placeholder='请填写【税号】或【社会信用代码】' value="{{inputNum}}" bindinput="bindNumInput"></input></view> 
+      </view>
+    </view>
+  </view>
+  <view class='tishi'>可咨询公司财务部门获得【税号】或【社会信用代码】信息</view>
+  <view class='btn' bindtap='submitClick'>保存</view>
+</view>

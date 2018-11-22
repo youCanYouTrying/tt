@@ -1,0 +1,36 @@
+<view class='ontainer'>
+  <view class='address_center'>
+    <view class='address_name'>
+      <view class='name_left'>姓名:</view>
+      <view class='right_title'>
+        <view class='iuput_name'><input placeholder='请填写姓名' type='text'></input></view> 
+        <view class='sex_group'>
+          <view data-id='1' bindtap='change_sex' class='male {{sex==1?"active":""}}'>先生</view>
+          <view data-id='2' bindtap='change_sex' class='girl {{sex==2?"active":""}}'>女士</view>
+        </view>
+       </view>
+    </view>
+    <view class='address_list'>
+      <view class='title'>电话:</view>
+      <view class='list_input'><input placeholder='请填写电话'></input> </view>
+    </view>
+    <view class='address_list'>
+      <view class='title'>地址:</view>
+      <view class='list_input'><view class='address_map' bindtap='getmap' >{{address}}</view> </view>
+      <view class='choose_address'><image src='{{imgUrl}}addres_you.png'></image> </view>
+    </view>
+    <view class='address_list'>
+      <view class='title'>楼牌号:</view>
+      <view class='list_input'><input placeholder='请输入楼牌号,如：16楼12室'></input> </view>
+    </view>
+    <view class='address_lable'>
+      <view class='lable_name'>标签</view>
+      <view class='lable_group'>
+        <view data-num='1' bindtap='change_lable' class='lable1 {{lable==1?"active":""}}'>公司</view>
+        <view data-num='2' bindtap='change_lable' class='lable1 {{lable==2?"active":""}}'>家</view>
+        <view data-num='3' bindtap='change_lable' class='lable1 {{lable==3?"active":""}}'>学校</view>
+      </view>
+    </view>
+  </view>
+  <view class='btn_save'><button class='bg_red f_white'>保存</button></view>
+</view>

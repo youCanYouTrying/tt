@@ -1,0 +1,425 @@
+<view class="container" style='{{showCartDetail|| youhuiDetailHide ||couponIsshow ?"height:100%;overflow:hidden":""}}'>
+  <view class='business'>
+    <view class="busin_title" bindtap='yhDetailClick' style='background-color:{{backgroundColor || "#fff"}};color:{{fontColor || "#333"}}'>
+      <!--商家图片-->
+      <view class='title_img'>
+        <image src='{{detail.logo}}' mode="scaleToFill'"></image>
+      </view>
+      <!--商家信息-->
+      <view class='title_new'>
+        <view class='busin_span'>
+
+          <view>起送￥{{detail.send_price}}</view>
+          |
+          <view>配送￥{{detail.dis_money}}</view>
+          |
+          <view>{{detail.minute}}送达</view>
+        </view>
+        <view class='Prompt' style='color:{{fontColor || ""}}'>
+          <view class='pro_img'>
+            <image src='{{imgUrl}}Prompt.png'></image>
+          </view>{{detail.shop_nitice[0].notice || '店铺暂无公告'}}
+        </view>
+        <view class='youhui1' style='color:{{fontColor || ""}}'>
+          <view class='youhui1-left'>
+            <swiper autoplay vertical circular interval="3000" style="height:34rpx">
+              <block wx:for="{{detail.sale}}" wx:key="id">
+                <swiper-item style="height:34rpx">
+                  <view class='{{item.dis_class}}' style='margin-top:0'>{{item.dis_jian}}</view>
+                  {{item.dis_con}}
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+          <view class='youhui1-right'>
+            <image src='{{imgUrl}}you_jian.png'></image>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+    <view id='youhui'>
+      <view class='user-youhui' wx:if="{{detail.shop_coupons.length>0}}"  catchtap='couponClick' data-type="1">
+        <view class='user-youhui-item' style='background-image:url("{{imgUrl}}coupons01.png")' wx:for="{{detail.shop_coupons}}" wx:key="index">
+          <view>
+            <view>{{item.coupons.length>0 ?"已":""}}领</view>
+            <view style='font-size:18rpx'>￥</view>
+            <view style='font-size:30rpx'>{{item.give_money}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  
+    <!--点餐,评价,商家-->
+    <view class='business_con'  >
+      <scroll-view class="scroll-view_table" scroll-x="true" scroll-left="{{scrollLeft}}">
+        <!-- <view class="con_title {{scrollDown?'scrolled':''}}"> -->
+        <view class="con_title ">
+          <block wx:for="{{topTable}}" wx:key="id" wx:for-item="table">
+            <view class="title_item" data-index="{{index}}" bindtap="tableTap">
+              <text id="{{table.id}}" class="{{currentTabId==table.id?'selected':''}}">{{table.name}}</text>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+      <!--内容选餐部分-->
+      <view class="centers">
+        <swiper class="table-swiper" current="{{currentTabSwiperIndex}}" duration="300" bindchange="onSwiper" style="height:{{winHeight+'px'}}">
+          <!--第一部分-->
+          <swiper-item>
+            <view class='cente_items'>
+              <!--左边部分点餐-->
+              <scroll-view class="classify-container" scroll-y="true">
+              <view style='padding-bottom:110rpx'>
+  <view class="classify {{firstid==classify.id?'active':''}}" wx:for="{{menuList}}" wx:for-item="classify" wx:key="caiId"  bindtap="tapClassify" data-mid = "{{classify.id}}" style='position:relative' data-text="{{classify.describe}}" data-name="{{classify.menu_name}}">
+                  <view class='cla_name'>{{classify.menu_name}}</view>
+                  <view wx:if="{{classify.uunum>0}}" class='uunum'>{{classify.uunum}}</view>
+                </view>
+              </view>
+              </scroll-view>
+              <!--右边部分选择商品bindscroll="onGoodsScroll"-->
+              <view class="goods-container">
+                 <view class='goods_name'>
+                      <view class='goods_text'>{{firsetName}}</view>
+                      <view class='goods_span'>{{firsetText}}</view>
+                  </view>
+                <scroll-view  scroll-y="true" id='gt' scroll-top="{{num}}"   bindscrolltolower="readMore">
+                <view class='goodsright'style="padding-bottom:300rpx">
+                  <view class='goods_items'>
+                    <view hover-class="none" class='goodscon' wx:key="id" wx:for="{{goods_list}}" wx:for-item="list">
+                      <view class='goods_item'>
+                        <view class='goods_img' catchtap='gotoDetail' data-detailid="{{list.id}}">
+                          <view>
+                            <image src='{{list.goods_img}}'  mode="aspectFill"></image>
+                          </view>
+                        </view>
+                        <view class='goods_news'>
+                          <view class='goodname' catchtap='gotoDetail' data-detailid="{{list.id}}">
+                            <text>{{list.goods_name}}</text>
+                          </view>
+                          <view class='goodyue' catchtap='gotoDetail' data-detailid="{{list.id}}">
+                            月售：
+                            <text>{{list.monthly_sales || 0}}</text>
+                          </view>
+                          <view class='jieshao' catchtap='gotoDetail' data-detailid="{{list.id}}">
+                            <text>{{list.label_one}}</text>
+                            <text hidden='{{!list.label_two}}'>,{{list.label_two}}</text>
+                            <text hidden='{{!list.label_three}}'>,{{list.label_three}}</text>
+                          </view>
+                          <view class='goodprice' >
+                            <view class='goodprice-left' catchtap='gotoDetail' data-detailid="{{list.id}}">
+                              <view class='goods-price'>
+                                <view class='new-price' style='color:#ff4141'>￥{{list.goods_price}}</view>
+                                <view wx:if="{{list.is_on_sale == 2}}" class='old-price'>￥{{list.goods_price}}</view>
+                              </view>
+                            </view>
+                            <view class='goodjia-right1' wx:if="{{list.attribute.length>0}}"> 
+                              <view class='guige' bindtap='guigeShowClick' data-price="{{list.goods_price}}" data-arr="{{list.attribute}}" data-id="{{list.id}}" data-name="{{list.goods_name}}" data-hasnum="{{list.cart_num}}">选规格<view wx:if="{{list.cart_num>0}}">{{list.cart_num}}</view></view>
+                            </view>
+                            <view class='goodjia-right' wx:else="{{list.attribute.length>0}}">
+                              <view class='image-box' catchtap='carnumChage' data-hasguige="1" data-id="{{list.id}}"  data-type="0">
+                                <image src='../../image/miu.png' wx:if="{{list.cart_num>0}}"></image>
+                              </view>
+                              <view wx:if="{{list.cart_num>0}}" class="cart-num">{{list.cart_num}}</view>
+                              <view class='image-box' catchtap="carnumChage" data-id="{{list.id}}"  data-hasguige="1"   data-type="1">
+                                <image src='../../image/add.png'></image>
+                              </view>
+                            </view>
+                          </view>
+                          <view class='zekou' wx:if="{{item.is_on_sale}}">8.7折 限{{item.on_sale_num}}份</view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </scroll-view>
+              </view>
+            </view>
+          </swiper-item>
+          <!--第二部分-->
+          <swiper-item>
+            <scroll-view wx:if="{{pinlun.length>0}}" class="goods-container" scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll">
+              <!--评论星级-->
+              <view class='comment'>
+                <view class='comment_item1'>
+                  <view class='comment_num'>{{pinlunInfo.uta}}</view>
+                  <view class='comment_p'>收到评价</view>
+                </view>
+                <view class='comment_item2'>
+                  <view class='comment_pin'>
+                    <view class='comment_pin'>平均评星：</view>
+                    <view class='comment_span'>
+                      <view class='span_img' wx:for="{{[0,0,0,0,0]}}" wx:key="index">
+                        <image src='{{imgUrl}}{{index<=pinlunInfo.str-1?"xin_succes":"xin_error"}}.png'></image>
+                      </view>
+                    </view>
+                  </view>
+                  <view class='comment_time'>送达时间：
+                    <text>{{pinlunInfo.tms}}分钟</text>
+                  </view>
+                  <view class='comment_order'>骑手满意数：
+                    <text>{{pinlunInfo.rct}}次</text>
+                  </view>
+                </view>
+              </view>
+              <!--评价内容部分-->
+              <view class='comm_con'>
+                <view class='content_title'>
+                  <block wx:for="{{alls}}" wx:key="{{id}}">
+                    <view class="title_span" style="{{allspanid==index?'color:#fff;background-color: #fd6e78;':''}}" data-id="{{index}}" bindtap="allstap">{{item.span}}
+                    </view>
+                  </block>
+                </view>
+                <view class='content_items' wx:for="{{pinlun}}" wx:key="item">
+                  <view class='content_item'>
+                    <view class='userimg'>
+                      <image src='{{item.userimg}}'></image>
+                    </view>
+                    <view class='item_cen'>
+                      <view class='cen_news'>
+                        <view class='news_left'>
+                          <view class='news_name'>{{item.username}}</view>
+                        </view>
+                        <view class='new_right'>
+                          <view class='new_time'>{{item.add_time}}</view>
+                        </view>
+                      </view>
+                      <view class='cen_news'>
+                        <view class='news_left'>
+                          <view class='news_pin'>评星：
+                            <block wx:for="{{[0,0,0,0,0]}}" wx:key='index' wx:for-item="i">
+                              <view class='result-box'>
+                                <image src="{{imgUrl}}{{index<=item.num-1?'xin_succes':'xin_error'}}.png"></image>
+                              </view>
+                            </block>
+                          </view>
+                        </view>
+                        <view class='new_right'>
+                          <view class='new_fen'>{{item.time_num}}</view>
+                        </view>
+                      </view>
+                      <!--评价内容-->
+                      <view class='commpin' wx:if="{{item.content}}">
+                        <text>{{item.content}}</text>
+                      </view>
+                      <!--评论图片-->
+                      <view class='pinimgs' wx:if="{{item.imgList}}">
+                        <!-- <view class='pinimg'><image src='../../image/VCG21gic19571800.jpg'></image></view> -->
+                        <scroll-view class="tab-scoller " scroll-x="true" scroll-left="{{scrollLength}}">
+                          <block wx:for="{{item.imgList}}" wx:for-item="list" wx:key="id">
+                            <view class='pinimg' data-index="{{index}}" id="{{index}}" data-item="{{item.imgList}}" bindtap="previewImg1">
+                              <image src='{{list}}'></image>
+                            </view>
+                          </block>
+                        </scroll-view>
+                      </view>
+                      <view wx:else style='height:20rpx'></view>
+                      <!--商家回复-->
+                      <view class='huifu' wx:if="{{item.revert}}">
+                        商家回复：
+                        <text>{{item.revert}}</text>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+            <view wx:else class='no-pinlun'>暂无评论</view>
+          </swiper-item>
+          <!--第三部分-->
+          <swiper-item>
+            <scroll-view class="goods-container" scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll">
+              <!--商家信息-->
+              <view class='information'>
+                <view class='inform_new'>商家信息</view>
+                <view class='inform_imgs'>
+                  <scroll-view class="tab-scoller " scroll-x="true" scroll-left="{{scrollLength}}">
+                    <block wx:for="{{detail.shop_photo}}" wx:key="code">
+                      <view class='inform_img' data-index="{{index}}" id="{{item.code}}" catchtap='previewImg' data-url="{{item.imgurl}}">
+                        <image src='{{item.imgurl}}'></image>
+                      </view>
+                    </block>
+                  </scroll-view>
+                </view>
+                <view class='inform_con'>
+                  {{detail.shop_info}}
+                </view>
+              </view>
+              <!--商家地址和营业时间-->
+              <view class='adress'>
+                <view class='adress_item'>
+                  <view class='itemp'>商家地址</view>
+                  <text class='itemspan'>{{detail.address.sheng}}{{detail.address.shi}}{{detail.address.qu}}{{detail.address.shop_address}}</text>
+                </view>
+                <view class='adress_item'>
+                  <view class='itemp'>营业时间</view>
+                  <text class='itemspan'>{{detail.business_hours}}</text>
+                </view>
+              </view>
+              <!--配送服务和配送时间-->
+              <view class='adress'>
+                <view class='adress_item'>
+                  <view class='itemp'>配送服务</view>
+                  <text class='itemspan'>{{detail.distribution_info == 0?"自己配送":"专送"}}</text>
+                </view>
+                <view class='adress_item'>
+                  <view class='itemp'>配送时间</view>
+                  <text class='itemspan'>{{detail.distribution_time}}</text>
+                </view>
+              </view>
+              <!--优惠内容-->
+              <view class='youhui_item'>
+                <block wx:for="{{detail.sale}}" wx:key="id">
+                  <view class='youhui' style='font-size:28rpx'>
+                    <view class='{{item.dis_class}}'>{{item.dis_jian}}</view>{{item.dis_con}}</view>
+                </block>
+              </view>
+            </scroll-view>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+    <!-- </scroll-view> -->
+  </view>
+  <!--购物车-->
+  <view class='shopps'>
+    <view class="cart-detail" wx:if="{{showCartDetail && cartList.length>0}}">
+      <view class="mask" bindtap="hideCartDetail"></view>
+      <view class="list" style='{{isIphoneX?"bottom:150rpx;":"bottom:100rpx;"}}'>
+        <scroll-view scroll-y="true" style='max-height:400px' bindscroll="cartScroll">
+          <view class='list-header {{cartList.length>=7?"cart-scorll":""}}'>
+            <view>购物车</view>
+            <view style='text-align:right;color:#666;padding-right:20rpx;' bindtap='clearCart'  >清空</view>
+          </view>
+          <!-- 购物车 -->
+          <view class='list-content'>
+            <view class="item" wx:for="{{cartList}}" wx:key="id">
+             <view class="name ellipsis">{{item.name}} <text style=' font-size: 20rpx' wx:if="{{item.norms}}">( {{item.norms}} )</text></view>
+              <view class="total">￥{{item.price}}</view>
+              <view class="reduce" data-id="{{item.item_id}}" data-arrstr="{{item.norms}}" data-hash="{{item.hash}}"
+              data-type=" 0" catchtap="carnumChage" > 
+               <image src='{{imgUrl}}jian001.png'></image>
+            </view>
+            <view class="num ">{{item.num}}</view>
+            <view class="add " data-id="{{item.item_id}} "catchtap="carnumChage"  data-arrstr="{{item.norms}}" data-type='1'  data-hash="{{item.hash}}"  >
+              <view class='add-img'style="line-height:44rpx ">+</view>
+            </view>
+          </view>
+          <!-- 结束 -->
+          </view>
+        </scroll-view>
+      </view>
+    </view> 
+    <view class="cart {{isIphoneX? 'isIphoneX_btn': ''}} " hidden='{{currentTabSwiperIndex ==1 || currentTabSwiperIndex == 2}}' >
+      <view class="data " bindtap="showCartclick"   style='background-color:{{sum>0&&sum>=detail.send_price?" ":"#e6e6e6 "}}'>
+        <view class="icon " >
+          <image src='{{imgUrl}}lgcar.png'></image>
+            <view class="count " wx:if="{{count>0}}">{{count}}</view>
+            </view>
+            <view class="total " >￥{{sum}}</view>
+            <view class='peisong' wx-if="{{dis_money ||dis_money==0 }}">{{dis_money == "平台专送"?dis_money:"另需配送费"+dis_money+"元"}}</view>
+          </view>
+          <form bindsubmit="submit" report-submit="true" wx:if="{{userPhoneShow}}" 
+          style='background-color:{{sum>0&&sum>=detail.send_price?"#ff6969":"#999"}}'>
+            <button class="yellow" formType="submit" style='background-color:{{sum>0&&sum>=detail.send_price?"#ff6969":"#999"}}'>
+              {{sum>0&&sum>=detail.send_price?'马上结算':sum == 0 ?detail.send_price+'元起送':'还差'+spread+'元'}}
+            </button>
+          </form>
+          <form bindsubmit="submit" report-submit="true" wx:else>
+            <button class='yellow' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上结算</button>
+          </form>
+      </view>
+    </view>
+  </view>
+
+  <view class="cart-detail" wx:if="{{youhuiDetailHide}}">
+    <view class="mask" bindtap="yhDetailClick"></view>
+    <view class='list yh-detail'>
+      <view class='youhui_item' style='font-size:24rpx'>
+        <block wx:for="{{detail.sale}}" wx:key="id">
+          <view class='youhui'>
+            <view class='{{item.dis_class}}'>{{item.dis_jian}}</view>{{item.dis_con}}</view>
+        </block>
+      </view>
+      <view class='yh-detailps'>
+        <view class='yh-detail-title'>配送</view>
+        <view class='busin_span'>
+          <view>起送 ￥{{detail.send_price}} </view>
+           |
+          <view>配送 ￥{{detail.dis_money}} </view>
+           |
+          <view>{{detail.minute}}分钟送达</view>
+        </view>
+        <view class='busin_span'>
+          <view>配送时间：{{detail.open_time}}</view>
+        </view>
+      </view>
+      <view class='yh-detailps' style='padding-top:10rpx;{{isIphoneX?"padding-bottom:50rpx;":""}}'>
+        <view class='yh-detail-title'>公告</view>
+        <view>{{detail.shop_nitice[0].notice}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cart-detail" wx:if="{{couponIsshow}}">
+    <view class="mask" bindtap="couponClick"></view>
+    <view class='list couopn-list' style='{{isIphoneX?"padding-bottom:120rpx;":""}}'>
+      <scroll-view scroll-y="true" style='max-height:550rpx;'>
+        <view class='coupon-item' style='background-image:url("{{imgUrl}}couponl01.png")' wx:for="{{detail.shop_coupons}}" wx:key="index">
+          <view class='coupon-left'>
+            <view class='cleft-1'>￥</view>
+            <view class='cleft-2'>{{item.give_money}}</view>
+            <view class='cleft-3'>
+              <view>满{{item.money}}元可用</view>
+              <view>有效期至{{item.end_time}}</view>
+            </view>
+          </view>
+          <view class='{{item.coupons.length>0?"coupon-right1":"coupon-right"}}' id="{{item.id}}" bindtap='couponSelect' data-index="{{index}}">
+          {{item.coupons.length>0?'已领取':'领取'}}</view>
+        </view>
+        <!-- <view class='coupon-right1' style='background-color:{{}}'>领取</view> -->
+        <!-- </view>  -->
+      </scroll-view>
+    </view>
+  </view>
+  <view class="cart-detail" style='z-index:999' wx-if="{{detail.resting == 1}}"> 
+    <view class='mask'></view>
+    <view class='list couopn-list'>
+      <view class='coupon-item'>
+          店铺已停止营业
+      </view>
+    </view>
+  </view>
+
+   <view class="cart-detail" style='z-index:999' wx:if="{{guigeShow}}" > 
+    <view class='mask'></view>
+    <view class='guige-model' style='top:{{modalTop}}px;'>
+      <view class='guige-h1'>{{guigeObj.name}}</view>
+     <scroll-view scroll-y="true" style='max-height:500rpx' bindscroll="cartScroll">
+      <view class='guige-con' wx:for="{{guigeObj.arr}}" wx:key="index" wx:for-index="findex" >
+        <view class='guige-item-name'>{{item.name}}</view>
+        <view class='guige-item-box' >
+          <view class='guige-btn {{subitem==item.selected?"gg-active":""}}' bindtap='guiChangeClick' data-findex="{{findex}}" data-val = "{{subitem}}" wx:for="{{item.attribute}}" wx:key="id" wx:for-item="subitem">{{subitem}}</view>
+        </view>
+      </view>
+      </scroll-view>
+      <view class='guige-footer'>
+        <view class='gleft'>￥{{guigeObj.price}} <text wx:if="{{guigeObj.str}}"> ( {{guigeObj.str}} )</text></view>
+        <view class='goodjia-right' style='float:none;width:auto;padding-right:0' wx:if="{{guigeObj.num>0}}">
+          <view class='image-box' catchtap='carnumChage'  data-hasguige="1" data-type="0" data-guigenum="1">
+            <image src='../../image/miu.png'></image>
+          </view>
+          <view  class="cart-num">{{guigeObj.num}}</view>
+          <view class='image-box' catchtap="carnumChage" data-hasguige="1"  data-type="1" data-guigenum="2">
+            <image src='../../image/add.png'></image>
+          </view>
+        </view>
+        <view class='gright-addC' wx:else="{{guigeObj.num>0}}" catchtap="carnumChage" data-guigenum="2" data-hasguige="1"  data-type="1">加入购物车</view>
+      </view>
+      <view class='guige-icon'>
+        <image src='{{imgUrl}}close.png' bindtap='closeGuige'></image>
+      </view>
+    </view>
+   
+  </view>

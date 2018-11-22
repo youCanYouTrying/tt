@@ -1,0 +1,176 @@
+<!--pages/myAddren/myAddren.wxml-->
+<view class='container1'>
+  <view class='header'>
+      <view class='header-left' catchtap='shiClick' wx:if="{{historyShow}}">
+        <view class='his-img'>
+          <image src='{{imgUrl}}dingwei01.png'></image>
+        </view>
+        {{shi||"选择城市"}}
+      </view>
+      <view class='header-right'>
+        <view class='input-img' style='background-image:url({{imgUrl}}search-sm.png)'>
+          <!-- <image src='{{imgUrl}}search-sm.png'></image> -->
+        </view>
+        <view class='del-img' wx:if="{{detilAdr}}"  catchtap='removehisAdd'>
+          <image src='{{imgUrl}}image/del.png'></image>
+        </view>
+        <input bindinput="historyKeyInput"
+          bindblur="bindDetailBlur"
+          placeholder="输入收货地址"
+          placeholder-style="font-size: 30rpx;text-align:left" 
+          value="{{detilAdr}}" wx:if="{{historyShow}}"></input>
+
+      <input bindinput="bindKeyInput"
+          bindblur="bindBlur"
+          placeholder="输入城市名或拼音查询"
+          placeholder-style="font-size: 30rpx;text-align:left" 
+          value="{{inputName}}" wx:if="{{!historyShow}}"></input>
+      </view>
+  </view>
+  <!-- <view  wx:if="{{historyShow}}"> -->
+  <view  class='detailAddList' wx:if="{{detailAddList.length>0 && detilAdr}}">
+    <view class='detail-box' wx:for="{{detailAddList}}" wx:key="index" data-item='{{item}}' bindtap='detailAddSelect'>
+      <view class='detail-head'>
+        <view class='detail-left'>{{item.title}}</view>
+      </view>
+      <view class='detail-content'>{{item.address}}</view>
+    </view>
+  </view>
+  <view  wx:if="{{historyShow && !detilAdr}}">
+    <view class='body1' wx:if="{{shi}}">
+      <view class='body1-left'>{{street}}</view>
+      <view class='body1-right' catchtap='againGetAddre'  >
+        <view class='right-img'>
+          <image src='{{imgUrl}}dingwei.png'></image>
+        </view>
+      重新定位
+      </view>
+    </view>
+    <view class='body1' wx:else>
+      <view class='body1-left text-center'>请选择附近地址</view>
+    </view>
+    
+    <view class='content'>
+    <view style='border-bottom:1rpx solid #f5f5f5'>
+      <view class='cont-head'>
+        <view class='head-img'>
+          <image src='{{imgUrl}}dizhi.png'></image>
+        </view>
+      我的收货地址
+      </view>
+      <block wx:for="{{historyItem}}" wx:key="index">
+        <view class='cont-hislist' bindtap='historyClick' data-index = "{{index}}" wx:if='{{index<=1 || lookMore}}'>
+            <view class='addr'>{{item.address}}{{item.building_card}},{{item.qu}}</view>
+            <view class='people'>
+              <text>{{item.name}}</text>
+              <text>{{item.phone}}</text>
+            </view>
+        </view>  
+      </block>
+      <!-- <view class='cont-hislist'>暂无收货地址</view> -->
+      <view class=' f-gay1 add-lookmore' wx:if='{{historyItem.length>2}}' bindtap="lookMoreClick">
+        <view wx:if="{{lookMore}}">
+          收起
+        </view>
+        <view wx:else>
+          展开<text class='f-black'> ({{historyItem.length - 2}}) </text>条收货地址信息
+        </view>
+        <image src='{{imgUrl}}{{lookMore?"shang01":"xia01"}}.png'></image>
+      </view>
+    </view>
+      <view class='cont-head'>
+        <view class='head-img'>
+          <image src='{{imgUrl}}dizhi.png'></image>
+        </view>
+      附近地址
+      </view>
+      <block wx:for="{{nearAddList}}" wx:key="id">
+        <view class='cont-hislist' bindtap='historyClick' data-cl="1" data-index = "{{index}}" style='padding-top:22rpx' wx:if="{{index>0}}">
+            <view class='addr'>{{item.title}}</view>
+        </view>  
+      </block>
+    </view>
+  </view>
+</view>
+
+<view class="container-inner" wx:if="{{!historyShow}}">
+  <view class="searchLetter touchClass">
+    <view class="thishotText" bindtap="hotCity">
+      <view style="margin-top:0;">当前</view>
+      <!-- <view style="margin-top:0;">热门</view> -->
+    </view>
+    <view wx:for="{{searchLetter}}" style="color:#f6636d;font-size:20rpx;" 
+    wx:key="*this" data-letter="{{item.name}}" catchtouchend="clickLetter">{{item.name}}</view>
+  </view>
+  <view class="container">
+    <block wx:if="{{isShowLetter}}">
+      <view class="showSlectedLetter">
+        {{showLetter}}
+      </view>
+    </block>
+    <scroll-view scroll-y="true" style="height:{{winHeight}}px"
+     bindscroll="bindScroll" scroll-into-view="{{scrollTopId}}" scroll-top="{{scrollTop}}">
+      <ul class="ul">
+        <li wx:for="{{completeList}}" wx:key="*this" bindtap="bindCity" data-city="{{item.city}}" data-code="{{item.code}}" class="li">
+          {{item.city}}
+        </li>
+      </ul>
+      <view wx:if="{{condition}}" class="hotcity-common">选择区县</view>
+      <view wx:if="{{condition}}" class="county">
+        <block class="hotCity" wx:for-items="{{countyList}}" wx:key="id">
+          <view class="weui-grid" style="margin-right: 16rpx;" data-code="{{item.id}}" data-city="{{item.fullname}}" bindtap="bindCounty">
+            <view class="weui-grid__label">{{item.fullname}}</view>
+          </view>
+        </block>
+      </view>
+      <view class="selectCity">
+        <view class="hotcity-common" bindtap="reGetLocation" wx:if="{{shi}}">当前城市</view>
+        <view class='thisCityNameBox' wx:if="{{shi}}">
+          <view class="thisCityName" data-city="{{shi}}" data-code="{{adcode}}" bindtap="bindCity">{{shi}}</view>
+        </view>
+        <!-- <view class="hotcity-common">热门城市</view> -->
+        <!-- <view class="weui-grids">
+          <view class="weui-grid" data-code="110000" data-city="北京市" bindtap="bindCity">
+            <view class="weui-grid__label">北京市</view>
+          </view>
+          <view class="weui-grid" data-code="310000" data-city="上海市" bindtap="bindCity">
+            <view class="weui-grid__label">上海市</view>
+          </view>
+          <view class="weui-grid" data-code="440100" data-city="广州市" bindtap="bindCity">
+            <view class="weui-grid__label">广州市</view>
+          </view>
+        </view> -->
+        <!-- <view class="weui-grids">
+          <view class="weui-grid" data-code="440300" data-city="深圳市" bindtap="bindCity">
+            <view class="weui-grid__label">深圳市</view>
+          </view>
+          <view class="weui-grid" data-code="330100" data-city="杭州市" bindtap="bindCity">
+            <view class="weui-grid__label">杭州市</view>
+          </view>
+          <view class="weui-grid" data-code="320100" data-city="南京市" bindtap="bindCity">
+            <view class="weui-grid__label">南京市</view>
+          </view>
+        </view> -->
+        <!-- <view class="weui-grids">
+          <view class="weui-grid" data-code="420100" data-city="武汉市" bindtap="bindCity">
+            <view class="weui-grid__label">武汉市</view>
+          </view>
+          <view class="weui-grid" data-code="120000" data-city="天津市" bindtap="bindCity">
+            <view class="weui-grid__label">天津市</view>
+          </view>
+          <view class="weui-grid" data-code="610100" data-city="西安市" bindtap="bindCity">
+            <view class="weui-grid__label">西安市</view>
+          </view>
+        </view> -->
+      </view>
+      <view class="selection" wx:for="{{cityList}}" wx:key="initial">
+        <view class="item_letter" id="{{item.initial}}">{{item.initial}}</view>
+        <view class="item_city" wx:for="{{item.cityInfo}}"
+         wx:for-item="ct" wx:key="id" data-code="{{ct.code}}" data-city="{{ct.city}}" bindtap="bindCity">
+          {{ct.city}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+

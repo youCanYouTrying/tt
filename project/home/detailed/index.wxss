@@ -1,0 +1,634 @@
+.detail_title{
+  width: 100%;
+}
+.detail_title .title_fanhui{
+  position: fixed;
+  top: 20rpx;
+  left: 25rpx;
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 999;
+}
+.detail_title .title_fanhui image{
+  width: 100%;
+  height: 100%;
+}
+.detail_title .title_fen{
+  position: fixed;
+  top: 20rpx;
+  right: 25rpx;
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 999;
+}
+.detail_title .title_fen image{
+  width: 100%;
+  height: 100%;
+}
+
+/*内容部分*/
+.detali_con{
+  width: 100%;
+  background: #fff;
+  padding-bottom: 110rpx;
+  box-sizing: border-box;
+}
+.detail_cen{
+  padding: 0 35rpx;
+  width: 100%;
+  box-sizing: border-box
+}
+.hr{
+  height: 24rpx;
+  background-color:#f5f5f5;
+  width: 100vw; 
+}
+.detali_con .detail_img{
+  width: 100%;
+  height: 500rpx;
+  overflow: hidden;
+}
+.detali_con .detail_img image{
+  width: 100%;
+  height: 100%;
+}
+/*商品名称*/
+.detali_con .detail{
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  margin-top:20rpx;
+}
+.detali_con .detail .de_name{
+  font-size: 38rpx;
+  width: 100%;
+  height: 60rpx;
+  
+}
+.de_name .detail_name{
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+ .de_name>.detail_new{
+   text-align: right;
+   display: inline-block;
+   width: 50%;
+   font-size: 28rpx;
+}
+.detail_new>image{
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.detail_new>text{
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 35rpx;
+  color: #666;
+  vertical-align: middle
+}
+/*月售*/
+ .detail .xiaoshou{
+  width: 100%;
+  margin: 10rpx 0rpx;
+  margin-top: 27rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+/*加入购物车*/
+.detail .shopp{
+  width: 100%;
+  position: relative;
+  display: flex
+}
+.detail .shop_price{
+  color: #ff7800;
+  font-size: 30rpx;
+}
+.detail .shop_price text{
+  font-size: 52rpx;
+}
+.detail .shop_box{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  display: inline-block;
+  font-size: 32rpx;
+  height: 64rpx;
+  width: 235rpx;
+  text-align: center;
+  line-height: 64rpx;
+  box-sizing: border-box;
+  background: #ff6969;
+  color: #fff;
+  border-radius: 50px;
+  z-index: 1
+}
+/*优惠内容*/
+.youhui{
+  width: 100%;
+  padding: 25rpx 0;
+  box-sizing: border-box;
+}
+ .youhui .biaoq{
+  font-size: 26rpx;
+  color: #999;
+  margin: 27rpx 0rpx 15rpx 0;
+}
+/*商品描述*/
+.shangp_remark{
+  margin-top: 10rpx;
+  width: 100%;
+}
+ .shangp_title{
+  width: 100%;
+  border-bottom: 1rpx solid #f0f0f0;
+  padding-bottom: 30rpx;  
+  display: flex;
+  align-items: center
+}
+.shangp_title .shanp{
+  flex: 2;
+  font-size: 32rpx;
+}
+.shangp_title .shangspan{
+  flex: 2;
+  font-size: 30rpx;
+  color: #999;
+  text-align: right
+}
+.detali_con .detail .shangp_remark .remark_con{
+  width: 100%;
+  padding: 30rpx 10rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  color: #666;
+}
+.goodjia-right{
+  flex: 1;
+  text-align: right
+}
+.cart-num{
+ font-size: 28rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+}
+.goodjia-right>.image-box{
+  display: inline-block;
+  width: 50rpx;
+  height:50rpx;
+  vertical-align: middle
+}
+.goodjia-right image{
+  width: 100%;
+  height: 100%;
+}
+.add-img{
+  background-color: #ff5460;
+  height: 42rpx;
+  width: 42rpx;
+  border-radius: 50%;
+  color: #fff;
+  font: 24rpx;
+  font-weight: bold;
+  line-height: 36rpx;
+  text-align: center
+}
+
+
+
+
+
+
+/*评论*/
+.comm_con{
+  width: 100%;
+  background: #fff;
+  padding-top: 35rpx;
+}
+.content_title{
+  width: 100%;
+  text-align: center;
+}
+.title_span{
+  display: inline-block;
+  padding: 5rpx 45rpx;
+  border: 1px solid #fd6e78;
+  color: #fd6e78;
+  font-size: 35rpx;
+  margin: 0rpx 20rpx;
+  border-radius: 10rpx;
+}
+.content_items{
+  width: 100%;
+  background: #fff;
+  padding:30rpx 35rpx 50rpx 40rpx ;
+  box-sizing: border-box;
+}
+.content_item{
+  width: 100%;
+  display: flex;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  align-items: flex-start;
+  border-top: 1rpx solid #f5f5f5
+}
+.userimg{
+  flex: none;
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.userimg>image{
+  width: 100%;
+  height: 100%;
+}
+.item_cen{
+  flex: 1;
+  padding-left: 24rpx;
+  width: 0%;
+  box-sizing: border-box;
+}
+.item_name{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.name_left{
+  flex: 1;
+  font-size: 34rpx;
+  color: #333;
+}
+.name_right{
+  width: 150rpx;
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  overflow: hidden;
+}
+.item_pinxing{
+  display: flex;
+  align-items: center;
+}
+.ping_left{
+  font-size: 28rpx;
+  color: #333;
+  width: 85rpx;
+}
+.ping_cneter{
+  flex: 1;
+}
+.ping_cneter>image{
+  width: 24rpx;
+  height: 24rpx;
+}
+.result-box{
+  display: inline-block;
+  margin-left: 4rpx;
+}
+.result-box:last-child{
+  display: inline-block;
+  margin-left:0;
+}
+.result-box image {
+  width: 20rpx;
+  height:20rpx;
+}
+.ping_right{
+  width: 200rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-align: right
+}
+.commpin{
+  padding-top: 35rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.com-img{
+  width: 100%;
+  position: relative
+}
+.item_cen .pinimgs{
+  display: flex;
+  flex-direction: row;
+}
+.item_cen .pinimgs .pinimg{
+  width: 130rpx;
+  height: 130rpx;
+  margin: 25rpx 10rpx;
+}
+.pinimgs .pinimg image{
+  width: 130rpx;
+  height: 130rpx;
+}
+.tab-scoller{
+  background:white;
+  height:180rpx;
+  display:flex;
+  flex-direction: row;
+  width: 400rpx
+}
+.huifu{
+  width: 100%;
+  padding: 25rpx;
+  box-sizing: border-box;
+  font-size: 23rpx;
+  color: #999;
+  background: #f5f5f5;
+
+}
+
+/* 
+
+.tab-scoller{
+  background:white;
+  height:180rpx;
+  white-space:nowrap;
+  display:flex;
+
+} */
+
+
+
+
+
+
+
+
+
+
+/*加入购物车*/
+.shopps{
+  width: 100%;
+  
+}
+.cart {
+	display: -webkit-flex;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 110rpx;
+	background: #fff;
+  z-index: 999
+}
+.cart .data {
+	display: inline-block;
+	border-top: 1rpx solid #e7e7e7;
+  width: 50%;
+  text-align: left;
+}
+.cart .data .icon{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 50rpx;
+  margin-top: 20rpx;
+  position: relative;
+  float: left;
+}
+.cart .data .icon image{
+  width: 100%;
+  height: 100%;
+}
+.cart .data .icon .count{
+  position:absolute;
+  top: -20rpx;
+  right: -15rpx; 
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 40rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: #ff3c3c;
+  border-radius: 50%;
+  color: #fff;
+}
+.cart .data .total{
+  width: 100%;
+  text-align: left;
+  padding-left: 150rpx;
+  box-sizing: border-box;
+  font-size: 35rpx;
+  margin-top: 10rpx;
+}
+.cart .data .peisong{
+  font-size: 28rpx;
+  color: #999;
+}
+.cart form{
+  width: 50%;
+  display: inline-block;
+  background: #ff6969;
+  color: #fff;
+}
+.cart .yellow {
+	margin-top: 10rpx;
+	margin-right: 20rpx;
+	width: 100%;
+	height: 100%;
+	font-size: 36rpx;
+  border: none;
+  outline: none;
+  display: inline-block;
+  background: #ff6969;
+  color: #fff;
+}
+button::after{ border: none; }
+.cart-detail, .cart-detail .mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+  z-index: 2
+}
+.cart-detail .mask {
+  /* position: fixed; */
+	background: rgba(0,0,0,0.5);
+}
+.cart-detail .list {
+	position: absolute;
+	left: 0;
+	bottom: 100rpx;
+	width: 100%;
+	background: #f7f7f7;
+  z-index: 20
+}
+.cart-detail .item {
+	display: -webkit-flex;
+	color: #333;
+	font-size: 30rpx;
+  height: 120rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #eee
+}
+.cart-detail .list .item .name {
+	width: 315rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cart-detail .list .item .total {
+	flex: 1;
+  text-align: center;
+}
+.item>.reduce,
+.item>.add {
+	font-size: 50rpx;
+	width: 50rpx;
+	height: 50rpx;
+  line-height: 40rpx;
+	text-align: center;
+	border-radius: 50%;
+  color: #fff;
+}
+
+.reduce>view,.add>view{
+  width: 100%;
+  height: 100%
+}
+.reduce image,.add image{
+  width: 100%;
+  height: 100%
+}
+.cart-detail .list .item .num {
+	width: 50rpx;
+	text-align: center;
+	margin: 0 5rpx;
+}
+.list-content{
+	padding: 0 18rpx;
+  box-sizing: border-box;
+  background-color: #fff
+}
+.list-header{
+  height: 60rpx;
+  align-items: center;
+  display: flex;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+  padding: 0 18rpx;
+}
+.list-header>view{
+  flex: 2;
+}
+.cart-scorll{
+  position: fixed;
+  bottom:900rpx;
+  background-color: #fff;
+  width: 100% ;
+  box-sizing: border-box
+}
+
+/*加规格*/
+.goodjia-right1{
+  flex: 1;
+  text-align: right;
+}
+.goodjia-right1>.guige{
+  position: relative;
+  background-color: #ff8600;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  padding: 5rpx 15rpx 6rpx 15rpx;
+  display: inline-block;
+  border-radius: 25rpx;
+}
+.guige>view{
+  background-color: #ff3c3c;
+  width: 30rpx;
+  height: 30rpx;
+  font-size: 22rpx;
+  position: absolute;
+  top: -18rpx;
+  border-radius: 50%;
+  line-height: 30rpx;
+  right: 0
+}
+.guige-model{
+  background-color: #fff;
+  position: absolute;
+  top: 20%;
+  width: 90%;
+  left: 5%;
+  height: auto;
+  border-radius: 20rpx;
+  z-index:888;
+}
+.guige-h1{
+  font-size: 32rpx;
+  padding: 20rpx 20rpx 0 20rpx;
+  text-align: center;
+}
+.guige-con{
+  font-size: 30rpx;
+  padding: 20rpx 30rpx 0 30rpx;
+}
+.guige-item-box{
+  margin:0 0 10rpx 0;
+}
+.guige-btn{
+  display: inline-block;
+  border: 1rpx solid #ccc;
+  padding: 8rpx 16rpx;
+  margin-right:20rpx;
+  margin-top: 15rpx;
+  font-size: 26rpx;
+}
+.guige-icon{
+  position: absolute;
+  bottom: -150rpx;
+  left: calc(50% - 50rpx)
+}
+.guige-icon>image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.guige-footer{
+  padding: 0 20rpx;
+  background-color: #f3f3f3;
+  border-radius: 0 0 20rpx 20rpx;
+  height: 100rpx;
+  display: flex;
+  margin-top: 40rpx;
+  align-items: center
+}
+.gleft{
+  font-size: 46rpx;
+  color: #ff4141;
+  flex: 1;
+  line-height: 1
+}
+.gleft>text{
+  font-size: 24rpx;
+  color: #333
+}
+.gright-addC{
+  background-color: #ff5460;
+  color: #fff;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  padding: 7rpx 16rpx 8rpx 16rpx;
+  margin-top: 5rpx;
+}
+.gg-active{
+  border:1rpx solid #ff8600;
+  background-color: #f5ebe0;
+  color: #ff8600
+}

@@ -1,0 +1,40 @@
+.enter_card{
+  background-color: #ffffff;
+}
+.text{
+  padding-left: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.card_num{
+  font-size: 32rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 106rpx;
+}
+.input_group{
+  width: 100%;
+  height: 100rpx;
+  
+}
+.input_group input{
+  height: 100rpx;
+  padding-left: 160rpx;
+  font-size: 28rpx;
+}
+.next{
+  width: 700rpx;
+  margin: auto;
+  margin-top: 300rpx;
+}
+.next button{
+  background-color: #fe6e78;
+  color: #ffffff;
+}
+button::after{border:0}
+.next button[disabled]{
+  background-color: #ccc;
+  color: #ffffff;
+}

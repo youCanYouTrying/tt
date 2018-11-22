@@ -1,0 +1,122 @@
+.address_center{
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20rpx 50rpx;
+  font-size: 34rpx;
+  margin-top: 20rpx;
+}
+.address_name{
+  display: flex;
+  vertical-align: center;
+}
+.name_left{
+  width: 120rpx;
+  padding-top: 30rpx;
+}
+.right_title{
+  width: 72%;
+  padding-left: 20rpx;
+
+}
+.sex_group{
+  width: 100%;
+  height: 80rpx;
+}
+.iuput_name{
+  border-bottom: 2rpx solid#ddd;
+}
+iuput_name input{
+  height: 60rpx;
+}
+.male{
+  width: 140rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  display: inline-block;
+  border: 2rpx solid#ddd;
+  margin-left: 20rpx;
+  border-radius: 6rpx;
+  font-size: 30rpx;
+}
+.girl{
+  width: 140rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  display: inline-block;
+  border: 2rpx solid#ddd;
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+  border-radius: 6rpx;
+  font-size: 30rpx;
+}
+.address_list{
+  display: flex;
+  vertical-align: center;
+  height: 100rpx;
+  position: relative;
+}
+.address_list .title{
+  width: 120rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.list_input{
+  width: 72%;
+  margin-left: 10rpx;
+  border-bottom: 2rpx solid#ddd;
+}
+.list_input input{
+  height: 60rpx;
+}
+input{
+  padding: 20rpx;
+}
+.address_lable{
+  display: flex;
+  vertical-align: center;
+  height: 100rpx;
+}
+.address_lable .lable_name{
+  width: 120rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.lable_group .lable1{
+  width: 120rpx;
+  display: inline-block;
+  height: 40rpx;
+  border-radius: 6rpx;
+  border: 2rpx solid#ddd;
+  margin-right: 40rpx;
+  margin-top: 30rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 30rpx;
+}
+.choose_address{
+  width: 16rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 100rpx;
+}
+.choose_address image{
+  width: 16rpx;
+  height: 30rpx;
+}
+.active{
+  border: 2rpx solid rgb(250,210,210);
+  background-color:#f6ebeb;
+}
+.btn_save{
+  margin-top: 60rpx;
+}
+.address_map{
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #999;
+  padding-left: 20rpx;
+}

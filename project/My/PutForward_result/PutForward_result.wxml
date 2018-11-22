@@ -1,0 +1,23 @@
+<view class='container'>
+  <view class='result'>
+    <view class='icon'>
+      <view class='icon_center'>
+        <image src='{{imgUrl}}banla_sucess.png'></image>
+      </view>
+      <view class='succes_text'><view>提现申请成功,等待银行处理</view><view class='Arrival'>预计2小时内到账</view> </view>
+    </view>
+    <view class='succes'></view>
+  </view>
+  <view class='result_method'>
+    <view class='method1'>
+      <view class='left'>提现金额</view>
+      <view class='right'>￥{{input_vlue}}</view>
+    </view>
+    <view class='method1'>
+      <view class='left'>提现方式</view>
+      <view class='right'>{{bankName}}({{bankNumber}})</view>
+    </view>
+    <navigator url='/My/balance/index' class='btn'> <button>完成</button></navigator>
+   
+  </view>
+</view>

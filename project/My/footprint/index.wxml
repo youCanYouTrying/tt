@@ -1,0 +1,65 @@
+<view class="container">
+  <view class='nothing' wx:if='{{items.length==0}}'>
+      <view class='nothing-logo'>
+        <image wx:if='{{imgUrl}}' src='{{imgUrl}}noFooter.png'> </image>
+      </view>
+      <view class='nothing-title'>慢慢美食路一个脚印也没留下</view>
+    </view>
+  <scroll-view scroll-y="true" style='height:100%' bindscrolltolower='loadMore'>
+    <view data-shopid='{{item.id}}' catchtap='goShop' data-shopid='{{item.trackable.id}}' class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="{{index}}">
+      <view class="content">
+        <view class='nearby_item'>
+          <view>
+            <view class='nearby_left'>
+              <image src='{{item.trackable.logo}}'></image>
+            </view>
+            <!--内容-->
+            <view class='nearby_right'>
+              <view class='ciontent_name'>{{item.trackable.shop_name}}</view>
+              <view class='con_time'>{{30}}分钟送达</view>
+              <view class='con_song'>
+                <span>起送价：{{item.trackable.shop_distribution[0].start_price}}</span> |
+                <span>配送费：{{item.trackable.shop_distribution[0].dis_money}}</span>
+              </view>
+              <view class='con_span'>
+
+                <!-- <span class='span' wx:for-items="{{item.span}}">{{item.spanname}}</span> -->
+
+                <!-- <span class='span'>镇店</span><span class='span'>套餐</span> -->
+              </view>
+              <view class='Discount' hidden='{{item.showArr.length==0}}' id="{{item.id}}" data-index='{{index}}' catchtap='toggleBtn'>
+                <!-- 标题 -->
+                <view class='discoun' style='background-color:{{item.showArr[0].typeColor}}'>{{item.showArr[0].name}}</view>
+                <view class='dis_con'>{{item.showArr[0].str}}</view>
+                <view class='dis_jian'>
+                  <image wx:if='{{!item.isShow}}' src='{{imgUrl}}xianshi.png'></image>
+                  <image wx:if='{{item.isShow}}'  src='{{imgUrl}}shang01.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!--优惠-->
+          <view class='discon {{uhide==item.id?"":"hidden"}}'>
+            <view class='discon_con'>
+              <view class='content'>
+                <!--减-->
+                <view class='Discount' wx:for='{{item.showArr}}' wx:for-item="itemDis" wx:for-index='indexDis'>
+                  <view class='discoun' style='background-color:{{itemDis.typeColor}}'>{{itemDis.name}}</view>
+                  <view class='dis_con'>{{itemDis.str}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="del" data-id='{{item.id}}' catchtap="del" data-index="{{index}}">删除</view>
+    </view>
+    <view class="weui-loadmore" wx:if="{{isHideLoadMore}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>   
+  </scroll-view>
+</view>
+<loading hidden='{{isOk}}'>
+  加载中...
+</loading>

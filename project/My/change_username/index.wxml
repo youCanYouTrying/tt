@@ -1,0 +1,12 @@
+<view class='container'>
+  <view class='center'>
+    <view class='notic'>{{notice}}</view>
+    <view class='input_box'>
+      <label>用户名:</label>
+      <view class='input'><input  maxlength='16' placeholder='吃货小喵' type='text'></input>
+      </view>
+    </view>
+    <view class='rule'>以中文或英文字母开头，限4-16个字符,一个汉字为两个字符</view>
+    <view class='btn'><button form-type='' bindtap='submit'>确认修改</button> </view>
+  </view>
+</view>

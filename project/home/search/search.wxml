@@ -1,0 +1,234 @@
+<view class='body'>
+  <view class='search'>
+    <view class='input' >
+      <image src='{{imgUrl}}search.png'></image>
+      <!-- disabled='{{showLoading}}' -->
+      <input  bindinput="bindKeyInput"  focus="true" bindblur="bindBlur" placeholder="搜索商家名或者菜名" placeholder-style="font-size: 30rpx;" value="{{inputName}}"></input>
+    </view>
+    <view bindtap='searchClick'>搜索</view>
+  </view>
+  <!-- 未搜索界面 -->
+  <view class="container-inner"  wx:if='{{!inputName}}'>
+
+    <view class="container">
+      <block>
+        <view class="showSlectedLetter">
+          {{toastShowLetter}}
+        </view>
+      </block>
+      <scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-into-view="{{scrollTopId}}" scroll-top="{{scrollTop}}">
+        <view class='hot-search'>
+            <view class="hot-title">热门搜索</view>
+             <view class="hot-content" >
+              <view class="hot-li" wx:for="{{hot}}"   bindtap="clickSearch" data-key="{{item.name}}" wx:key="index">
+              <view class="hot-text">{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+        <view class='his-content'>
+            <view class='his-title'>
+              <text>历史记录</text>
+              <view class='del' bindtap='del' hidden='{{his.length<1}}'>
+                <image src='{{imgUrl}}del01.png'></image>
+              </view>
+            </view>
+            <view class="hot-content" >
+              <view class="hot-li" wx:for="{{his}}" wx:key="index"  bindtap="clickSearch" data-key="{{item.name}}">
+               <view class="hot-text">{{item.name}}</view>
+              </view> 
+            </view>
+            <view class="hot-content" hidden='{{his.length>1}}' style="font-size:28rpx;text-align:center;margin-top:10rpx">
+              暂无历史记录
+            </view>
+        </view>
+      </scroll-view>
+      <view class='del-con' hidden="{{!delShow}}">
+        <view class='del-dowm'></view>
+        <view class='del-body'>
+            <view class='del-title'>温馨提示</view>
+            <view class='del-text'>清除历史记录</view>
+            <view class='del-btn'>
+              <view class='del-cancel' catchtap='cancel'>取消</view>
+              <view class='del-confirm' catchtap='delHistory'>确定</view>
+            </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 搜索商家 -->
+
+  <!-- 未找到 -->
+  <view class='section_title' wx:if="{{ youLike&& inputName}}" >
+    <view class='title_span1'>抱歉，未能找到你搜索的商品或店铺，换一个关键词试一试！！</view>
+    <view class="title" wx:if="{{ youLike&& inputName}}">猜你喜欢</view>
+  </view>
+  <!-- 综合排序 -->
+  <view class='content' wx:if="{{carInfoData1.length>0 && inputName}}">
+    <view style="width:100%;heigth:100%;"  class='nearby_con'>
+        <!--第一个-->
+        <navigator wx:for-items="{{carInfoData1}}" hover-class='none' wx:key="index"  wx:for-index = "findex" url="/home/business/index?id={{item.id}}&bid={{item.bid}}'">
+          <view class='result-con'>
+            <view class='result-left'>
+              <view>
+                <image src='{{item.logo}}'></image>
+              </view>
+            </view>
+            <!-- 右边部分 -->
+            <view class='result-right'>
+            <!-- 头部 -->
+              <view class='result-head'>
+                <view class='result-h3'>{{item.shop_name}}</view>
+                <view class='result-time'>
+                  <view>
+                    <block  wx:for="{{[0,0,0,0,0]}}" wx:key='index'  wx:for-index="in" wx:for-item="i">
+                      <view class='result-box' >
+                        <image data-index="{{in}}" src="{{imgUrl}}{{in<=item.num1-1?'xin_succes':'xin_error'}}.png"></image>
+                      </view>
+                    </block>
+                  </view>
+                  <view>
+                      <text>{{item.num}} </text>
+                      <text> 月售 {{item.monthly_sales || 0}}</text>
+                  </view>
+                  <view style='text-align:right'><text>{{item.second}}</text> | <text>{{item.distance || 0}} {{item.m?"m":'km'}}</text></view>
+                </view>
+              </view>
+              <!-- 起送价 -->
+              <view class='result-item1'>
+                <view class='item1-text'>
+                  <view class='con_song' wx:if="{{item.distribution_info == 0}}">
+                    <span>起送价￥{{item.start_price}}</span> |
+                    <span>配送费￥{{item.dis_money}}</span>
+                  </view>
+                  <view wx:else class='con_song' >
+                    <span>起送价￥{{item.site_start_money}}</span> |
+                    <span>配送费￥{{item.site_dis_money}}</span>
+                  </view>
+                </view>
+                <view class='item2-youhui' wx:if="{{item.shop_activity}}"  data-findex="{{findex}}" catchtap="youhuiShow">
+                  <view class='youhui-box-left'>
+                    <block  wx:for="{{item.shop_activity}}" wx:for-item="youhui" wx:if='{{index<1||item.ishow}}' wx:key="index" >
+                      <view class='item2-box'>
+                        <view class='{{youhui.type==1?"discoun":"song"}}'>{{youhui.type == 1?"减":"送"}}</view>
+                        <view class='youhui-dis'>满{{youhui.money}} 减 {{youhui.give_money}}</view>
+                      </view>
+                    </block>
+                  </view>
+                  <view class='youhui-box-right' wx:if="{{item.shop_activity.length>0}}" >
+                    <view class='youhui-jian'>
+                      <image src='{{imgUrl}}{{item.ishow?"shang01":"xia01"}}.png'></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <!-- 商品呈现 -->
+              <view class='goodslist' wx:if="{{item.goodses.length>0}}" >
+                <block wx:for="{{item.goodses}}"   wx:for-item="list" wx:key="index"  wx:if='{{index<=1 || item.showGoods}}'>
+                  <view class='goods-left'>
+                    <image src="{{list.goods_img}}"></image>
+                  </view>
+                  <view class='goods-right'>
+                    <view class='goods-title'><text wx:if="{{list.describe}}">【{{list.describe}}】</text>{{list.goods_name}}</view>
+                    <view class='goods-text'>月销售{{list.monthly_sales || 0}}</view>
+                    <view class='goods-price'>
+                      <view class='new-price' style='color:{{list.on_sale_price? "#ff4141" :""}}'  wx:if="{{list.goods_price}}"
+                      >￥ {{list.goods_price}}</view>
+                      <view class='old-price' wx:if="{{list.on_sale_price}}">￥{{list.on_sale_price}}</view>
+                    </view>
+                  </view>
+                 <view style='clear:both'></view>
+                </block>
+                  <!-- 查看剩余 -->
+                <view class='look-all' wx:if="{{item.goodses.length>2}}" data-index="{{findex}}" catchtap='showGoods'>
+                  <text wx:if="{{!item.showGoods}}">查看其他{{item.goodses.length - 2}}个商品</text>
+                  <text wx:if="{{item.showGoods}}">收起</text>
+                  <image src='{{item.jian_img}}'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+        <view class="weui-loadmore" >
+          <view class="weui-loading" hidden='{{loadAll}}'></view>
+          <view class="weui-loadmore__tips">{{loadAll?'已加载全部':"正在加载"}}</view>
+        </view>
+    </view>
+
+      <!-- 开始格式，被拉到下面隐藏 -->
+     
+  </view>
+<view class='content' wx:if="{{carInfoData.length>0 && inputName}}" >
+    <view style="width:100%;heigth:100%;"  class='nearby_con'>
+        <!--第一个-->
+        <navigator wx:for-items="{{carInfoData}}" hover-class='none' wx:key="index"  wx:for-index = "findex" url="/home/business/index?id={{item.id}}&bid={{item.bid}}'">
+          <view class='result-con'>
+            <view class='result-left'>
+              <view>
+                <image src='{{item.logo}}'></image>
+              </view>
+            </view>
+            <!-- 右边部分 -->
+            <view class='result-right'>
+            <!-- 头部 -->
+              <view class='result-head'>
+                <view class='result-h3'>{{item.shop_name}}</view>
+                <view class='result-time'>
+                  <view>
+                    <block  wx:for="{{[0,0,0,0,0]}}" wx:key='index'  wx:for-index="in" wx:for-item="i">
+                      <view class='result-box' >
+                        <image data-index="{{in}}" src="{{imgUrl}}{{in<=item.num1-1?'xin_succes':'xin_error'}}.png"></image>
+                      </view>
+                    </block>
+                  </view>
+                  <view>
+                      <text>{{item.num}} </text>
+                      <text> 月售 {{item.monthly_sales || 0}}</text>
+                  </view>
+                  <view style='text-align:right'><text>{{item.second}}分钟</text> | <text>{{item.distance || 0}} {{item.m?"m":'km'}}</text></view>
+                </view>
+              </view>
+              <!-- 起送价 -->
+              <view class='result-item1'>
+                <view class='item1-text'>
+                  <view class='con_song'>
+                  <span>起送价￥{{item.start_price}}</span> | <span wx:if="{{item.dis_money}}}">配送费￥{{item.dis_money}}</span>
+                  <span wx:else>配送费￥{{item.id}}</span>
+                  </view>
+                </view>
+                <view class='item2-youhui' wx:if="{{item.shop_activity}}"  data-findex="{{findex}}" catchtap="youhuiShow">
+                  <view class='youhui-box-left'>
+                    <block  wx:for="{{item.shop_activity}}" wx:for-item="youhui" wx:if='{{index<1||item.ishow}}' wx:key="index" >
+                      <view class='item2-box'>
+                        <view class='{{youhui.type==1?"discoun":"song"}}'>{{youhui.type == 1?"减":"送"}}</view>
+                        <view class='youhui-dis'>满{{youhui.money}} 减 {{youhui.give_money}}</view>
+                      </view>
+                    </block>
+                  </view>
+                  <view class='youhui-box-right' wx:if="{{item.shop_activity.length>0}}" >
+                    <view class='youhui-jian'>
+                      <image src='{{imgUrl}}{{item.ishow?"shang01":"xia01"}}.png'></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+        <!-- <view class="weui-loadmore" >
+          <view class="weui-loading" hidden='{{loadAll}}'></view>
+          <view class="weui-loadmore__tips">{{loadAll?'已加载全部':"正在加载"}}</view>
+        </view> -->
+    </view>
+
+      <!-- 开始格式，被拉到下面隐藏 -->
+     
+  </view>
+    
+</view>
+
+<view >
+    <loading  wx:if="{{showLoading}}">加载中</loading>
+</view>
+
+  

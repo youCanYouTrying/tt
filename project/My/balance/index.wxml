@@ -1,0 +1,14 @@
+<view class="container">
+  <view class='balance'>
+      <navigator url='/My/balance_details/balance_details' class='balance_details'>余额明细</navigator>
+      <view class='balance_con'>
+          <view class='balance_item'>
+              <view class='balance_title'>账户余额</view>
+              <view class='balance_price'><span>￥</span>0.00</view>
+          </view>
+          <navigator url='{{PutForward_url}}' class='forward'>提现</navigator>
+          <navigator class='Recharge' url='/My/Recharge/index'>充值</navigator>
+          <navigator url='/My/problem/index' class='problem'>常见问题</navigator>
+      </view>
+  </view>
+</view>

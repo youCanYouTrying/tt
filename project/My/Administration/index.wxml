@@ -1,0 +1,37 @@
+<view class="container">
+ <loading hidden='{{isOk}}'>
+    加载中...
+ </loading>
+ <view class='nothing' wx:if='{{items.length==0}}'>
+    <view class='nothing-logo'>
+      <image wx:if='{{imgUrl}}' src='{{imgUrl}}noAddress.png'> </image>
+    </view>
+    <view class='nothing-title'>一个地址都没有哦~</view>
+  </view>
+<scroll-view scroll-y='true' style='padding-bottom:100rpx;'>
+ <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" data-canSelect="{{item.can_select}}"  bindtap='toggleBtn' data-id="{{item.id}}"  bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="index">
+  <view class='content-moban' wx:if="{{item.can_select !== 1 && isOrder}}" catchtap='overScope'></view>
+  <view class="content">
+    <view class='address_left'>
+      <view>{{item.address}}（{{item.building_card}}）</view>
+      <text class='user_inform' space="ensp">{{item.name}}  {{item.sex}}  {{item.phone}}</text>
+    </view>
+    <view class='address_right'>
+      <!--编辑收货地址 -->
+      <view class='edit'><image  data-addressId='{{item.id}}' catchtap='edit_btn' class='edit_img' src='{{imgUrl}}edit001.png'></image> </view>
+      <view class='adress_lable'>{{item.label}}</view>
+      <!-- 默认地址图标-->
+      <view hidden='{{item.isdefault!=1}}' class='default'><image src='../../image/default_icon2.png'></image> </view>
+    </view>
+  </view>
+  <view class="del" data-id='{{item.id}}' catchtap="del"  data-index="{{index}}">删除</view>
+ </view>
+ <!--尾部-->
+</scroll-view>
+<view  class='{{isIphoneX?"isIphoneX_btn":""}} footer'>
+  <!-- <button  >新增收货地址</button> -->
+  <navigator class='{{isIphoneX?"isIphoneX_btn":""}}' url='/Run_leg/New_address/index'>
+  新增收货地址
+  </navigator>
+</view>
+</view>

@@ -1,0 +1,13 @@
+<!--home/addressNoFind/addressNoFind.wxml-->
+<view class='content'>
+  <view class='image-box'>
+    <image  style='width:234rpx;height:211rpx' src='../../image/noaddr.png'></image>
+  </view>
+  <view class='text'>
+    无法获取地址，请手动定位
+  </view>
+   <navigator class='btn' url='/home/slectAddress/slectAddress'>
+      设置地址
+   </navigator>
+</view>
+<view class='box'></view>

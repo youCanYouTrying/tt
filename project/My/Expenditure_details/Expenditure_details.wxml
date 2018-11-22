@@ -1,0 +1,24 @@
+<view class='container'>
+  <view class='income_center'>
+    <view class='income_number'>
+      <view class='number_title'>入账金额</view>
+      <view class='number'>{{money}}</view>
+    </view>
+    <view class='income_list'>
+      <view class='list_title'>交易类型</view>
+      <view class='list_content'>收入</view>
+    </view>
+    <view class='income_list'>
+      <view class='list_title'>交易时间</view>
+      <view class='list_content'>{{transaction_hour}}</view>
+    </view>
+    <view class='income_list'>
+      <view class='list_title'>流水单号</view>
+      <view class='list_content'>{{Single_number}}</view>
+    </view>
+    <view class='income_list'>
+      <view class='list_title'>备注</view>
+      <view class='list_content'>{{Remarks}}</view>
+    </view>
+  </view>
+</view>

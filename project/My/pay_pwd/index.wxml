@@ -1,0 +1,20 @@
+<view class="container">
+  <view class='updata'>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view> 
+      <form bindreset="formReset" bindsubmit="formSubmit">
+          <view class='updata_new'>
+              <view class='new_pwd'>+86</view>
+              <input class='input' maxlength='11' type='text' bindinput='phone_code' placeholder='输入手机号' value="{{account}}" name="account"></input>
+          </view>
+          
+          <view class='Code'>
+              <view class='code_text'>验证码</view>
+              <input class='input code_mg' type='number' bindinput='user_code' maxlength='6' value="{{code}}" name="code" placeholder='输入验证码'></input>
+              <view bindtap='send_btn' wx:if='{{send_code}}' class='code_url'>获取验证码</view>
+              <view wx:else class='code_url'>{{reciprocal}}s后重新获取</view>
+          </view>
+
+          <button class='submit'  formType="submit">下一步</button>
+      </form>
+  </view>
+</view>

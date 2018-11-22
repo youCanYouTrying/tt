@@ -1,0 +1,115 @@
+<view class="container">
+  <view class='my'>
+    <!--第一部分-->
+    <view class='my_title'>
+      <image wx:if='{{imgUrl}}' src='{{imgUrl}}my_bg.png'></image>
+      <view class='title_con'>
+        <!-- 设置 -->
+        <!-- <navigator class='Set' url='/My/Set_up/index'><image wx:if='{{imgUrl}}' src='{{imgUrl}}my_shezhi.png'></image></navigator> -->
+        <!-- <navigator url="{{notLogin?'/home/login/login':'/My/system_information/system_information'}}" class='Prompt'>
+          <image wx:if='{{imgUrl}}' src='{{imgUrl}}my_tishi.png'></image> -->
+          <!-- 消息 -->
+          <!-- <view class='notice_num'>3</view> -->
+        <!-- </navigator> -->
+        <view class='my_name'>
+          <!-- <navigator wx:if='{{avatarUrl}}'  url='/My/information/index' class='name_img'><image src='{{avatarUrl}}'></image></navigator> -->
+          <view wx:if='{{avatarUrl}}' class='name_img'>
+            <image src='{{avatarUrl}}'></image>
+          </view>
+          <view wx:if='{{!avatarUrl}}' class='name_img'>
+            <image wx:if='{{imgUrl}}' src='{{imgUrl}}my_toux.png'></image>
+          </view>
+          <view wx:if='{{!name}}' class='name'>
+            <navigator class='sign' url='/home/login/login'>立即登录</navigator>
+          </view>
+          <view class='name'>
+            <view class='sign'>{{name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--第二部分-->
+    <view class="my_con1">
+      <navigator class='con1_item' url='{{notLogin?"/home/login/login":"/My/Collection/index"}}'>
+        <view class='item_img'>
+          <image wx:if='{{imgUrl}}' src='{{imgUrl}}Mycoll2x.png'></image>
+        </view>
+        <view  class='item_font'>收藏</view>
+      </navigator>
+      <!-- <navigator class='con1_item'>
+        <view class='item_img'>
+          <image wx:if='{{imgUrl}}' src='{{imgUrl}}Mytui.png'></image>
+        </view>
+        <view class='item_font'>推广</view>
+      </navigator> -->
+      <!-- <navigator class='con1_item' url='/My/balance/index'>
+          <view class='item_img'><image wx:if='{{imgUrl}}' src='{{imgUrl}}Myyue.png'></image></view>
+          <view class='item_font'>余额</view>
+        </navigator> -->
+      <navigator class='con1_item' url='{{notLogin?"/home/login/login":"/My/Coupon/index"}}'>
+        <view class='item_img'>
+          <image wx:if='{{imgUrl}}' src='{{imgUrl}}Mycard2x.png'></image>
+        </view>
+        <view class='item_font'>卡券</view>
+      </navigator>
+    </view>
+    <!--第三部分-->
+    <view class="my_con2">
+      <!--常用-->
+      <view class='used'>
+        <view class='used_font'>常用</view>
+        <view class='used_items'>
+          <navigator class='used_item' url='{{notLogin?"/home/login/login":"/My/comment/index"}}'>
+            <view class='used_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}comm.png'></image>
+            </view>
+            <view class='used_name'>评论</view>
+          </navigator>
+          <navigator class='used_item' url='{{notLogin?"/home/login/login":"/My/Administration/index"}}'>
+            <view class='used_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}my_adress.png'></image>
+            </view>
+            <view class='used_name'>收货地址</view>
+          </navigator>
+          <navigator class='used_item' url='{{notLogin?"/home/login/login":"/My/footprint/index"}}'>
+            <view class='used_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}footprint.png'></image>
+            </view>
+            <view class='used_name'>足迹</view>
+          </navigator>
+          <!-- <navigator class='used_item' url='{{notLogin?"/home/login/login":"/My/Member/index"}}'>
+            <view class='used_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}my_vip.png'></image>
+            </view>
+            <view class='used_name'>超级会员</view>
+          </navigator> -->
+        </view>
+      </view>
+
+      <!--其他-->
+      <!-- <view class='used'>
+        <view class='used_font'>其他</view>
+        <view class='used_items'>
+          <navigator class='used_item' url='/My/consulting/index'>
+            <view class='used_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}onsultation.png'></image>
+            </view>
+            <view class='used_name'>在线咨询</view>
+          </navigator>
+          <navigator class='used_item' url='/My/cooperation/index'>
+            <view class='used_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}cooperation.png'></image>
+            </view>
+            <view class='used_name'>我要合作</view>
+          </navigator>
+          <button open-type="share" class='used_item shar_btn'>
+            <view class='used_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}my_fen.png'></image>
+            </view>
+            <view class='used_name'>分享{{smName}}</view>
+          </button>
+        </view>
+      </view> -->
+    </view>
+  </view>
+</view>

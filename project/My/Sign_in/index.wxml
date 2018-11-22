@@ -1,0 +1,22 @@
+<!--My/Sign_in/index.wxml-->
+<view class='container'>
+  <view class='sign_in'>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>  
+
+      <!--登录-->
+      <form class='form_sub' bindreset="formReset" bindsubmit="formSubmit" >
+          <view class='phone'>
+          <input class='input_phone' placeholder='输入手机号' value="{{account}}" type="text" focus="true" name="account"                    ></input>
+          </view>
+          <view class='pwd'>
+               <input class='input_pwd' placeholder='输入密码'type="password" value="{{password}}" name="password"></input>
+              <navigator class='yanz'>发送验证码</navigator>
+          </view>
+          <view class='register'><view class='reg_font'>还没有注册？</view><navigator url='/My/register/index'class='reg_gis'>注册</navigator></view>
+          <view class='submit'><button class='submits' type="primary" formType="submit">登录</button></view>
+          <navigator url='/My/Sign_num/index' class='Other'>使用其他方式登录</navigator>
+      </form>
+
+      <view class='Agreement'><span>登录即代表你已同意</span><span><navigator class='agree'>《{{smName}}外卖用户协议》</navigator></span></view>
+  </view>
+</view>

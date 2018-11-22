@@ -1,0 +1,30 @@
+<!--My/Set_up/index.wxml-->
+<view class='container'>
+  <view class='setup'>
+      <!--内容-->
+      <view class='setup_con'>
+
+          <!--内容2-->
+          <view class='set_items'>
+              <!-- <view class='set_item'>
+                <navigator class='itme'>清楚缓存<span>(3.3m)</span>
+                    <view class='item_img'><image src='{{imgUrl}}inform_you.png'></image></view>
+                </navigator>
+              </view> -->
+               <view class='set_item'>
+                <navigator class='itme' url='/My/about_box/index'>关于{{smName}}
+                    <view class='item_img'><image src='{{imgUrl}}inform_you.png'></image></view>
+                </navigator>
+              </view>
+              <view class='set_item'>
+                <navigator class='itme'>去给{{smName}}评分吧
+                    <view class='item_img'><image src='{{imgUrl}}inform_you.png'></image></view>
+                </navigator>
+              </view>
+          </view>
+
+
+
+      </view>
+  </view>
+</view>

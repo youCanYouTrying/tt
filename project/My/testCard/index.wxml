@@ -1,0 +1,25 @@
+<view class='container'>
+  <view class='test_title'>
+   <view class='public_main card_name'>
+    <view class='head'><text>银行卡</text>  <text>{{ban_name}}</text> </view>
+     <view class='head'><text space="ensp">卡  号</text>  <text>{{card_num}}</text> </view>
+   </view>
+  </view>
+  <view class='notice'>提醒:后续只能绑定该持卡人的银行卡</view>
+  <view class='input_group'>
+    <view class='list1'> 
+      <view class='user'>持卡人</view> 
+      <view class='input'> <input type='text' placeholder='持卡人姓名'></input> </view> 
+    </view>
+    <view class='list1'> 
+      <view class='user'>身份证</view> 
+      <view class='input'> <input type='number' maxlength='16' placeholder='请输入证件号码'></input> </view> 
+    </view>
+    <view class='list1'> 
+      <view class='user'>手机号</view> 
+      <view class='input'> <input type='number' maxlength='11' placeholder='银行预留手机号'></input> </view> 
+    </view>
+  </view>
+  <view class='user_rule'>同意 <navigator>《用户协议》</navigator> </view>
+  <navigator url='/My/test_message/index' class='next_btn'><button>同意协议并验证</button> </navigator>
+</view>

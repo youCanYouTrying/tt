@@ -1,0 +1,161 @@
+
+
+<view class="container">
+  <map id='myMap' style='width:100%;height:714rpx' latitude="{{latitude}}" longitude="{{longitude}}" markers='{{markers}}' scale="15" show-location>
+  </map>
+  <view class='receipt'>
+    <view class='receipt_con f-gay2'>
+      <!--内容部分取消订单-->
+      <view class='shaw-box receipt-item1' bindtouchstart='touchStart' bindtouchmove='touchMover' style='padding:0rpx 10rpx 20rpx 20rpx;'>
+        <icon class='border_top' style='width:80rpx;border:2rpx solid#ddd;'></icon>
+        <view wx:if='{{status==4 ||status==14||status==15}}' bindtap="showDialogBtn" class='f-black'>骑手赶往商家中
+          <image wx:if='{{imgUrl}}' style='width:14rpx;height:26rpx;margin-left:10rpx' src='{{imgUrl}}you_jian.png'></image>
+        </view>
+        <view wx:if='{{status==12}}' bindtap="showDialogBtn" class='f-black'>骑手已到店
+          <image wx:if='{{imgUrl}}' style='width:14rpx;height:26rpx;margin-left:10rpx' src='{{imgUrl}}you_jian.png'></image>
+        </view>
+        <view wx:if='{{status==5}}' bindtap="showDialogBtn" class='f-black'>骑手正在配送中
+          <image wx:if='{{imgUrl}}' style='width:14rpx;height:26rpx;margin-left:10rpx' src='{{imgUrl}}you_jian.png'></image>
+        </view>
+        <view class='predict'>
+          <view>
+            <i>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}time2.png'></image>
+            </i>
+          </view>
+          <p>预计送达：
+            <text>{{show_time}}</text>
+          </p>
+        </view>
+        <view bindtap='Retreat_money' id='{{items.order_model.id}}' class='btn f-gay1'> 申请退款 </view>
+        <view catchtap='remind_order' class='btn {{canReminder?"":"bg_gay"}}'> 催单 </view>
+        <view wx:if='{{status==5}}' bindtap='showmodal' style='background-color:#fe6e78;color:#ffffff;border:none;' class='btn'>确认收货</view>
+      </view>
+      <!-- 骑手 -->
+      <view class='shaw-box qishou'>
+        <view class='qishou-left'>
+          <icon>
+            <image  src='{{items.rider.img}}'></image>
+          </icon>
+        </view>
+        <view class='qishou-center'>
+          <view class='qi-title'>骑手：{{items.rider.nickname}}</view>
+          <view class='qi-text'>很满意:{{items.rider.satisfy_num}}次</view>
+        </view>
+        <view class='qishou-right'>
+          <!-- <icon bindtap='send'><image wx:if='{{imgUrl}}' src='{{imgUrl}}duanxin.png'></image></icon> -->
+          <icon data-num='1' style='margin-right:0;margin-left:85rpx;' bindtap='call_order'>
+            <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+          </icon>
+        </view>
+      </view>
+      <!--订单详情部分-->
+      <!--第一部分-->
+      <view class='shaw-box receipt-item2'>
+        <view class='item1'>
+          <view>
+            <view>
+              <image src='{{items.shop.logo}}'></image>
+            </view>
+          </view>
+          <view class='f-black'>{{items.shop.shop_name}}</view>
+          <view>
+            <!-- <view data-num='2'  style="width:50rpx;height:50rpx;margin-right:36rpx" class='ipone_img'><image wx:if='{{imgUrl}}' src='{{imgUrl}}duanxin.png'></image>
+        </view> -->
+          </view>
+          <view>
+            <view data-num='2' bindtap='call_order' class='ipone_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+            </view>
+          </view>
+        </view>
+
+        <!-- 商品列表 -->
+        <view wx:for='{{items.order_model.order_goods}}' wx:for-item='list' class='item2' wx:key='{{index}}'>
+          <span class='f_left'>{{list.goods.goods_name}}</span>
+          <i>x{{list.num}}</i>
+          <view class='f-gay1'>￥{{list.goods.goods_price}}</view>
+        </view>
+        <view class='item3'>
+          <view>餐盒费</view>
+          <i class="f-gay1">￥{{items.order_model.lunch_box_fee}}</i>
+        </view>
+        <view class='item3'>
+          <view>配送费</view>
+          <i class="f-gay1">￥{{items.order_model.distribution_fee}}</i>
+        </view>
+        <view wx:if='{{items.order_model.order_activity.activity.give_money>0 &&items.order_model.order_activity.activity.give_money!=""}}' class='item3'>
+          <view class='youhui'>
+            <view class='jian'>减</view>
+            <text class='f-black'>满减优惠</text>
+          </view>
+          <i class='f-red'>-￥{{items.order_model.order_activity.activity.give_money}}</i>
+        </view>
+        <view class='item3'>
+          <view class='f-black'>小计</view>
+          <i class='f-red'>￥{{items.order_model.total_fee}}</i>
+        </view>
+      </view>
+
+      <!--第二部分-->
+      <view class='shaw-box receipt-item3'>
+        <view class='item3'>
+          <span>期望时间</span>
+          <i wx:if='{{items.order_model.is_pro_order==0}}' class="f-gay1">立即送达</i>
+          <i wx:if='{{items.order_model.is_pro_order==1}}' class="f-gay1">{{items.order.expected_time}}</i>
+        </view>
+        <view class='item3'>
+          <span>收货地址</span>
+              <view class="font"><view>{{items.address.address}} {{items.address.building_card}}</view>
+            {{items.address.name}}  {{items.address.phone}}</view>
+        </view>
+        <view class='item3'>
+          <span>配送方式</span>
+          <i class="f-gay1">由{{smName}}外卖提供的配送服务</i>
+        </view>
+      </view>
+      <!--第三部分-->
+      <view class='shaw-box receipt-item4'>
+        <view class='item3'>
+          <span>订单号码</span>
+          <i class="f-gay1">{{items.order_num}}</i>
+        </view>
+        <view class='item3'>
+          <span>订单时间</span>
+          <i class="f-gay1">{{items.order_model.add_time}}</i>
+        </view>
+        <view class='item3'>
+          <span>支付方式</span>
+          <i class="f-gay1">在线支付</i>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 订单进程 -->
+<cover-view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></cover-view>
+<cover-view class="modal-dialog" wx:if="{{showModal}}">
+  <cover-view class="modal-title">订单进程</cover-view>
+  <cover-view class="modal-content">
+    <cover-view class='modal-item' wx:for="{{timeList}}" wx:key="index">
+      <cover-view class='time-line'>
+        <cover-view class='clr' wx:if="{{index<timeList.length-1}}"></cover-view>
+        <cover-view class='clr1' wx:if="{{index == timeList.length-1}}"></cover-view>
+      </cover-view>
+      <cover-view class='modal-iteml'>
+        <cover-view> {{item.content}}</cover-view>
+      </cover-view>
+      <cover-view class='modal-itemr'>{{item.add_time}}</cover-view>
+    </cover-view>
+  </cover-view>
+  <cover-view class='{{isIphoneX?"isIphoneX_btn":""}} modal-footer'>
+    <cover-image wx:if='{{!isIphoneX}}' bindtap="hideModal" class='close_jian' src='/image/close_all.png'></cover-image>
+    <cover-image wx:if='{{isIphoneX}}' bindtap="hideModal" class='close_jian' src='/image/close_all2.png'></cover-image>
+    <!-- <cover-view style='height:100%;line-height:110rpx;' bindtap="hideModal" data-status="cancel">关闭</cover-view> -->
+  </cover-view>
+</cover-view>
+<cover-view class="weui-loadmore" 
+style='{{isUpdata?"height:0rpx;padding-bottom:0;":"height:50rpx;padding-bottom:40rpx;"}}'>
+    <cover-view class="weui-loading"></cover-view>
+    <cover-view class="weui-loadmore__tips">更新数据中...</cover-view>
+</cover-view>

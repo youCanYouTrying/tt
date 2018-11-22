@@ -1,0 +1,102 @@
+{
+  "debug": true,
+  "pages": [
+    
+    "home/home_page/index",
+    "home/Delicious_food/index",
+    "home/detailed/index",
+    "home/Worth_eating/index",
+    "home/slectAddress/slectAddress",
+    "home/login/login",
+    "home/search/search",
+    "home/Shopping_Cart/index",
+    "home/All_classification/index",
+    "home/activity/activity",
+    "home/business/index",
+    "home/addressNoFind/addressNoFind",
+
+    "pages/Distribution/index",
+    "pages/Confirmation_order/index",
+    "pages/Application/index",
+    "pages/Speed_progress/index",
+    "pages/speed/index",
+    "pages/Submission/index",
+    "pages/Order/index",
+    "pages/Receipt1/index",
+    "pages/Receipt_test/index",
+    "pages/Receipt/index",
+    
+    "Run_leg/Order_details1/index",
+    "Run_leg/Order_details2/index",
+    "Run_leg/invoice/invoice",
+    "Run_leg/New_address/index",
+    "Run_leg/Order_completion/index",
+    "Run_leg/change_address/change_address",
+  
+
+    "My/my/index",
+    "My/comment/index",
+    "My/Collection/index",
+    "My/footprint/index",
+    "My/consulting/index",
+    "My/balance/index",
+    "My/about_box/index",
+    "My/Set_up/index",
+    "My/pay_pwd/index",
+    "My/updata_pwd/index",
+    "My/register/index",
+    "My/Modify_pwd/index",
+    "My/information/index",
+    "My/cooperation/index",
+    "My/Merchant_entry/index",
+    "My/Coupon/index",
+    "My/Sign_in/index",
+    "My/Administration/index",
+    "My/system_information/system_information",
+    "My/City_agent/City_agent",
+    "My/New_address/index",
+    "My/information_detailed/information_detailed"
+
+
+
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#efefef",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#ed7778",
+    "borderStyle": "black",
+    "backgroundColor": "#fcfcfc",
+    "list": [
+      {
+        "pagePath": "home/home_page/index",
+        "iconPath": "image/home1.png",
+        "selectedIconPath": "/image/home2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/Order/index",
+        "iconPath": "image/order1.png",
+        "selectedIconPath": "image/order2.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "My/my/index",
+        "iconPath": "image/my1.png",
+        "selectedIconPath": "image/my2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

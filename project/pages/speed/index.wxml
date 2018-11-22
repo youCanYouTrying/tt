@@ -1,0 +1,140 @@
+<view class="container">
+  <view class='receipt'>
+
+    <view class='receipt_con'>
+      <!--内容部分取消订单-->
+      <view class='close_reces '>
+        <view class='reces  shaw-box'>
+          <p>{{showtext}}</p>        
+          <!-- <span wx:if='{{items.apply_refund.add_time[1]!==null}}' class="spans">
+          {{items.apply_refund.add_time[1]/60}}分钟后商家仍未处理系统将自动退款               
+          </span> -->
+          <view class='rece_close' catchtap='go_details'>
+            <span>查看进度</span>
+          </view>
+
+           <view class='Rider'>
+              <view class='r_img'>
+                <image wx:if="{{items.rider.img}}" src='{{items.rider.img}}'></image>
+                <image wx:else src="{{imgUrl}}qishou.png"></image>
+              </view>
+              <view class='r_center'>
+                <view>骑手：{{items.rider.nickname}}</view>
+                <span>很满意：{{items.rider.satisfy_num}}次</span>
+              </view>
+              <view class='r_right'>
+                <view class='duanxin'>
+                  <image wx:if='{{imgUrl}}' src='{{imgUrl}}duanxin.png'></image>
+                </view>
+                <view bindtap='call_order' data-num='1' style='float:right'>
+                  <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+                </view>
+              </view>
+          </view>
+        </view>
+
+       
+      </view>
+
+      <!--订单详情部分-->
+      <view class='receipt_cen'>
+        <!--骑手,没有骑手信息只能是骑手未接单前退款-->
+        <view class='receipt_items shaw-box' wx-if="{{items.rider}}" style='display:none'>
+          <view class='Rider'>
+            <view class='rider_con'>
+              <i id="rider_img">
+                 <image wx:if="{{items.rider.img}}" src='{{items.rider.img}}'></image>
+                <image wx:else src="{{imgUrl}}qishou.png"></image>
+              </i>
+              <p>骑手：{{items.rider.nickname}}</p>
+              <span>很满意：{{items.rider.satisfy_num}}次</span>
+            </view>
+            <navigator class='duanxin'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}duanxin.png'></image>
+            </navigator>
+            <view bindtap='call_order' data-num='1' class='ipone'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+            </view>
+          </view>
+        </view>
+        <!--第一部分-->
+        <view class='receipt_items shaw-box' style='padding:0' >
+        <view class='item1'>
+          <view class='receipt_item '>
+            <span>
+              <i class="i">
+                <image src='{{items.shop.logo}}'></image>
+              </i>{{items.shop.shop_name}}</span>
+            <view data-num='2' bindtap='call_order' class='ipone_img'>
+              <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+            </view>
+          </view>
+        </view>
+       
+          <!-- 商品列表 -->
+          <block wx:for='{{items.apply_refund.apply_refund_goods}}'wx:for-item='list' >
+            <view  class=' item2 '>
+            <view class='left'>{{list.goods_name}}</view>
+            <!-- <view class='center'>{{list.num}}</view> -->
+            <view class='right'>￥{{list.sale}}</view>
+              <!-- <span>{{list.goods_name}}</span>
+              <i class="font">x{{list.num}}</i> -->
+            </view>
+          </block>
+          <view class='item3'>
+            <view class='receipt_item'>
+              <span>餐盒费</span>
+              <i class="font">￥{{items.order_model.lunch_box_fee}}</i>
+            </view>
+                 <!-- <view class='receipt_item'>
+            <span>配送费</span>
+            <i class="font">￥{{items.order_model.distribution_fee}}</i>
+          </view> -->
+          </view>
+          
+          <view class='item4'>
+            <view class='receipt_item '>
+              <span>小计</span>
+              <i class="font">￥{{items.apply_refund.money}}</i>
+            </view>
+          </view>
+        
+        </view>
+        <!--第二部分-->
+        <view class='receipt_items shaw-box'>
+          <view class='receipt_item'>
+            <span>期望时间</span>
+            <i class="font" wx:if='{{items.order_model.is_pro_order==0}}'>立即送达</i>
+            <i class="font" wx:if='{{items.order_model.is_pro_order==1}}'>{{items.order.expected_time}}</i>
+          </view>
+          <view class='receipt_item'>
+            <span>收货地址</span>
+            <view class="font"><view>{{items.address.address}} {{items.address.building_card}}</view>
+            {{items.address.name}}  {{items.address.phone}}</view>
+          </view>
+          <view class='receipt_item'>
+            <span>配送方式</span>
+            <i class="font">由{{smName}}提供的配送服务</i>
+          </view>
+        </view>
+        <!--第三部分-->
+        <view class='receipt_items shaw-box'>
+          <view class='receipt_item'>
+            <span>订单号码</span>
+            <i class="font">{{items.order_num}}</i>
+          </view>
+          <view class='receipt_item'>
+            <span>订单时间</span>
+            <i class="font" id="font1">{{items.order_model.add_time}}</i>
+          </view>
+          <view class='receipt_item'>
+            <span>支付方式</span>
+            <i class="font">在线支付</i>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+</view>

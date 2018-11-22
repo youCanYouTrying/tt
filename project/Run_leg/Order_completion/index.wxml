@@ -1,0 +1,137 @@
+<view class="container">
+  <!-- <view class='modal'>
+    <view class='modal-content'>
+      <view class='modal-head'></view>
+      <view class='modal-body'></view>
+      <view class='modal-foot'></view>
+    </view>
+  </view> -->
+  <view class='order-over f-gay2'>
+    <!--内容部分取消订单-->
+    <view class='shaw-box receipt-item1' style='padding:0rpx 10rpx 30rpx 30rpx;'>
+      <icon class='border_top' style='width:80rpx;border:2rpx solid#ddd;'></icon>
+      <view class='f-black' bindtap="showDialogBtn">订单已完成 
+      <image wx:if='{{imgUrl}}' style='width:7px;height:13px;margin-left:5px;' src='{{imgUrl}}you_jian.png'></image>
+      </view>
+      <!-- <p>感谢您对{{}}的信任,期待下次光临</p> -->
+      <view catchtap='gorefund' class='btn f-gay1'> 申请退款 </view>
+      <navigator url='/home/business/index?id={{items.shop_id}}' class='btn f-gay1 red-btn'> 再来一单 </navigator>
+      <view wx:if='{{items.order_model.is_commented!=1}}' catchtap='gocomment' class='btn red-btn'>评价</view>
+    </view>
+    <!-- 骑手 -->
+    <view wx:if='{{items.rider}}' class='shaw-box qishou'>
+      <view class='qishou-left'>
+        <icon>
+          <image wx:if="{{items.rider.img}}"  src='{{items.rider.img}}'></image>
+          <image wx:else src='{{morenImg}}'></image>
+        </icon>
+      </view>
+      <view class='qishou-center'>
+        <view class='qi-title'>骑手：{{items.rider.nickname}}</view>
+        <view class='qi-text'>很满意:{{items.rider.satisfy_num}}次</view>
+      </view>
+      <view class='qishou-right'>
+        <icon>
+          <image wx:if='{{imgUrl}}' src='{{imgUrl}}duanxin.png'></image>
+        </icon>
+        <icon data-num='1' bindtap='call_order'>
+          <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+        </icon>
+      </view>
+    </view>
+    <!--订单详情部分-->
+    <!--第一部分-->
+    <view class='shaw-box receipt-item2'>
+      <view class='item1'>
+        <view>
+          <view>
+            <image src='{{items.shop.logo}}'></image>
+          </view>
+        </view>
+        <view class='f-black'>{{items.shop.shop_name}}</view>
+        <view>
+          <view data-num='2' bindtap='call_order' class='ipone_img'>
+            <image wx:if='{{imgUrl}}' src='{{imgUrl}}tuoyuan.png'></image>
+          </view>
+        </view>
+      </view>
+      <!-- 商品列表 -->
+      <view wx:for='{{items.order_model.order_goods}}' wx:for-item='list' class='item2'>
+        <span class='f_left'>{{list.goods.goods_name}}</span>
+        <i>x{{list.num}}</i>
+        <view class='f-gay1'>￥{{list.goods.goods_price*list.num}}</view>
+      </view>
+      <view class='item3'>
+        <view>餐盒费</view>
+        <i class="f-gay1">￥{{items.order_model.lunch_box_fee}}</i>
+      </view>
+      <view class='item3'>
+        <view>配送费</view>
+        <i class="f-gay1">￥{{items.order_model.distribution_fee}}</i>
+      </view>
+      <view wx:if='{{items.order_model.order_activity.activity.give_money>0 &&items.order_model.order_activity.activity.give_money!=""}}' class='item3'>
+        <view class='youhui'>
+          <view class='jian'>减</view>
+          <text class='f-black'>满减优惠</text>
+        </view>
+        <i class='f-red'>-￥{{items.order_model.order_activity.activity.give_money}}</i>
+      </view>
+      <view class='item3'>
+        <view class='f-black'>小计</view>
+        <i class='f-red'>￥{{items.order_model.total_fee}}</i>
+      </view>
+    </view>
+    <!--第二部分-->
+    <view class='shaw-box receipt-item3'>
+      <view class='item3'>
+        <span>期望时间</span>
+        <i wx:if='{{items.order_model.is_pro_order==0}}' class="f-gay1">立即送达</i>
+        <i wx:if='{{items.order_model.is_pro_order==1}}' class="f-gay1">{{items.order.expected_time}}</i>
+      </view>
+      <view class='item3'>
+        <span>收货地址</span>
+           <view class="font"><view>{{items.address.address}} {{items.address.building_card}}</view>
+            {{items.address.name}}  {{items.address.phone}}</view>
+      </view>
+      <view class='item3'>
+        <span>配送方式</span>
+        <i class="f-gay1">由{{smName}}提供的配送服务</i>
+      </view>
+    </view>
+    <!--第三部分-->
+    <view class='shaw-box receipt-item4'>
+      <view class='item3'>
+        <span>订单号码</span>
+        <i class="f-gay1">{{items.order_num}}</i>
+      </view>
+      <view class='item3'>
+        <span>订单时间</span>
+        <i class="f-gay1">{{items.order_model.add_time}}</i>
+      </view>
+      <view class='item3'>
+        <span>支付方式</span>
+        <i class="f-gay1">在线支付</i>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">订单进程</view>
+  <scroll-view scroll-y scroll-top='500' class="modal-content">
+    <view class='modal-item' wx:for="{{timeList}}">
+      <view class='time-line'>
+        <icon class='clr' wx:if="{{index<timeList.length-1}}"></icon>
+        <icon class='clr1' wx:if="{{index == timeList.length-1}}"></icon>
+      </view>
+      <view class='modal-iteml'>
+        <text>{{item.content}}</text>
+      </view>
+      <view class='modal-itemr'>{{item.add_time}}</view>
+    </view>
+  </scroll-view>
+  <view class='{{isIphoneX?"isIphoneX_btn":""}} modal-footer'>
+    <view bindtap="onCancel" data-status="cancel">关闭</view>
+  </view>
+</view>

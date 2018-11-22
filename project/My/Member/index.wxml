@@ -1,0 +1,53 @@
+<!--My/Member/index.wxml-->
+<view class='container'>
+<view class='member'>
+    <!--头部-->
+    <view class='member_bg'>
+        <image wx:if='{{imgUrl}}' src='{{imgUrl}}member_bg.png'></image>
+        <view class='member_title'>
+            <navigator class='mem_quan'>查看会员特权<view class='mem_image'><image wx:if='{{imgUrl}}' src="{{imgUrl}}mem_you.png"></image></view></navigator>
+            <view class='vip'>
+                <view class='vip_left'><image wx:if='{{imgUrl}}' src='{{imgUrl}}VIP.png'></image></view>
+                <view class='vip_right'>
+                    <view class='vip_font'>超级会员</view>
+                     <view class='vip_text'><text class='text1'>优/惠/无/限</text><view class='vip_img'><image wx:if='{{imgUrl}}' src="{{imgUrl}}mem_xin.png"></image></view><text class='text2'>红/包/多/多</text></view>
+                </view>
+            </view> 
+        </view>
+    </view>
+
+
+<!--内容部分-->
+<view class='mem_content'>
+    <view class='mem_item'>
+        <view class='mem_time'>
+            <view class='mem_tim'>1个月(31天)<span class='mem_price'>￥15</span></view>
+            <view class='mem_num'>5元x6个红包</view>
+        </view>
+        <navigator class='mem_shop'>购买</navigator>
+    </view>
+     <view class='mem_item'>
+        <view class='mem_time'>
+            <view class='mem_tim'>1个月(31天)<span class='mem_price'>￥15</span></view>
+            <view class='mem_num'>5元x6个红包</view>
+        </view>
+        <navigator class='mem_shop'>购买</navigator>
+    </view>
+    <view class='mem_item'>
+        <view class='mem_time'>
+            <view class='mem_tim'>1个月(31天)<span class='mem_price'>￥15</span></view>
+            <view class='mem_num'>5元x6个红包</view>
+        </view>
+        <navigator class='mem_shop'>购买</navigator>
+    </view>
+    <view class='mem_item'>
+        <view class='mem_time'>
+            <view class='mem_tim'>1个月(31天)<span class='mem_price'>￥15</span></view>
+            <view class='mem_num'>5元x6个红包</view>
+        </view>
+        <navigator class='mem_shop'>购买</navigator>
+    </view>
+</view>
+
+</view>
+</view>

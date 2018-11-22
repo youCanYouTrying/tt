@@ -1,0 +1,68 @@
+/* My/balance/index.wxss */
+.balance{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+}
+.balance_details{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 32rpx;
+  color: #333;
+}
+.balance .balance_con{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.balance .balance_con .balance_item{
+  width: 100%;
+  margin-top: 150rpx;
+}
+.balance .balance_con .balance_item .balance_title{
+      text-align: center;
+      color: #333;
+      font-size: 36rpx;
+}
+.balance .balance_con .balance_item .balance_price{
+  width: 100%;
+  text-align: center;
+  font-size: 76rpx;
+  margin-top: 40rpx;
+}
+.balance .balance_con .balance_item .balance_price span{
+  font-size: 56rpx;
+}
+.balance .balance_con .forward{
+      height: 90rpx;
+      width: 100%;
+      display: inline-block;
+      margin-top: 200rpx;
+      text-align: center;
+      line-height: 90rpx;
+      background: #ff6b6b;
+      border-radius: 10rpx;
+      color: #fff;
+}
+.balance .balance_con .Recharge{
+      height: 90rpx;
+      width: 100%;
+      display: inline-block;
+      margin-top: 40rpx;
+      text-align: center;
+      line-height: 90rpx;
+      color: #ff6b6b;
+      border-radius: 10rpx;
+      border: 2rpx solid #ff6b6b;
+}
+.problem{
+  text-align: center;
+  color: #ff6b6b;
+  margin-top: 200rpx;
+  font-size: 28rpx;
+}

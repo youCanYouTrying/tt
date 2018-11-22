@@ -1,0 +1,23 @@
+<view class='container'>
+  <view class='result'>
+    <view class='icon'>
+      <view class='icon_center'>
+        <image src='{{imgUrl}}banla_sucess.png'></image>
+      </view>
+      <view class='succes_text'>充值成功</view>
+    </view>
+    <view class='succes'></view>
+  </view>
+  <view class='result_method'>
+    <view class='method1'>
+      <view class='left'>充值金额</view>
+      <view class='right'>收入</view>
+    </view>
+   <view class='method1'>
+      <view class='left'>充值方式</view>
+      <view class='right'>中国银行储蓄卡</view>
+    </view>
+    <navigator url='/My/balance/index' class='btn'> <button>完成</button></navigator>
+   
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<view class="container">
+  <view class='updata'>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view> 
+      <form bindreset="formReset" bindsubmit="formSubmit">
+          <view class='updata_new'>
+              <view class='new_pwd'>新密码</view>
+              <input class='input' type='text' placeholder='输入新密码(密码长度：6-12位)' value="{{account}}" name="account"></input>
+          </view>
+          <view class='updata_red'>
+              <view class='new_pwd' >确认密码</view>
+              <input class='input' type='text' placeholder='请再次输入密码' value="{{password}}" name="password"></input>
+          </view>
+          <view class='Code'>
+              <input class='input' type='text' value="{{code}}" name="code" placeholder='输入验证码'></input>
+              <navigator class='code_url'>输入验证码</navigator>
+          </view>
+
+          <button class='submit'  formType="submit">确认修改</button>
+      </form>
+  </view>
+</view>

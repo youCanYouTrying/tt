@@ -1,0 +1,118 @@
+<view class="container">
+ <view class='bg_img'>
+     <image src='../../image/bg_img.png'></image>
+ </view>
+ <!--地图位置-->
+  <view class='map_dian'>
+      <span>距离：2.5KM</span>
+        <i><image src='../../image/Rider.png'></image></i>
+        
+  </view>
+  <!--买家位置-->
+ <view class='buyer'>
+    <i><image src='../../image/Buyer.png'></image></i>
+  </view>
+
+ <view class='receipt'>
+  <view class='close_rece'>
+      <navigator class='close_img'>
+        <image src='../../image/close.png'></image>
+      </navigator>
+      <navigator class='fenx_img'>
+        <image src='../../image/fenxiang.png'></image>
+      </navigator>
+  </view>
+  
+  
+
+<view class='receipt_con'>
+
+      <!--内容部分取消订单-->
+  <view class='close_reces'>
+     <view class='reces'>
+     <p>骑手已接单</p>
+        <p> <span><i><image src='../../image/time.png'></image></i>预计送达：</span><b>19:59</b></p>
+      <navigator  class='rece_close' >
+          <span >取消订单</span>
+      </navigator>
+     </view>
+  </view>
+
+<!--订单详情部分-->
+<view class='receipt_cen'>
+<!--骑手-->
+<view class='receipt_items'>
+    <view class='Rider'> 
+            <view class='rider_con'>
+              <i id="rider_img"><image src='../../image/qishou.png'></image></i>
+              <p>骑手：153dy11</p>
+              <span>很满意：1524次</span>
+            </view>
+            <navigator class='duanxin'><image src='../../image/duanxin.png'></image></navigator>
+            <navigator class='ipone'><image src='../../image/tuoyuan.png'></image></navigator>
+        </view>
+</view>
+
+<!--第二部分-->
+<view class='run_two'>
+<view class='runtwo_one'>
+  <view class='runtwo_font'>鲜花 1kg</view>
+  <navigator class='runtwo_qu'>取送件</navigator>
+</view>
+<view class='runtwo_two'>
+    <view class='runwo_font2'>取件</view>
+    <view class='run_new'>
+        <view class='run_adress'>西部商城 西部商城b座25楼10室</view>
+        <view class='run_name'>王乐乐 15520206464</view>
+    </view>
+</view>
+<view class='runtwo_two'>
+    <view class='runwo_font2'>送货</view>
+    <view class='run_new'>
+        <view class='run_adress'>西部商城 西部商城b座25楼10室</view>
+        <view class='run_name'>王乐乐 15520206464</view>
+    </view>
+</view>
+<!--价钱-->
+<view class='runtwo_price'>
+    <view class='runtwo_font'>总价（含小费）</view>
+    <view class='run_price'>￥5.5</view>
+</view>
+
+</view>
+
+
+<!--第三部分-->
+<view class='run_two run_three'>
+  <view class='three_item'>
+      <view class='three_font'>订单号码</view>
+      <view class='three_id'>1236486415646541616161</view>
+  </view>
+   <view class='three_item'>
+      <view class='three_font'>订单时间</view>
+      <view class='three_id'>2018-01-25  19:58</view>
+  </view>
+   <view class='three_item'>
+      <view class='three_font'>支付方式</view>
+      <view class='three_id'>在线支付</view>
+  </view>
+</view>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+
+</view>
+
+
+
+ </view>
+</view>

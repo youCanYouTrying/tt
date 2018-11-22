@@ -1,0 +1,44 @@
+<view class='container' >
+    <!-- 面板1 -->
+    <view class='card_box'>
+        <view class='box_left'>提现至</view>
+        <view class='box_right'><view bindtap='choose_card' class='card_name'>{{allStr}}({{allnum}})<image src='{{imgUrl}}you_jian.png'></image> </view> </view>
+    </view>
+    <!-- 面板2 -->
+    <view class='recharge_panel'>
+      <view class='title'>提现金额</view>
+      <view class='input_group'>
+        <view class='icon'>￥</view>
+        <view class='number'> <input value='{{input_vlue}}' bindinput="input_money"type='number'></input>  </view>
+      </view>
+    </view>
+    <!-- 面板3 -->
+   <view class='privarte_box'>
+        <view class='box_left'>可提现余额{{balance}}</view>
+        <view class='box_right'><view bindtap='allWithdrawals' class='all_out'>全部提现</view> </view>
+    </view>
+    <!-- 按钮 -->
+    <view class='btn'>
+      <navigator url='/My/PutForward_result/PutForward_result'>
+        <button>2小时到账，确定提现</button>
+       </navigator>
+     </view>
+</view>
+<!-- 遮罩 -->
+<view hidden='{{switch_btn}}' class='mask'></view>
+<!-- 选择银行卡 -->
+<view hidden='{{switch_btn}}' class='content'>
+  <view class='title'>选择银行卡</view>
+  <view class='card_group' >
+    <view wx:for="{{bankCard}}"  bindtap='chooseDefault' class='card_list' id='{{index}}'>
+      <view class='icon_bank'><image src='{{item.icon_url}}'></image> </view>
+      <view class='bank_name'>{{item.bankName}}XXX({{item.bankNumber}})</view>
+      <view class='check'> <image wx:if="{{item.isdefault}}"  src='{{imgUrl}}banla_chose.png'></image> </view>
+    </view>
+  </view>
+  <navigator url='/My/add_card_again/index' class='add_card'>
+    <view class='add_icon'><image src='{{imgUrl}}banla_add.png'></image> </view>
+    <view class='add_name'>添加银行卡</view>
+  </navigator>
+  <view bindtap='close_choose' class='close'>X</view>
+</view>

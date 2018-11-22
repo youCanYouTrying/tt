@@ -1,0 +1,181 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"uglifyFileName": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wx1a73d62ed6d25424",
+	"projectname": "%E7%9B%92%E7%B1%BD%E5%A4%96%E5%8D%96",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 23,
+			"list": [
+				{
+					"id": 1,
+					"name": "首页",
+					"pathName": "home/home_page/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "确认订单（支付接口）",
+					"pathName": "pages/Confirmation_order/index",
+					"query": "lt : 29.56471 qu : \"渝中区\" sheng : \"重庆\" shi : \"重庆市\" sid : \"1\" uid : 6 wt : 106.55073"
+				},
+				{
+					"id": -1,
+					"name": "商品详情页",
+					"pathName": "home/detailed/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "home/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "美食",
+					"pathName": "home/Delicious_food/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "logo页面",
+					"pathName": "home/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收藏店铺",
+					"pathName": "My/Collection/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/Order/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "单人地图",
+					"pathName": "pages/Receipt1/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "红包",
+					"pathName": "My/Coupon/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/Order/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "全部分类",
+					"pathName": "home/All_classification/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收藏店铺",
+					"pathName": "My/Collection/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页活动",
+					"pathName": "home/Worth_eating/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺详情页",
+					"pathName": "home/business/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "红包",
+					"pathName": "My/Coupon/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺列表",
+					"pathName": "home/business/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发票",
+					"pathName": "Run_leg/invoice/invoice",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "没有找到地址的页面",
+					"pathName": "home/addressNoFind/addressNoFind",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "确认订单",
+					"pathName": "pages/Confirmation_order/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收货地址",
+					"pathName": "My/Administration/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "home/Shopping_Cart/index",
+					"query": "app.globalData.userId = 6"
+				},
+				{
+					"id": -1,
+					"name": "退款",
+					"pathName": "pages/speed/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "卡卷",
+					"pathName": "My/Coupon/index"
+				}
+			]
+		}
+	}
+}

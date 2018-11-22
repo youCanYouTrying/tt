@@ -1,0 +1,66 @@
+<!--pages/Submission/index.wxml-->
+<view class="container">
+  <view class='submiss_con'>
+    <view class='submiss_items'>
+      <view class='submisss_title'>
+        <view class='submiss_img'>
+        <image src='{{items.rider.img}}'></image>
+        </view>
+        <view class='rider_name'>骑手:<i>{{items.rider.nickname}}</i></view>
+        <view class='Satisfied'>很满意：<i>{{items.rider.satisfy_num}}次</i></view>
+      </view>
+      <!--第一部分内容-->
+      <view class='submiss_con'>
+        <view class='submiss_p'>
+          <view class='submiss_span' style='border:{{border1}}; color:{{colors1}};' bindtap="submiss1">
+            <view class='subspan_img'>
+              <image src='{{image1}}'></image>
+            </view>
+            满意
+          </view>
+          <view class='submiss_span' style='border:{{border2}}; color:{{colors2}};' bindtap="submiss2">
+            <view class='subspan_img'>
+              <image src='{{image2}}'></image>
+            </view>
+            不满意
+          </view>
+        </view>
+        <!--标签-->
+        <view class='submispan ' >
+          <text class="{{item.state==1?'nomal':''}}" bindtap="select_date"  wx:for="{{dates}}" data-key='{{index}}'>{{item.data_name}}</text>
+        </view>
+      </view>
+    </view>
+    <!--第二部分-->
+    <view class='submiss_items'>
+      <view class='submisss_title'>
+        <view class='submiss_img'>
+        <image src='{{items.shop.logo}}'></image>
+        </view>
+        <view class='order_name'><text>{{items.shop.shop_name}}（{{name_arr}}）</text></view>
+      </view>
+        <!--内容部分-->
+      <view class='submiss_con'>
+        <view class='submiss_stars' bindtap="myStarChoose">
+          <block wx:key='{{index}}' wx:for="{{starMap}}">
+            <image class='stars_view'wx:if="{{imgUrl&&star>=index+1}}"  data-star="{{index+1}}" src='{{imgUrl}}xin_succes.png'></image>
+            <image wx:if="{{imgUrl&&star<index+1}}" class='stars_view'  data-star="{{index+1}}" src='{{imgUrl}}xin_error.png'></image>
+          </block>
+        </view>
+        <view class='textarea_text'>
+          <textarea bindinput='user_input' value='{{aaa}}' placeholder='亲，留下你的好评呗！'></textarea>
+        </view>
+        <view class='img_people'>
+           <view class='img_file' bindtap="chooseimage">
+            <image wx:if='{{imgUrl}}' src='{{imgUrl}}Photo.png' ></image>
+          </view>
+          <view class='img_file img-files' wx:if="{{imggeShow}}">
+            <image src='{{tempFilePaths}}' ></image>
+          </view>
+          <view class='img-text' wx:if="{{!imggeShow}}">自拍一张再走撒 </view>
+        </view> 
+      </view>
+    </view>
+    <view  bindtap='submiss' class='{{isIphoneX?"isIphoneX_btn":""}} submit'>提交</view>
+  </view>
+</view>

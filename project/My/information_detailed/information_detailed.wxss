@@ -1,0 +1,8 @@
+/* My/information_detailed/information_detailed.wxss */
+.container{
+  padding: 40rpx 40rpx;
+  box-sizing: border-box;
+  color: #999;
+  font-size: 32rpx;
+  word-wrap:break-word;
+}

@@ -1,0 +1,91 @@
+.container {
+  padding-top: 10rpx;
+}
+
+.touch-item {
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content {
+  width: 100%;
+  padding-left: 40rpx;
+  line-height: 44rpx;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(180rpx);
+  transform: translateX(180rpx);
+  margin-left: -180rpx;
+  background-color: #fff;
+  position: relative;
+}
+
+.del {
+  background-color: #fe6e78;
+  width: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(180rpx);
+  transform: translateX(180rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.touch-move-active .content, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.collection_left {
+  width: 160rpx;
+  float: left;
+  height: 180rpx;
+}
+
+.collection_right {
+  width: 557rpx;
+  float: left;
+  height: 180rpx;
+  border-bottom: 2rpx solid#ddd;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.collection_left image {
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.store_name {
+  width: 400rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 30rpx;
+}
+
+.content_xin image {
+  margin-top: 10rpx;
+  display: inline-block;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.content_xin image:not(:first-child) {
+  margin-left: 10rpx;
+}
+
+.collection_footer {
+  color: #999;
+  font-size: 26rpx;
+}

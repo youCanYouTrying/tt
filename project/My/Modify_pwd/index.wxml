@@ -1,0 +1,21 @@
+<!--My/Sign_in/index.wxml-->
+<view class='container'>
+  <view class='modify_pwd'>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>  
+
+      <!--登录-->
+      <form class='form_pwd' bindreset="formReset" bindsubmit="formSubmit" >
+          <view class='phone'>
+          <input class='input_phone' placeholder='输入手机账号' value="{{account}}" type="text" focus="true" name="account"                    ></input>
+          </view>
+          <view class='pwd'>
+               <input class='input_pwd' placeholder='输入验证码'type="password" value="{{password}}" name="password"></input>
+              <navigator class='yanz'>发送验证码</navigator>
+          </view>
+          <view class='newpwd'>
+          <input class='new_pwd' placeholder='输入新密码' value="{{newpwd}}" type="text" focus="true" name="newpwd"                    ></input>
+          </view>
+          <view class='submit'><button class='submits' type="primary" formType="submit">确认修改</button></view>
+      </form>
+  </view>
+</view>

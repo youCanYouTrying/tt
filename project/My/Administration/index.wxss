@@ -1,0 +1,128 @@
+.container{
+  padding-top: 10rpx;
+}
+.touch-item {
+ font-size: 28rpx;
+ display: flex;
+ justify-content: space-between;
+ margin-top: 2rpx; 
+ width: 100%;
+ overflow: hidden;
+ box-shadow:2rpx 2rpx 10rpx #ccc;
+ position:relative;
+
+}
+.touch-item:last-child{
+  margin-bottom: 200rpx;
+}
+.content {
+ width: 100%;
+ padding: 20rpx 40rpx;
+ line-height: 44rpx;
+ margin-right:0;
+ -webkit-transition: all 0.4s;
+ transition: all 0.4s;
+ -webkit-transform: translateX(180rpx);
+ transform: translateX(180rpx);
+ margin-left: -180rpx;
+ background-color: #ffffff;
+ position: relative;
+}
+.del {
+ background-color: #fe6e78;
+ width: 180rpx;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ color: #fff;
+ -webkit-transform: translateX(180rpx);
+ transform: translateX(180rpx);
+ -webkit-transition: all 0.4s;
+ transition: all 0.4s;
+}
+.touch-move-active .content,
+.touch-move-active .del {
+ -webkit-transform: translateX(0);
+ transform: translateX(0);
+}
+.address_left{
+  width: 70%;
+  float: left;
+}
+.user_inform{
+  margin-top: 0rpx;
+  color: #999;
+  display: block;
+}
+.address_right{
+  width: 30%;
+  float: left;
+  height: 88rpx;
+  margin-top: 30rpx;
+}
+.adress_lable{
+  width: 120rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border: 2rpx solid#F9DEDF;
+  background-color: #F6EAEA;
+  color: #999;
+  margin-top: 10rpx;
+  margin-left: 70rpx;
+  border-radius: 10%;
+}
+.default{
+  width: 86rpx;
+  height: 85rpx;
+  position: absolute;
+  right: 16rpx;
+  top: 0;
+  z-index: -1;
+}
+.default image{
+  width: 86rpx;
+  height: 85rpx;
+}
+/*尾部*/
+.footer{
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10
+}
+.footer navigator{
+  width: 100%;
+  height: 45px;
+  background: white;
+  text-align: center;
+  line-height: 45px;
+  border-top: 1px solid #ebebeb;
+  color: #666;
+}
+.edit{
+  margin-left: 70rpx;
+  width: 120rpx;
+  height: 30rpx;
+  margin-bottom:18rpx;
+
+  /* display: flex; */
+  /* align-items: center; */
+}
+.edit_img{
+  display: block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 90rpx;
+}
+/*蒙版*/
+.content-moban{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(41, 40, 40, 0.08);
+  z-index: 2
+}
